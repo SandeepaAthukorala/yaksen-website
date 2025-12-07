@@ -1,0 +1,76 @@
+import {
+    Language,
+    HeroContent,
+    ServicesContent,
+    TeamContent,
+    ProjectsContent,
+    FAQContent,
+    FrameworkContent,
+    ToolkitContent,
+    ContactContent
+} from '../types/content';
+import heroEn from '../content/en/hero.json';
+import heroSi from '../content/si/hero.json';
+import servicesEn from '../content/en/services.json';
+import servicesSi from '../content/si/services.json';
+import teamEn from '../content/en/team.json';
+import teamSi from '../content/si/team.json';
+import projectsEn from '../content/en/projects.json';
+import projectsSi from '../content/si/projects.json';
+import faqEn from '../content/en/faq.json';
+import faqSi from '../content/si/faq.json';
+import frameworkEn from '../content/en/framework.json';
+import frameworkSi from '../content/si/framework.json';
+import contactSi from '../content/si/contact.json';
+import toolkit from '../shared/toolkit.json';
+
+const content = {
+    en: {
+        hero: heroEn,
+        services: servicesEn,
+        team: teamEn,
+        projects: projectsEn,
+        faq: faqEn,
+        framework: frameworkEn,
+    },
+    si: {
+        hero: heroSi,
+        services: servicesSi,
+        team: teamSi,
+        projects: projectsSi,
+        faq: faqSi,
+        framework: frameworkSi,
+    },
+};
+
+export function getHeroContent(lang: Language = 'si'): HeroContent {
+    return content[lang].hero as unknown as HeroContent;
+}
+
+export function getServicesContent(lang: Language = 'si'): ServicesContent {
+    return content[lang].services as unknown as ServicesContent;
+}
+
+export function getTeamContent(lang: Language = 'si'): TeamContent {
+    return content[lang].team as unknown as TeamContent;
+}
+
+export function getProjectsContent(lang: Language = 'si'): ProjectsContent {
+    return content[lang].projects as unknown as ProjectsContent;
+}
+
+export function getFAQContent(lang: Language = 'si'): FAQContent {
+    return content[lang].faq as unknown as FAQContent;
+}
+
+export function getFrameworkContent(lang: Language = 'si'): FrameworkContent {
+    return content[lang].framework as unknown as FrameworkContent;
+}
+
+export function getToolkitContent(): ToolkitContent {
+    return toolkit as unknown as ToolkitContent;
+}
+
+export function getContactContent(): ContactContent {
+    return contactSi as unknown as ContactContent;
+}

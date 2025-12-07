@@ -1,0 +1,36 @@
+{
+    "title": "The Framework",
+    "subtitle": "From Audit to Amplify. Our process.",
+    "steps": [
+        {
+            "id": "01",
+            "title": "AUDIT",
+            "description": "First, we analyze the current state of your business. What's missing? What needs to be fixed?",
+            "icon": "Search"
+        },
+        {
+            "id": "02",
+            "title": "ARCHITECT",
+            "description": "This is where we design the solution. The blueprint from Brand Identity to Technical System.",
+            "icon": "PenTool"
+        },
+        {
+            "id": "03",
+            "title": "ACTIVATE",
+            "description": "Start your social presence. Time to launch what we've beautifully planned.",
+            "icon": "Rocket"
+        },
+        {
+            "id": "04",
+            "title": "AUTOMATE",
+            "description": "Technology to make work easier. Systems that save your time via Chatbots and n8n Workflows.",
+            "icon": "Bot"
+        },
+        {
+            "id": "05",
+            "title": "AMPLIFY",
+            "description": "Let's take the Brand everywhere. High-voltage Ads and Campaigns.",
+            "icon": "Zap"
+        }
+    ]
+}

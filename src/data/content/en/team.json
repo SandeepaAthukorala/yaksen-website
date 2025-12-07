@@ -1,0 +1,22 @@
+{
+    "title": "The Yaksen Team",
+    "subtitle": "Small team, massive impact.",
+    "members": [
+        {
+            "id": "1",
+            "name": "Sandeepa Dilshan",
+            "role": "CEO & Lead Architect",
+            "description": "The bridge between Design and Code.",
+            "icon": "User",
+            "image": null
+        },
+        {
+            "id": "2",
+            "name": "Yaksen AI",
+            "role": "Intelligence Unit",
+            "description": "Our 24/7 running Intelligence Unit.",
+            "icon": "Bot",
+            "image": null
+        }
+    ]
+}

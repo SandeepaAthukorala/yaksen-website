@@ -1,0 +1,72 @@
+{
+    "title": "අපේ කණ්ඩායම",
+    "subtitle": "පුංචි කණ්ඩායමක්. දැවැන්ත වෙනසක්.",
+    "members": [
+        {
+            "id": "1",
+            "name": "Sandeepa Athukorala",
+            "role": "Founder & AI Architect",
+            "description": "YAKSEN දැක්ම මෙහෙයවන නායකයා.",
+            "icon": "User",
+            "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1739950572/Sandeepa_pvvibe.webp",
+            "social_links": [
+                {
+                    "platform": "GitHub",
+                    "url": "https://github.com/SandeepaAthukorala"
+                },
+                {
+                    "platform": "Facebook",
+                    "url": "https://web.facebook.com/Sanda.TheOG/"
+                },
+                {
+                    "platform": "LinkedIn",
+                    "url": "https://www.linkedin.com/in/sandeepaathukorala/"
+                },
+                {
+                    "platform": "Fiverr",
+                    "url": "https://www.fiverr.com/users/dilsana"
+                }
+            ]
+        },
+        {
+            "id": "2",
+            "name": "Ishara Madhuwanthi",
+            "role": "Head of Operations",
+            "description": "කණ්ඩායම සහ ව්‍යාපෘති කළමනාකරණය.",
+            "icon": "User",
+            "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1744031711/Ishara_poczun.webp",
+            "social_links": []
+        },
+        {
+            "id": "3",
+            "name": "Daham Gimhana",
+            "role": "Tech Lead",
+            "description": "තාක්ෂණික සහ ආරක්ෂක (Security) අංශ ප්‍රධානියා.",
+            "icon": "Code",
+            "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1740117790/daham_hutx9n.webp",
+            "social_links": [
+                {
+                    "platform": "GitHub",
+                    "url": "https://github.com/wmdgimhana"
+                },
+                {
+                    "platform": "Facebook",
+                    "url": "https://www.facebook.com/daham.gimhana.5"
+                },
+                {
+                    "platform": "LinkedIn",
+                    "url": "https://www.linkedin.com/in/wmd-gimhana-46622b305/"
+                }
+            ]
+        },
+        {
+            "id": "4",
+            "name": "Yaksen AI",
+            "role": "Digital Intelligence",
+            "description": "අපේ නිර්මාණාත්මක සහායකයා.",
+            "icon": "Bot",
+            "image": null,
+            "social_links": []
+        }
+    ]
+}

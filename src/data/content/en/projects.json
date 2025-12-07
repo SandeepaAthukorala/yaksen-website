@@ -1,0 +1,45 @@
+{
+    "title": "Featured Work",
+    "projects": [
+        {
+            "id": "1",
+            "slug": "rural-map",
+            "title": "The Rural Map",
+            "category": "Tech for Good",
+            "description": "Google Maps Project for Rural Towns.",
+            "coverImage": "",
+            "color": "bg-blue-900",
+            "featured": true
+        },
+        {
+            "id": "2",
+            "slug": "spice-roots",
+            "title": "Spice Roots",
+            "category": "Packaging",
+            "description": "Premium Export Spice Design.",
+            "coverImage": "",
+            "color": "bg-orange-900",
+            "featured": true
+        },
+        {
+            "id": "3",
+            "slug": "vision-corp",
+            "title": "Vision Corp",
+            "category": "Rebranding",
+            "description": "Cyber-Minimalist Corporate Identity.",
+            "coverImage": "",
+            "color": "bg-purple-900",
+            "featured": true
+        },
+        {
+            "id": "4",
+            "slug": "inhuman",
+            "title": "Inhuman",
+            "category": "Experimental",
+            "description": "AI Artist Movement & R&D.",
+            "coverImage": "",
+            "color": "bg-zinc-800",
+            "featured": true
+        }
+    ]
+}

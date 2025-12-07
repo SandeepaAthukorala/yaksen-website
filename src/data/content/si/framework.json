@@ -1,0 +1,36 @@
+{
+    "title": "Yaksen ක්‍රමවේදය",
+    "subtitle": "අපි වැඩ කරන පිළිවෙල.",
+    "steps": [
+        {
+            "id": "01",
+            "title": "AUDIT (පරීක්ෂාව)",
+            "description": "මුලින්ම අපි ඔබේ ව්‍යාපාරය X-Ray එකක් වගේ පරීක්ෂා කරනවා. අඩුපාඩු (Gaps) හරියටම හොයාගන්නවා.",
+            "icon": "Search"
+        },
+        {
+            "id": "02",
+            "title": "ARCHITECT (සැලැස්ම)",
+            "description": "Data පාවිච්චි කරලා අපි Plan එක අඳිනවා. මේක හිතල කරන වැඩක් නෙමෙයි, හරියටම වැඩ කරන Blueprint එකක්.",
+            "icon": "PenTool"
+        },
+        {
+            "id": "03",
+            "title": "ACTIVATE (ගොඩනැගීම)",
+            "description": "ලෝකේ වේගවත්ම තාක්ෂණය (Next.js) පාවිච්චි කරලා අපි System එක හදනවා. හිර වෙන්නේ නෑ, කැඩෙන්නේ නෑ.",
+            "icon": "Rocket"
+        },
+        {
+            "id": "04",
+            "title": "AUTOMATE (ස්වයංක්‍රීයකරණය)",
+            "description": "නැවත නැවත කරන වැඩ අපි AI හරහා Automate කරනවා. ඔයා නිදාගෙන ඉද්දිත් Business එකේ වැඩ කෙරෙන System එකක්.",
+            "icon": "Bot"
+        },
+        {
+            "id": "05",
+            "title": "AMPLIFY (වර්ධනය)",
+            "description": "හදලා නිකන් ඉන්නේ නෑ. Ads සහ Content හරහා Brand එක ලෝකෙටම ගෙනියනවා.",
+            "icon": "Zap"
+        }
+    ]
+}

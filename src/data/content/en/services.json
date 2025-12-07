@@ -1,0 +1,23 @@
+{
+    "title": "Services",
+    "services": [
+        {
+            "id": "01",
+            "title": "Branding",
+            "description": "Logo Design, Brand Books, Corporate Kits.",
+            "icon": "Palette"
+        },
+        {
+            "id": "02",
+            "title": "Web & Systems",
+            "description": "Next.js Websites, Landing Pages, E-commerce.",
+            "icon": "Monitor"
+        },
+        {
+            "id": "03",
+            "title": "Content & Social",
+            "description": "Social Media Mgmt, AI Video Ads, Short-form Content.",
+            "icon": "Video"
+        }
+    ]
+}

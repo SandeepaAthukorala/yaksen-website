@@ -1,0 +1,15 @@
+{
+    "email": "hello@yaksen.com",
+    "phone": "+94 77 699 3097",
+    "address": "Kurunegala, Sri Lanka",
+    "social_links": [
+        {
+            "platform": "Facebook",
+            "url": "https://web.facebook.com/yaksen"
+        },
+        {
+            "platform": "LinkedIn",
+            "url": "https://www.linkedin.com/company/yaksen"
+        }
+    ]
+}

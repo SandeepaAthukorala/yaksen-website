@@ -1,0 +1,132 @@
+{
+    "title": "සාර්ථක කතා (Case Studies)",
+    "projects": [
+        {
+            "id": "1",
+            "slug": "in-human",
+            "title": "IN HUMAN <+>",
+            "subtitle": "Music + AI Revolution",
+            "category": "AI-Driven Content Creation",
+            "description": "Experimental music project pushing creative boundaries using AI-driven music composition.",
+            "impact": "New Genre Definition",
+            "tech_stack": [
+                "AI Audio",
+                "Generative Art"
+            ],
+            "challenge": "Music Production කියන්නේ ලොකු වියදමක් යන වැඩක්. අපිට ඕන වුණා AI පාවිච්චි කරලා අලුත් සංගීත රැල්ලක් හදන්න.",
+            "solution": "Melody එකේ ඉඳන් Mastering වෙනකම් අපි AI Tools පාවිච්චි කළා. හැබැයි Emotion එක දුන්නේ අපි. මිනිස් හැඟීම් සහ AI Logic එකතු වුණ තැනක්.",
+            "result": "මේ Project එක හරහා අපි අලුත් Music Genre එකක් ගැන පර්යේෂණ කරනවා. YouTube සහ Spotify වල මේ වෙනකොට හොඳ ප්‍රතිචාර ලැබිලා තියෙනවා.",
+            "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1738145531/Banner_ivzrbi.png",
+            "color": "bg-purple-900",
+            "featured": true,
+            "links": [
+                {
+                    "label": "YouTube",
+                    "url": "https://www.youtube.com/@InHuman-OG"
+                },
+                {
+                    "label": "Spotify",
+                    "url": "https://open.spotify.com/artist/3iSPNGQSuyncDeurJktdB2"
+                }
+            ],
+            "showcase_videos": [
+                "https://www.youtube.com/embed/Yno3JuuGx-4",
+                "https://www.youtube.com/embed/KrvX5xpI-Ls",
+                "https://www.youtube.com/embed/AGagVSuZqPs"
+            ]
+        },
+        {
+            "id": "2",
+            "slug": "yakira",
+            "title": "Yakira",
+            "subtitle": "Sri Lanka’s First AI Fashion Model",
+            "category": "AI-Driven Character Design",
+            "description": "AI-generated virtual influencer showing Sri Lankan elegance and fashion.",
+            "impact": "Digital Influencer Pioneer",
+            "tech_stack": [
+                "Character Design",
+                "Stable Diffusion"
+            ],
+            "challenge": "Influencer Marketing වලට යන ලොකු වියදම අඩු කරගන්න, හැබැයි ලංකාවේ පෙනුම තියෙන චරිතයක් නිර්මාණය කිරීම.",
+            "solution": "අපි 'Yakira' ව නිර්මාණය කළා. ඇය 100% ක් Digital වුණාට, පෙනුම සහ හැසිරීම හරියටම ලාංකිකයි. දැන් ඇඳුම් promote කරන්න Photoshoot ඕන නෑ.",
+            "result": "Yakira දැන් ලංකාවේ පළවෙනි AI Fashion Influencer විදියට වැඩ කරනවා. Brands වලට පුළුවන් එයා හරහා තමන්ගේ ඇඳුම් promote කරන්න, කිසිම Photoshoot වියදමක් නැතුව.",
+            "coverImage": "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500331/freepik__yakira-woman-in-a-pastel-midi-skirt-with-soft-plea__15875_uogsmb.webp",
+            "color": "bg-green-900",
+            "featured": true,
+            "showcase_images": [
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500330/freepik__yakira-wearing-olive-green-relaxed-shorts-with-sid__15941_r2megn.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500330/freepik__yakira-woman-in-a-pastel-midi-skirt-with-soft-plea__15873_qzl2wq.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500330/freepik__yakira-wearing-a-sea-green-boxy-shortsleeve-shirt-__15884_tvhc56.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500330/freepik__yakira-wearing-a-vintageinspired-dress-the-dress-s__15979_l8psgj.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500329/freepik__yakira-wearing-a-green-boxy-shortsleeve-shirt-with__15944_glls3k.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500329/freepik__yakira-wearing-a-light-grey-shirt-dress-sitting-on__15841_yrej06.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500326/freepik__yakira-in-a-white-offshoulder-top-standing-on-a-wo__15888_x4cjy6.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500325/freepik__yakira-in-a-soft-cream-top-with-pleated-neckline-s__15778_rkrn0w.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500321/freepik__yakira-in-a-fitted-white-fullsleeve-top-posing-con__15847_kxlbwt.webp"
+            ]
+        },
+        {
+            "id": "3",
+            "slug": "frulora",
+            "title": "Frulora",
+            "subtitle": "Global Branding for Local Food",
+            "category": "AI-Driven Branding",
+            "description": "Premium dehydrated food brand built with AI-enhanced branding and design workflow.",
+            "impact": "Global Market Ready",
+            "tech_stack": [
+                "AI Packaging",
+                "Brand Strategy"
+            ],
+            "challenge": "දේශීය Dehydrated කෑම වර්ග ජාත්‍යන්තර වෙළඳපොළට යවන්න පුළුවන් මට්ටමේ Premium පෙනුමක් ලබා දීම.",
+            "solution": "AI පාවිච්චි කරලා අපි Packaging Design 100+ හැදුවා. එතනින් හොඳම එක තෝරගෙන, Frulora එක World-Class Brand එකක් කළා.",
+            "result": "Frulora දැන් Export-ready brand එකක්. ඒගොල්ලන්ගේ Product line එක (Fruit Powders, Slices) දැන් ලෝක මට්ටමේ Brand එකක් වගේ පේනවා.",
+            "coverImage": "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500346/cover_art_sszyyr.jpg",
+            "color": "bg-orange-800",
+            "featured": true,
+            "showcase_images": [
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500364/papaya_leaves-powder_slqi4p.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500359/soursop_powder_y5cygz.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500359/pineapple_slices_eeo0ht.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500358/moringa_leaves_powder_yf565h.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500358/pineapple_powder_zv4txl.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500357/papaya_leaves_h4ehgt.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500353/mongo_slices_qfw9oh.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500353/mango_powder_cjvinn.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500353/ginger_slices_yogv43.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500352/ginger_powder_u6gggf.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500351/banana_slices_wqgftf.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500350/blue_lotus_flower_cmudrb.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500350/blue_lotus_powder_gxryrd.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500349/blue_lotus_slices_wqfxxv.png",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500349/curry_leaves_powder_x94exa.png"
+            ]
+        },
+        {
+            "id": "4",
+            "slug": "sakya",
+            "title": "Sakya Route",
+            "subtitle": "Operations Made Simple",
+            "category": "Custom Software & Automation",
+            "description": "Software solution for scheduling, permissions, and real-time visitor check-ins.",
+            "impact": "Operational Efficiency",
+            "tech_stack": [
+                "App Development",
+                "GPS Tracking"
+            ],
+            "challenge": "Field එකේ යන Sales කණ්ඩායම් සහ Visitors ලා කළමනාකරණය කිරීමේ අපහසුව.",
+            "solution": "අපි හැදුවා Smart App එකක්. කවුද එන්නේ, කීයටද එන්නේ, කොහෙද ඉන්නේ කියලා Real-time බලාගන්න පුළුවන්. ඉන්ධන සහ කාලය ඉතිරියි.",
+            "result": "දැනට ආයතන කිහිපයක් මේ System එක පාවිච්චි කරනවා. එයාලගේ Field Operations 100% ක් Digital වෙලා තියෙන්නේ. කාලය සහ ඉන්ධන වියදම් ලොකු ප්‍රමාණයකින් අඩු වුණා.",
+            "coverImage": "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/6188202942255974605_121_1_jenmny.webp",
+            "color": "bg-blue-800",
+            "featured": true,
+            "showcase_images": [
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/6188202942255974605_121_1_jenmny.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/1_2_xcgqz8.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/6188202942255974596_121_1_s4bsgl.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/Screenshot_2025-06-01_181242_gdi8is.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/6188202942255974612_121_1_soezrb.webp",
+                "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/Screenshot_2025-06-01_174950_zlca4o.webp"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "title": "FAQ",
+    "questions": [
+        {
+            "id": "1",
+            "question": "How do you work?",
+            "answer": "We determine pricing based on the project. Since one solution doesn't fit every business, let's talk first."
+        },
+        {
+            "id": "2",
+            "question": "How long does it take to build a website?",
+            "answer": "Usually between 2-4 weeks. This may vary depending on complexity."
+        },
+        {
+            "id": "3",
+            "question": "Do you have packages?",
+            "answer": "Yes, we have packages for Social Media and Branding. Send us a message."
+        }
+    ]
+}
