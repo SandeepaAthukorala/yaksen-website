@@ -94,11 +94,11 @@ export function useChatbot(): UseChatbotReturn {
             });
 
             if (!response.ok) {
-                const errorData = await response.json();
+                const errorData = await response.json() as { error?: string };
                 throw new Error(errorData.error || 'Failed to send message');
             }
 
-            const data = await response.json();
+            const data = await response.json() as { reply: string; sources?: string[]; memory?: Array<{ q: string; a: string }> };
 
             // Add assistant message to UI
             const assistantMessage: Message = {

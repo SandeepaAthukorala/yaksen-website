@@ -23,7 +23,7 @@ export default function Framework() {
     }, [isPaused, content.steps.length]);
 
     const activeContent = content.steps[activeStep];
-    const ActiveIcon = Icons[activeContent.icon as keyof typeof Icons] as React.ElementType;
+    const ActiveIcon = Icons[activeContent.icon as keyof typeof Icons] as React.ComponentType<any>;
 
     return (
         <section
@@ -92,7 +92,7 @@ export default function Framework() {
                                 className="absolute inset-0 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col justify-center backdrop-blur-sm"
                             >
                                 <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yaksen-red/10 text-yaksen-red">
-                                    {ActiveIcon && <ActiveIcon className="w-8 h-8" as={undefined as any} />}
+                                    {ActiveIcon && <ActiveIcon className="w-8 h-8" />}
                                 </div>
 
                                 <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">

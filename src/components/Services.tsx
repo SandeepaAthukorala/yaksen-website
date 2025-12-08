@@ -15,7 +15,7 @@ export default function Services() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {content.services.map((service, index) => {
-                        const Icon = Icons[service.icon as keyof typeof Icons] as React.ElementType;
+                        const Icon = Icons[service.icon as keyof typeof Icons] as React.ComponentType<any>;
 
                         return (
                             <motion.div
@@ -27,7 +27,7 @@ export default function Services() {
                                 className="p-8 border border-white/10 rounded-2xl hover:bg-white/5 transition-colors group"
                             >
                                 <div className="mb-6 inline-block p-4 bg-white/5 rounded-full group-hover:bg-yaksen-red/20 transition-colors">
-                                    {Icon && <Icon className="w-8 h-8 text-white group-hover:text-yaksen-red transition-colors" as={undefined as any} />}
+                                    {Icon && <Icon className="w-8 h-8 text-white group-hover:text-yaksen-red transition-colors" />}
                                 </div>
                                 <h3 className="text-xl font-bold mb-2 flex items-center gap-3">
                                     <span className="text-yaksen-red text-sm">{service.id}</span>

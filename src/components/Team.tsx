@@ -14,7 +14,7 @@ const TeamMember = ({
     social_links,
     delay,
 }: {
-    icon?: React.ElementType;
+    icon?: React.ComponentType<any>;
     name: string;
     role: string;
     description: string;
@@ -36,7 +36,7 @@ const TeamMember = ({
                 </div>
             ) : (
                 <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
-                    {Icon && <Icon className="w-8 h-8 text-white group-hover:text-yaksen-red transition-colors" as={undefined as any} />}
+                    {Icon && <Icon className="w-8 h-8 text-white group-hover:text-yaksen-red transition-colors" />}
                 </div>
             )}
             <div>
@@ -95,7 +95,7 @@ export default function Team() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
                     {content.members.map((member, index) => {
-                        const Icon = Icons[member.icon as keyof typeof Icons] as React.ElementType;
+                        const Icon = Icons[member.icon as keyof typeof Icons] as React.ComponentType<any>;
                         return (
                             <TeamMember
                                 key={member.id}
