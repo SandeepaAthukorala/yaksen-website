@@ -1,32 +1,58 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import * as Icons from "lucide-react";
 import { getFrameworkContent } from "@/data/lib/content-loader";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Framework() {
     const [activeStep, setActiveStep] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
-    const content = getFrameworkContent('si');
-    const stepDuration = 4000; // 4 seconds per step
+    const [isInView, setIsInView] = useState(false);
+    const sectionRef = useRef<HTMLElement>(null);
+    const { language } = useLanguage();
+    const content = getFrameworkContent(language);
+    const stepDuration = 5000;
 
-    // Auto-play functionality
+    // Intersection Observer
     useEffect(() => {
-        if (isPaused) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInView(entry.isIntersecting);
+            },
+            { threshold: 0.3 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
+    // Auto-play
+    useEffect(() => {
+        if (isPaused || !isInView) return;
 
         const interval = setInterval(() => {
             setActiveStep((prev) => (prev + 1) % content.steps.length);
         }, stepDuration);
 
         return () => clearInterval(interval);
-    }, [isPaused, content.steps.length]);
+    }, [isPaused, isInView, content.steps.length]);
 
     const activeContent = content.steps[activeStep];
     const ActiveIcon = Icons[activeContent.icon as keyof typeof Icons] as React.ComponentType<any>;
 
     return (
         <section
+            id="framework"
+            ref={sectionRef}
             className="py-20 bg-yaksen-black overflow-hidden relative"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
@@ -36,12 +62,12 @@ export default function Framework() {
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
                 <div className="mb-12 text-center md:text-left">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4">{content.title}</h2>
-                    <p className="text-yaksen-muted text-lg">{content.subtitle}</p>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 font-sinhala">{content.title}</h2>
+                    <p className="text-yaksen-muted text-lg font-sinhala">{content.subtitle}</p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-                    {/* Left Column: Navigation Steps */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+                    {/* Left: Navigation */}
                     <div className="lg:col-span-5 flex flex-col gap-3">
                         {content.steps.map((step, index) => (
                             <button
@@ -52,7 +78,6 @@ export default function Framework() {
                                     : "bg-transparent border-transparent hover:bg-white/5"
                                     }`}
                             >
-                                {/* Progress Bar */}
                                 {activeStep === index && !isPaused && (
                                     <motion.div
                                         initial={{ width: "0%" }}
@@ -62,26 +87,25 @@ export default function Framework() {
                                     />
                                 )}
 
-                                <span
-                                    className={`text-sm font-bold px-2 py-1 rounded-md transition-colors ${activeStep === index
-                                        ? "bg-yaksen-red text-white"
-                                        : "bg-white/10 text-gray-400 group-hover:text-white"
-                                        }`}
-                                >
+                                <span className={`text-sm font-bold px-2 py-1 rounded-md transition-colors ${activeStep === index ? "bg-yaksen-red text-white" : "bg-white/10 text-gray-400 group-hover:text-white"}`}>
                                     {step.id}
                                 </span>
-                                <span
-                                    className={`text-lg font-bold transition-colors ${activeStep === index ? "text-white" : "text-gray-500 group-hover:text-gray-300"
-                                        }`}
-                                >
-                                    {step.title}
-                                </span>
+                                <div className="flex flex-col">
+                                    <span className={`text-lg font-bold transition-colors ${activeStep === index ? "text-white" : "text-gray-500 group-hover:text-gray-300"}`}>
+                                        {step.title}
+                                    </span>
+                                    {step.subtitle && (
+                                        <span className="text-sm text-yaksen-muted font-sinhala">
+                                            {step.subtitle}
+                                        </span>
+                                    )}
+                                </div>
                             </button>
                         ))}
                     </div>
 
-                    {/* Right Column: Dynamic Content Card */}
-                    <div className="lg:col-span-7 h-[400px] relative">
+                    {/* Right: Minimal Content Card */}
+                    <div className="lg:col-span-7 min-h-[350px] relative">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={activeStep}
@@ -89,24 +113,38 @@ export default function Framework() {
                                 animate={{ opacity: 1, x: 0 }}
                                 exit={{ opacity: 0, x: -20 }}
                                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                                className="absolute inset-0 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-12 flex flex-col justify-center backdrop-blur-sm"
+                                className="absolute inset-0 bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10 backdrop-blur-sm"
                             >
-                                <div className="mb-8 inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-yaksen-red/10 text-yaksen-red">
-                                    {ActiveIcon && <ActiveIcon className="w-8 h-8" />}
+                                {/* Icon & Title */}
+                                <div className="flex items-start gap-4 mb-6">
+                                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-yaksen-red/10 text-yaksen-red flex items-center justify-center">
+                                        {ActiveIcon && <ActiveIcon className="w-7 h-7" />}
+                                    </div>
+                                    <div>
+                                        <h3 className="text-2xl md:text-3xl font-bold text-white">
+                                            {activeContent.title}
+                                        </h3>
+                                        {activeContent.subtitle && (
+                                            <p className="text-yaksen-red text-sm font-semibold mt-1 font-sinhala">
+                                                {activeContent.subtitle}
+                                            </p>
+                                        )}
+                                    </div>
                                 </div>
 
-                                <h3 className="text-3xl md:text-4xl font-bold mb-6 text-white">
-                                    {activeContent.title}
-                                </h3>
+                                {/* Pain Point (Problem) */}
+                                {activeContent.pain_point && (
+                                    <div className="mb-6 p-4 bg-yaksen-red/5 border-l-4 border-yaksen-red rounded-r-lg">
+                                        <p className="text-base md:text-lg text-gray-200 italic font-sinhala leading-relaxed">
+                                            "{activeContent.pain_point}"
+                                        </p>
+                                    </div>
+                                )}
 
-                                <p className="text-lg md:text-xl text-gray-300 font-sinhala leading-relaxed">
+                                {/* Solution (Description with example) */}
+                                <p className="text-base md:text-lg text-gray-300 font-sinhala leading-relaxed">
                                     {activeContent.description}
                                 </p>
-
-                                <div className="mt-8 flex items-center gap-2 text-sm text-yaksen-muted uppercase tracking-wider font-medium">
-                                    <div className="w-8 h-[1px] bg-yaksen-red" />
-                                    Step {activeContent.id} of {content.steps.length}
-                                </div>
                             </motion.div>
                         </AnimatePresence>
                     </div>

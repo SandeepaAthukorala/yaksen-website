@@ -3,7 +3,17 @@
 import React from "react";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
+import { Github, Facebook, Linkedin, ExternalLink, Users } from "lucide-react";
 import { getTeamContent } from "@/data/lib/content-loader";
+import { useLanguage } from "@/context/LanguageContext";
+
+// Social icon mapping
+const socialIcons: Record<string, React.ComponentType<any>> = {
+    GitHub: Github,
+    Facebook: Facebook,
+    LinkedIn: Linkedin,
+    Fiverr: ExternalLink,
+};
 
 const TeamMember = ({
     icon: Icon,
@@ -27,21 +37,21 @@ const TeamMember = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, delay }}
-        className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-yaksen-red/50 transition-colors group"
+        className="p-6 rounded-2xl bg-gradient-to-b from-white/5 to-transparent border border-white/10 hover:border-yaksen-red/50 transition-all group hover:bg-white/5"
     >
         <div className="flex items-center gap-4 mb-4">
             {image ? (
-                <div className="w-16 h-16 rounded-full overflow-hidden border border-white/10 group-hover:border-yaksen-red/50 transition-colors">
+                <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-yaksen-red/50 transition-all group-hover:scale-110 transform">
                     <img src={image} alt={name} className="w-full h-full object-cover" />
                 </div>
             ) : (
-                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
-                    {Icon && <Icon className="w-8 h-8 text-white group-hover:text-yaksen-red transition-colors" />}
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-yaksen-red/20 to-transparent flex items-center justify-center group-hover:from-yaksen-red/30 transition-colors">
+                    {Icon && <Icon className="w-8 h-8 text-yaksen-red" />}
                 </div>
             )}
             <div>
-                <h3 className="text-xl font-bold text-white">{name}</h3>
-                <p className="text-yaksen-red text-sm font-medium">{role}</p>
+                <h3 className="text-lg font-bold text-white group-hover:text-yaksen-red transition-colors">{name}</h3>
+                <p className="text-yaksen-red/80 text-sm font-medium">{role}</p>
             </div>
         </div>
 
@@ -50,38 +60,56 @@ const TeamMember = ({
         </p>
 
         {social_links && social_links.length > 0 && (
-            <div className="flex gap-3 pt-4 border-t border-white/5">
-                {social_links.map((link, i) => (
-                    <a
-                        key={i}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-yaksen-muted hover:text-white transition-colors bg-white/5 px-2 py-1 rounded-md hover:bg-white/10"
-                    >
-                        {link.platform}
-                    </a>
-                ))}
+            <div className="flex gap-2 pt-4 border-t border-white/5">
+                {social_links.map((link, i) => {
+                    const SocialIcon = socialIcons[link.platform] || ExternalLink;
+                    return (
+                        <a
+                            key={i}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-8 h-8 bg-white/5 rounded-lg flex items-center justify-center hover:bg-yaksen-red/20 hover:text-yaksen-red transition-all"
+                            title={link.platform}
+                        >
+                            <SocialIcon className="w-4 h-4" />
+                        </a>
+                    );
+                })}
             </div>
         )}
     </motion.div>
 );
 
 export default function Team() {
-    const content = getTeamContent('si');
+    const { language } = useLanguage();
+    const content = getTeamContent(language);
 
     return (
         <section className="py-20 relative overflow-hidden">
             <div className="container mx-auto px-6 md:px-12">
-                <div className="mb-12 md:mb-20">
-                    <motion.h2
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold text-white mb-4 font-sinhala"
-                    >
-                        {content.title}
-                    </motion.h2>
+                {/* Header with member count badge */}
+                <div className="mb-12 md:mb-16">
+                    <div className="flex items-center gap-3 mb-4">
+                        <motion.h2
+                            initial={{ opacity: 0, x: -20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="text-3xl md:text-5xl font-bold text-white font-sinhala"
+                        >
+                            {content.title}
+                        </motion.h2>
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="inline-flex items-center gap-1.5 px-3 py-1 bg-yaksen-red/10 border border-yaksen-red/30 rounded-full"
+                        >
+                            <Users className="w-4 h-4 text-yaksen-red" />
+                            <span className="text-sm font-medium text-yaksen-red">{content.members.length}</span>
+                        </motion.div>
+                    </div>
                     <motion.p
                         initial={{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}

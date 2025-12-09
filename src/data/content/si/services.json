@@ -1,40 +1,32 @@
 {
     "title": "අපේ සේවාවන්",
+    "subtitle": "ඔබේ Business එක Brand System එකක් කරන්න අපි මේවා කරනවා.",
     "services": [
         {
             "id": "01",
             "title": "සන්නාමකරණය",
-            "description": "Logo එකක් විතරක් නෙමෙයි. මිනිස්සුන්ට මතක හිටින Feeling එකක්.",
-            "value_proposition": "පාරිභෝගිකයාට ඔබේ Brand එක ගැන 'Trust' එකක් ඇතිවෙන විදියට, Premium Look එකක් අපි හදලා දෙනවා.",
-            "deliverables": [
-                "Logo & Visual Identity (මතක හිටින ලාංඡන)",
-                "Brand Guidelines (Brand එකේ නීති පොත)",
-                "Social Media Kit (FB/Insta වලට ඕන දේවල්)"
-            ],
+            "subtitle": "Branding",
+            "pain_point": "Competition එක සමඟ ගැටෙනවද? ඔබේ Brand එක මතක නැද්ද?",
+            "description": "Professional, මතක හිටින Brand Identity එකක් හදලා ඔයාව Competition එකෙන් වෙන් කරනවා.",
+            "deliverables": "Logo Suite (10+ formats) · Brand Guidelines (30+ pages) · Social Media Kit",
             "icon": "Palette"
         },
         {
             "id": "02",
             "title": "වෙබ් සහ පද්ධති",
-            "description": "Information තියෙන Website එකක් නෙමෙයි. Sales ගේන Machine එකක්.",
-            "value_proposition": "තත්පර 2න් Load වෙන, Google එකේ උඩටම එන (SEO), High-Performance වෙබ් අඩවි සහ සිස්ටම්.",
-            "deliverables": [
-                "High-Speed Websites (Next.js)",
-                "Easy-to-Update System (CMS)",
-                "Google Ranking (SEO Optimized)"
-            ],
+            "subtitle": "Web & Systems",
+            "pain_point": "Slow Website එකෙන් Customers නැති වෙනවද? Google එකේ නැද්ද?",
+            "description": "තත්පර 2න් Load වෙන, SEO-Ready, Sales ගේන High-Performance Websites හදනවා.",
+            "deliverables": "Lightning-Fast Website (Next.js) · Google SEO Setup · Easy CMS",
             "icon": "Monitor"
         },
         {
             "id": "03",
-            "title": "අන්තර්ගතය සහ වර්ධනය",
-            "description": "නිකම්ම Post එකක් නෙමෙයි. මිනිස්සු බලන් ඉන්න Story එකක්.",
-            "value_proposition": "AI පාවිච්චි කරලා අඩුවට, හැබැයි High Quality Content හදමු. ඔබේ Brand එක Viral කරමු.",
-            "deliverables": [
-                "Viral Short Videos (Reels/TikTok)",
-                "AI Video Ads (වියදම් අඩු දැන්වීම්)",
-                "Social Media Plan (මාසික සැලැස්ම)"
-            ],
+            "title": "සමාජ මාධ්‍ය සහ දැන්වීම්",
+            "subtitle": "Social Media & Ads",
+            "pain_point": "Post දාලා Sales නැද්ද? මිනිස්සු බලන්නේ නැද්ද?",
+            "description": "Facebook, Instagram, TikTok, LinkedIn සහ YouTube ඇතුළු සියලුම Platform වල ඔබේ Brand එක Viral කර Sales වැඩි කරනවා.",
+            "deliverables": "Meta Ads (FB/Insta) · TikTok & YouTube Growth · LinkedIn B2B · Campaign Management",
             "icon": "Video"
         }
     ]

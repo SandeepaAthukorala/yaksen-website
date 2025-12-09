@@ -11,34 +11,57 @@ export interface ProjectLink {
 }
 
 export interface ContactContent {
+    title: string;
+    subtitle: string;
     email: string;
     phone: string;
     address: string;
     social_links: SocialLink[];
+    footer_privacy: string;
+    footer_rights: string;
 }
 
 // Hero Section
 export interface HeroContent {
+    eyebrow?: string;
     headline: string;
-    highlightText: string;
-    subtitle: string;
+    highlightText?: string;
+    subtitle?: string;
     description: string;
     ctaText: string;
     ctaLink: string;
 }
 
 // Services
+export interface ProcessStep {
+    step_number: string;
+    title: string;
+    description: string;
+}
+
+export interface ServiceCaseStudy {
+    title: string;
+    client: string;
+    image: string;
+    result: string;
+}
+
 export interface Service {
     id: string;
     title: string;
+    subtitle?: string;
+    pain_point?: string;
     description: string;
-    value_proposition?: string;
-    deliverables?: string[];
-    icon: string; // Icon name as string, e.g., "Palette"
+    deliverables?: string | string[];
+    icon: string;
+    process_steps?: ProcessStep[];
+    tech_stack?: string[];
+    case_studies?: ServiceCaseStudy[];
 }
 
 export interface ServicesContent {
     title: string;
+    subtitle?: string;
     services: Service[];
 }
 
@@ -82,6 +105,7 @@ export interface Project {
 
 export interface ProjectsContent {
     title: string;
+    subtitle?: string;
     projects: Project[];
 }
 
@@ -94,6 +118,7 @@ export interface FAQItem {
 
 export interface FAQContent {
     title: string;
+    subtitle?: string;
     questions: FAQItem[];
 }
 
@@ -101,7 +126,13 @@ export interface FAQContent {
 export interface FrameworkStep {
     id: string;
     title: string;
+    subtitle?: string;
+    pain_point?: string;
     description: string;
+    solution?: string | string[];
+    deliverables?: string | string[];
+    timeline?: string;
+    benefit?: string;
     icon: string;
 }
 

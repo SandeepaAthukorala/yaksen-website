@@ -1,20 +1,36 @@
 {
     "title": "FAQ",
+    "subtitle": "Questions you might have and our answers.",
     "questions": [
         {
             "id": "1",
-            "question": "How do you work?",
-            "answer": "We determine pricing based on the project. Since one solution doesn't fit every business, let's talk first."
+            "question": "How long does it take to build a website?",
+            "answer": "A standard business website takes 2-3 weeks, while an E-Commerce site takes 4-6 weeks. Custom Systems take about 6-8 weeks. We provide you with a progress update every week."
         },
         {
             "id": "2",
-            "question": "How long does it take to build a website?",
-            "answer": "Usually between 2-4 weeks. This may vary depending on complexity."
+            "question": "What about pricing? Will it fit my budget?",
+            "answer": "A simple Landing Page starts from Rs. 50,000. A full website (5-10 pages) ranges between Rs. 150,000 - 300,000. We have flexible payment plans. Contact us, and we will create a solution that fits your budget perfectly."
         },
         {
             "id": "3",
-            "question": "Do you have packages?",
-            "answer": "Yes, we have packages for Social Media and Branding. Send us a message."
+            "question": "Is the website speed reliable?",
+            "answer": "Absolutely. We use the latest technologies like Next.js. We provide you with an SEO Optimized website that loads in under 2 seconds. Hosting and SSL for the first year are completely free."
+        },
+        {
+            "id": "4",
+            "question": "How does maintenance work?",
+            "answer": "All maintenance is free for the first 3 months after handover. Afterward, we handle updates and security under a very affordable annual package. You don't need to worry about technical issues."
+        },
+        {
+            "id": "5",
+            "question": "What is the benefit of AI technology for my business?",
+            "answer": "AI Chatbots can answer customers 24/7, and AI Content Generation can quickly create content for social media. This saves your time and can reduce costs by about 70%."
+        },
+        {
+            "id": "6",
+            "question": "Why should I trust Yaksen?",
+            "answer": "We are a Colombo-based agency with over 2 years of experience, serving 25+ leading organizations like Frulora and IN HUMAN. Check our Portfolio and customer reviews. Talk to us before starting work to build trust."
         }
     ]
 }

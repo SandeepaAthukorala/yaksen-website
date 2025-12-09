@@ -9,9 +9,33 @@
   --font-sinhala: var(--font-noto-sans-sinhala), sans-serif;
 }
 
+:root {
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-surface: rgba(255, 255, 255, 0.03);
+  --glass-highlight: rgba(255, 255, 255, 0.15);
+  --primary-gradient: linear-gradient(135deg, #F14835 0%, #ff7e5f 100%);
+}
+
 /* Custom Cursor */
 body {
   cursor: none;
+  background-color: var(--color-yaksen-black);
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Noise Texture Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.4;
 }
 
 .cursor-dot {
@@ -26,17 +50,68 @@ body {
   pointer-events: none;
   z-index: 9999;
   transition: width 0.2s, height 0.2s;
+  box-shadow: 0 0 20px rgba(241, 72, 53, 0.5);
 }
 
 .cursor-dot.hovered {
   width: 24px;
   height: 24px;
   opacity: 0.5;
+  background-color: transparent;
+  border: 1px solid #F14835;
 }
 
 /* Smooth Scroll */
 html {
   scroll-behavior: smooth;
+}
+
+/* Utility Classes for Premium Effects */
+.glass-panel {
+  background: var(--glass-surface);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--glass-highlight);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px 0 rgba(241, 72, 53, 0.15);
+}
+
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn-glow {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: 0.5s;
+}
+
+.btn-glow:hover::after {
+  left: 100%;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

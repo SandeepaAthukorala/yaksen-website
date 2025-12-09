@@ -1,35 +1,45 @@
 {
-    "title": "The Framework",
-    "subtitle": "From Audit to Amplify. Our process.",
+    "title": "The Yaksen Method",
+    "subtitle": "The 5A Process that turns your Business into a Brand System.",
     "steps": [
         {
             "id": "01",
             "title": "AUDIT",
-            "description": "First, we analyze the current state of your business. What's missing? What needs to be fixed?",
+            "subtitle": "Deep Analysis",
+            "pain_point": "What are the hidden flaws in your business?",
+            "description": "We deeply study your business, competitors, and market conditions to identify technical and marketing gaps, paving the way for success.",
             "icon": "Search"
         },
         {
             "id": "02",
             "title": "ARCHITECT",
-            "description": "This is where we design the solution. The blueprint from Brand Identity to Technical System.",
+            "subtitle": "Strategic Design",
+            "pain_point": "Just a Logo? Or a Brand System?",
+            "description": "We create a unique Brand Identity and digital plan that wins customer trust and is specific to your business.",
             "icon": "PenTool"
         },
         {
             "id": "03",
             "title": "ACTIVATE",
-            "description": "Start your social presence. Time to launch what we've beautifully planned.",
+            "subtitle": "Technical Build",
+            "pain_point": "What happens to the business if the website is poor?",
+            "description": "Using world #1 technologies (Next.js), we build a Premium Website that works super fast on any device and ranks high on Google.",
             "icon": "Rocket"
         },
         {
             "id": "04",
             "title": "AUTOMATE",
-            "description": "Technology to make work easier. Systems that save your time via Chatbots and n8n Workflows.",
+            "subtitle": "Efficiency",
+            "pain_point": "Still chasing customers the old way?",
+            "description": "We automate customer service 24/7 with AI Chatbots and CRM systems, saving your time and increasing sales by 3x.",
             "icon": "Bot"
         },
         {
             "id": "05",
             "title": "AMPLIFY",
-            "description": "Let's take the Brand everywhere. High-voltage Ads and Campaigns.",
+            "subtitle": "Market Takeover",
+            "pain_point": "Built the business but no one knows?",
+            "description": "Through Data-Driven ads and Social Media Campaigns, we take your brand to the right customers and ensure results.",
             "icon": "Zap"
         }
     ]

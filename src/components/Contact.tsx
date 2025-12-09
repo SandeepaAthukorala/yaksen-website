@@ -2,124 +2,197 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Send, Phone, Mail } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ArrowRight, Sparkles, MessageCircle, Facebook, Linkedin } from "lucide-react";
 import Link from "next/link";
-
 import { getContactContent } from "@/data/lib/content-loader";
+import { useLanguage } from "@/context/LanguageContext";
+
+// Social icon mapping
+const socialIcons: Record<string, React.ComponentType<any>> = {
+    Facebook: Facebook,
+    LinkedIn: Linkedin,
+};
 
 export default function Contact() {
-    const contact = getContactContent();
+    const { language } = useLanguage();
+    const content = getContactContent(language);
 
     return (
-        <section id="contact" className="py-20 px-6">
-            <div className="container mx-auto max-w-5xl">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    {/* Contact Info */}
-                    <div>
-                        <h2 className="text-3xl md:text-5xl font-bold mb-6 font-sinhala">වැඩේ පටන් ගමුද?</h2>
-                        <p className="text-yaksen-muted mb-8 text-lg font-sinhala">
-                            තවත් කල් දාන්න එපා. අදම Yaksen එක්ක එකතු වෙලා ඔබේ ව්‍යාපාරය Brand එකක් කරන්න.
+        <section className="py-20 px-6 bg-yaksen-black relative overflow-hidden" id="contact">
+            {/* Background Gradients */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-yaksen-red/5 rounded-full blur-3xl" />
+
+            <div className="container mx-auto max-w-6xl">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+                    {/* Left Column: Info */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-4xl md:text-6xl font-bold mb-6 font-sinhala tracking-tight">{content.title}</h2>
+                        <p className="text-xl text-yaksen-muted mb-12 font-sinhala leading-relaxed">
+                            {content.subtitle}
                         </p>
 
-                        <div className="space-y-6">
-                            <Link
-                                href={`https://wa.me/${contact.phone.replace(/[^0-9]/g, "")}`}
-                                target="_blank"
-                                className="flex items-center gap-4 p-4 border border-white/10 rounded-xl hover:border-yaksen-red/50 hover:bg-white/5 transition-all group"
-                            >
-                                <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
-                                    <Phone className="text-white group-hover:text-yaksen-red" />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-yaksen-muted">WhatsApp</p>
-                                    <p className="text-lg font-bold">{contact.phone}</p>
-                                </div>
-                            </Link>
+                        {/* Free Consultation Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: 0.2 }}
+                            viewport={{ once: true }}
+                            className="inline-flex items-center gap-3 px-6 py-3 bg-yaksen-red/10 border border-yaksen-red/20 rounded-full mb-10 backdrop-blur-md shadow-[0_0_20px_rgba(241,72,53,0.15)]"
+                        >
+                            <Sparkles className="w-5 h-5 text-yaksen-red animate-pulse" />
+                            <span className="text-base font-bold text-yaksen-red">පළමු Call එක නොමිලේ!</span>
+                        </motion.div>
 
-                            <Link
-                                href={`mailto:${contact.email}`}
-                                className="flex items-center gap-4 p-4 border border-white/10 rounded-xl hover:border-yaksen-red/50 hover:bg-white/5 transition-all group"
+                        <div className="space-y-4">
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                viewport={{ once: true }}
                             >
-                                <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
-                                    <Mail className="text-white group-hover:text-yaksen-red" />
-                                </div>
-                                <div>
-                                    <p className="text-sm text-yaksen-muted">Email</p>
-                                    <p className="text-lg font-bold">{contact.email}</p>
-                                </div>
-                            </Link>
+                                <Link
+                                    href={`https://wa.me/${content.phone.replace(/[^0-9]/g, "")}`}
+                                    target="_blank"
+                                    className="flex items-center gap-5 p-5 glass-panel glass-panel-hover rounded-2xl group"
+                                >
+                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
+                                        <MessageCircle className="text-white group-hover:text-yaksen-red w-7 h-7" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-sm text-yaksen-muted font-medium">WhatsApp (ඉක්මනින් පිළිතුරු)</p>
+                                        <p className="text-xl font-bold">{content.phone}</p>
+                                    </div>
+                                    <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-yaksen-red transition-colors" />
+                                </Link>
+                            </motion.div>
 
-                            <div className="flex gap-4 mt-6">
-                                {contact.social_links.map((link, i) => (
-                                    <Link
-                                        key={i}
-                                        href={link.url}
-                                        target="_blank"
-                                        className="text-yaksen-muted hover:text-yaksen-red transition-colors text-sm font-medium border-b border-white/10 hover:border-yaksen-red pb-1"
-                                    >
-                                        {link.platform}
-                                    </Link>
-                                ))}
-                            </div>
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.4 }}
+                                viewport={{ once: true }}
+                            >
+                                <Link
+                                    href={`mailto:${content.email}`}
+                                    className="flex items-center gap-5 p-5 glass-panel glass-panel-hover rounded-2xl group"
+                                >
+                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
+                                        <Mail className="text-white group-hover:text-yaksen-red w-7 h-7" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-sm text-yaksen-muted font-medium">Email</p>
+                                        <p className="text-xl font-bold">{content.email}</p>
+                                    </div>
+                                    <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-yaksen-red transition-colors" />
+                                </Link>
+                            </motion.div>
+
+                            {/* Social Links - Icon Buttons */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5 }}
+                                viewport={{ once: true }}
+                                className="flex gap-3 mt-6"
+                            >
+                                {content.social_links.map((link, i) => {
+                                    const IconComponent = socialIcons[link.platform] || Facebook;
+                                    return (
+                                        <Link
+                                            key={i}
+                                            href={link.url}
+                                            target="_blank"
+                                            className="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center hover:border-yaksen-red/50 hover:bg-yaksen-red/10 hover:text-yaksen-red transition-all duration-300 hover:scale-110"
+                                        >
+                                            <IconComponent className="w-6 h-6" />
+                                        </Link>
+                                    );
+                                })}
+                            </motion.div>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Form */}
-                    <form className="space-y-4 bg-white/5 p-8 rounded-2xl border border-white/10">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <motion.form
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="space-y-6 glass-panel p-10 rounded-3xl relative"
+                    >
+                        {/* Subtle Form Glow */}
+                        <div className="absolute -top-10 -right-10 w-40 h-40 bg-yaksen-red/10 rounded-full blur-3xl pointer-events-none" />
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-yaksen-muted">නම</label>
+                                <label className="text-sm font-semibold text-white/80 ml-1">නම</label>
                                 <input
                                     type="text"
-                                    className="w-full bg-black/50 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-yaksen-red transition-colors"
+                                    className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
                                     placeholder="ඔබේ නම"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-medium text-yaksen-muted">දුරකථන අංකය</label>
+                                <label className="text-sm font-semibold text-white/80 ml-1">දුරකථන අංකය</label>
                                 <input
                                     type="tel"
-                                    className="w-full bg-black/50 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-yaksen-red transition-colors"
+                                    className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
                                     placeholder="+94 7..."
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-yaksen-muted">ව්‍යාපාරයේ නම</label>
+                            <label className="text-sm font-semibold text-white/80 ml-1">ව්‍යාපාරයේ නම</label>
                             <input
                                 type="text"
-                                className="w-full bg-black/50 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-yaksen-red transition-colors"
+                                className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
                                 placeholder="Brand එකේ නම..."
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-yaksen-muted">ඔබට අවශ්‍ය දේ?</label>
-                            <select className="w-full bg-black/50 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-yaksen-red transition-colors text-white">
-                                <option>Brand එකක් හදාගන්න (Branding)</option>
-                                <option>Website / System එකක් (Web & Systems)</option>
-                                <option>Marketing / Social Media (Growth)</option>
-                                <option>වැඩ ලේසි කරගන්න (Automation)</option>
-                            </select>
+                            <label className="text-sm font-semibold text-white/80 ml-1">ඔබට අවශ්‍ය දේ?</label>
+                            <div className="relative">
+                                <select className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all text-white appearance-none cursor-pointer">
+                                    <option value="" className="bg-yaksen-black">තෝරන්න...</option>
+                                    <option className="bg-yaksen-black">Brand එකක් හදාගන්න (Branding)</option>
+                                    <option className="bg-yaksen-black">Website / System එකක් (Web & Systems)</option>
+                                    <option className="bg-yaksen-black">Marketing / Social Media (Growth)</option>
+                                    <option className="bg-yaksen-black">වැඩ ලේසි කරගන්න (Automation)</option>
+                                </select>
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
+                                    <ArrowRight className="w-4 h-4 rotate-90" />
+                                </div>
+                            </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-medium text-yaksen-muted">පණිවිඩය</label>
+                            <label className="text-sm font-semibold text-white/80 ml-1">පණිවිඩය</label>
                             <textarea
                                 rows={4}
-                                className="w-full bg-black/50 border border-white/10 rounded-lg p-3 focus:outline-none focus:border-yaksen-red transition-colors"
+                                className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all resize-none placeholder:text-white/20 text-white"
                                 placeholder="මට අවශ්‍ය වෙබ් අඩවියක් නිර්මාණය කරගන්න..."
                             />
                         </div>
 
-                        <button
+                        <motion.button
                             type="submit"
-                            className="w-full py-4 bg-yaksen-red text-white font-bold rounded-lg hover:bg-red-600 transition-colors flex items-center justify-center gap-2"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full py-4 bg-gradient-to-r from-yaksen-red to-[#ff7e5f] text-white font-bold rounded-xl shadow-lg shadow-yaksen-red/20 hover:shadow-yaksen-red/40 transition-all flex items-center justify-center gap-2 btn-glow"
                         >
                             පණිවිඩය යවන්න <Send className="w-4 h-4" />
-                        </button>
-                    </form>
+                        </motion.button>
+
+                        <p className="text-xs text-center text-yaksen-muted mt-4">
+                            පැය 24ක් ඇතුළත අපි ඔබට පිළිතුරු දෙන්නෙමු.
+                        </p>
+                    </motion.form>
                 </div>
             </div>
         </section>

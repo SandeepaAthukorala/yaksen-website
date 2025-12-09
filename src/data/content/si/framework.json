@@ -1,35 +1,45 @@
 {
     "title": "Yaksen ක්‍රමවේදය",
-    "subtitle": "අපි වැඩ කරන පිළිවෙල.",
+    "subtitle": "ඔබේ Business එක Brand System එකක් කරන 5A Process එක.",
     "steps": [
         {
             "id": "01",
-            "title": "AUDIT (පරීක්ෂාව)",
-            "description": "මුලින්ම අපි ඔබේ ව්‍යාපාරය X-Ray එකක් වගේ පරීක්ෂා කරනවා. අඩුපාඩු (Gaps) හරියටම හොයාගන්නවා.",
+            "title": "AUDIT",
+            "subtitle": "ගැඹුරු විශ්ලේෂණය",
+            "pain_point": "ඔබේ ව්‍යාපාරයේ සැඟවුණු අඩුපාඩු මොනවාද?",
+            "description": "ඔබේ ව්‍යාපාරය, තරඟකරුවන් සහ වෙළඳපල තත්ත්වයන් ගැඹරින් අධ්‍යයනය කර, තාක්ෂණික සහ සහ අලෙවිකරණ අඩුපාඩු හඳුනාගෙන සාර්ථකත්වයට පාර පෙන්වනවා.",
             "icon": "Search"
         },
         {
             "id": "02",
-            "title": "ARCHITECT (සැලැස්ම)",
-            "description": "Data පාවිච්චි කරලා අපි Plan එක අඳිනවා. මේක හිතල කරන වැඩක් නෙමෙයි, හරියටම වැඩ කරන Blueprint එකක්.",
+            "title": "ARCHITECT",
+            "subtitle": "උපාය මාර්ගික නිර්මාණය",
+            "pain_point": "නිකම්ම Logo එකක්ද? නැත්නම් Brand System එකක්ද?",
+            "description": "පාරිභෝගික විශ්වාසය දිනාගන්නා, ඔබේ ව්‍යාපාරයටම ආවේණික වූ අනන්‍ය Brand Identity එකක් සහ ඩිජිටල් සැලැස්මක් නිර්මාණය කරනවා.",
             "icon": "PenTool"
         },
         {
             "id": "03",
-            "title": "ACTIVATE (ගොඩනැගීම)",
-            "description": "ලෝකේ වේගවත්ම තාක්ෂණය (Next.js) පාවිච්චි කරලා අපි System එක හදනවා. හිර වෙන්නේ නෑ, කැඩෙන්නේ නෑ.",
+            "title": "ACTIVATE",
+            "subtitle": "තාක්ෂණික ගොඩනැගීම",
+            "pain_point": "Website එක බාලවුනොත් Business එකට මොකද වෙන්නේ?",
+            "description": "ලොව අංක 1 තාක්ෂණයන් (Next.js) මගින්, ඕනෑම Device එකක සුපිරි වේගයෙන් වැඩ කරන, Google හි ඉහළින්ම Rank වන Premium Website එකක් ගොඩනගනවා.",
             "icon": "Rocket"
         },
         {
             "id": "04",
-            "title": "AUTOMATE (ස්වයංක්‍රීයකරණය)",
-            "description": "නැවත නැවත කරන වැඩ අපි AI හරහා Automate කරනවා. ඔයා නිදාගෙන ඉද්දිත් Business එකේ වැඩ කෙරෙන System එකක්.",
+            "title": "AUTOMATE",
+            "subtitle": "කාර්යක්ෂමතාව",
+            "pain_point": "තවමත් පරණ විදිහට Customer ලා පස්සේ දුවනවද?",
+            "description": "AI Chatbots සහ CRM පද්ධති මගින් පාරිභෝගික සේවය 24/7 ස්වයංක්‍රීය කර, ඔබේ කාලය ඉතිරි කරමින් අලෙවිය 3 ගුණයකින් වැඩි කරනවා.",
             "icon": "Bot"
         },
         {
             "id": "05",
-            "title": "AMPLIFY (වර්ධනය)",
-            "description": "හදලා නිකන් ඉන්නේ නෑ. Ads සහ Content හරහා Brand එක ලෝකෙටම ගෙනියනවා.",
+            "title": "AMPLIFY",
+            "subtitle": "වෙළඳපල ආක්‍රමණය",
+            "pain_point": "Business එක හැදුවට කවුරුවත් දන්නේ නැද්ද?",
+            "description": "දත්ත මත පදනම් වූ (Data-Driven) දැන්වීම් සහ Social Media Campaigns හරහා, නිවැරදිම පාරිභෝගිකයින් වෙත ඔබේ Brand එක ගෙන ගොස් ප්‍රතිඵල තහවුරු කරනවා.",
             "icon": "Zap"
         }
     ]

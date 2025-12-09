@@ -1,3 +1,6 @@
+"use client";
+
+import React, { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Framework from "@/components/Framework";
@@ -8,12 +11,13 @@ import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
+import { useScrollRestoration } from "@/hooks/useScrollRestoration";
 
-export default function Home() {
+function HomeContent() {
+  useScrollRestoration();
+
   return (
     <main className="min-h-screen bg-yaksen-black text-white selection:bg-yaksen-red selection:text-white overflow-x-hidden">
-
-
       <Navbar />
       <Hero />
       <Framework />
@@ -25,5 +29,13 @@ export default function Home() {
       <Team />
       <Footer />
     </main>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-yaksen-black" />}>
+      <HomeContent />
+    </Suspense>
   );
 }

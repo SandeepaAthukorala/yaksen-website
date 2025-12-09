@@ -6,7 +6,7 @@
             "id": "1",
             "name": "Sandeepa Athukorala",
             "role": "Founder & AI Architect",
-            "description": "YAKSEN දැක්ම මෙහෙයවන නායකයා.",
+            "description": "අපගේ දැක්ම සහ උපාය මාර්ගික දිශානතිය තීරණය කරමින්, Yaksen හි තාක්ෂණික හදවත ලෙස ක්‍රියා කරන නිර්මාතෘවරයා.",
             "icon": "User",
             "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1739950572/Sandeepa_pvvibe.webp",
             "social_links": [
@@ -32,7 +32,7 @@
             "id": "2",
             "name": "Ishara Madhuwanthi",
             "role": "Head of Operations",
-            "description": "කණ්ඩායම සහ ව්‍යාපෘති කළමනාකරණය.",
+            "description": "ව්‍යාපෘති කාලරාමුවට සහ අයවැයට අනුකූලව නිම කිරීමට වගබලා ගන්නා, කණ්ඩායම් සම්බන්ධීකරණයේ ප්‍රධානියා.",
             "icon": "User",
             "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1744031711/Ishara_poczun.webp",
             "social_links": []
@@ -41,7 +41,7 @@
             "id": "3",
             "name": "Daham Gimhana",
             "role": "Tech Lead",
-            "description": "තාක්ෂණික සහ ආරක්ෂක (Security) අංශ ප්‍රධානියා.",
+            "description": "අසමසම ආරක්ෂාවක් සහ ස්ථාවර අත්දැකීමක් ලබා දීම වෙනුවෙන් අපගේ තාක්ෂණික යටිතල පහසුකම් මෙහෙයවන ප්‍රධානියා.",
             "icon": "Code",
             "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1740117790/daham_hutx9n.webp",
             "social_links": [
@@ -60,12 +60,12 @@
             ]
         },
         {
-            "id": "4",
+            "id": "yaksen-ai",
             "name": "Yaksen AI",
             "role": "Digital Intelligence",
-            "description": "අපේ නිර්මාණාත්මක සහායකයා.",
+            "description": "අපගේ ව්‍යාපෘති වලට දත්ත සහ නිර්මාණශීලීත්වය මුසු කරන, මිනිස් හැකියාවන් ඉක්මවා යන ප්‍රතිඵල ලබා දෙන බුද්ධිමය AI පද්ධතියයි.",
             "icon": "Bot",
-            "image": null,
+            "image": "/logo.svg",
             "social_links": []
         }
     ]

@@ -4,24 +4,99 @@ import React from "react";
 import { motion } from "framer-motion";
 import { getProjectsContent } from "@/data/lib/content-loader";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function FeaturedWork() {
-    const content = getProjectsContent('si');
+    const { language } = useLanguage();
+    const content = getProjectsContent(language);
+    const featuredProject = content.projects[0];
+    const otherProjects = content.projects.slice(1);
 
     return (
         <section className="py-20 px-6">
             <div className="container mx-auto">
-                <h2 className="text-3xl md:text-5xl font-bold mb-12">{content.title}</h2>
+                {/* Header */}
+                <div className="mb-12">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-4 font-sinhala">{content.title}</h2>
+                    {content.subtitle && (
+                        <p className="text-yaksen-muted text-lg font-sinhala">{content.subtitle}</p>
+                    )}
+                </div>
 
+                {/* Featured Project - Full Width */}
+                {/* Featured Project - Full Width */}
+                {featuredProject && (
+                    <Link href={`/work/${featuredProject.slug}`}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                            viewport={{ once: true }}
+                            className="group relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden cursor-pointer mb-8 border border-white/10 shadow-2xl transition-all duration-500 hover:shadow-yaksen-red/20"
+                        >
+                            {/* Background Image */}
+                            {featuredProject.coverImage ? (
+                                <img
+                                    src={featuredProject.coverImage}
+                                    alt={featuredProject.title}
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                                />
+                            ) : (
+                                <div className={`absolute inset-0 ${featuredProject.color} transition-transform duration-700 group-hover:scale-105`} />
+                            )}
+
+                            {/* Overlay */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-yaksen-black via-black/40 to-transparent opacity-90" />
+
+                            {/* Number Indicator */}
+                            <div className="absolute top-8 left-8 text-9xl font-black text-white/[0.03] select-none">01</div>
+
+                            {/* Arrow Icon */}
+                            <div className="absolute top-8 right-8 w-14 h-14 glass-panel rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-45">
+                                <ArrowUpRight className="w-6 h-6 text-white" />
+                            </div>
+
+                            <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                                <span className="text-yaksen-red text-sm font-bold uppercase tracking-widest mb-3 block">
+                                    {featuredProject.category}
+                                </span>
+                                <h3 className="text-4xl md:text-6xl font-bold mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300 font-sinhala tracking-tight">{featuredProject.title}</h3>
+                                {featuredProject.subtitle && (
+                                    <p className="text-xl text-white/80 mb-6 font-sinhala max-w-2xl leading-relaxed">{featuredProject.subtitle}</p>
+                                )}
+
+                                {featuredProject.impact && (
+                                    <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-yaksen-red/10 border border-yaksen-red/20 backdrop-blur-md">
+                                        <span className="w-2 h-2 rounded-full bg-yaksen-red animate-pulse" />
+                                        <p className="text-yaksen-red text-sm font-bold font-sinhala">{featuredProject.impact}</p>
+                                    </div>
+                                )}
+
+                                {featuredProject.tech_stack && (
+                                    <div className="flex flex-wrap gap-2 mt-2">
+                                        {featuredProject.tech_stack.map((tech: string, i: number) => (
+                                            <span key={i} className="px-4 py-1.5 text-xs font-semibold bg-white/5 backdrop-blur-md rounded-full text-white/70 border border-white/10 hover:bg-white/10 transition-colors">
+                                                {tech}
+                                            </span>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+                        </motion.div>
+                    </Link>
+                )}
+
+                {/* Other Projects - Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {content.projects.map((project, index) => (
-                        <Link href={`/work/${project.slug}`} key={index}>
+                    {otherProjects.map((project, index) => (
+                        <Link href={`/work/${project.slug}`} key={project.id}>
                             <motion.div
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ delay: index * 0.2 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="group relative h-[400px] rounded-2xl overflow-hidden cursor-pointer"
+                                className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl"
                             >
                                 {/* Background Image */}
                                 {project.coverImage ? (
@@ -35,28 +110,31 @@ export default function FeaturedWork() {
                                 )}
 
                                 {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-yaksen-black via-black/20 to-transparent opacity-90" />
+
+                                {/* Number Indicator */}
+                                <div className="absolute top-6 left-6 text-7xl font-black text-white/[0.03] select-none">
+                                    {String(index + 2).padStart(2, '0')}
+                                </div>
+
+                                {/* Arrow Icon */}
+                                <div className="absolute top-6 right-6 w-12 h-12 glass-panel rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-45">
+                                    <ArrowUpRight className="w-5 h-5 text-white" />
+                                </div>
 
                                 <div className="absolute bottom-0 left-0 p-8 w-full">
-                                    <span className="text-yaksen-red text-sm font-bold uppercase tracking-wider mb-2 block">
+                                    <span className="text-yaksen-red text-xs font-bold uppercase tracking-widest mb-2 block">
                                         {project.category}
                                     </span>
-                                    <h3 className="text-3xl font-bold mb-2 group-hover:text-yaksen-red transition-colors">{project.title}</h3>
-                                    <p className="text-white/80 mb-4">{project.description}</p>
-
-                                    {project.impact && (
-                                        <div className="mb-4">
-                                            <p className="text-yaksen-red text-sm font-bold flex items-center gap-2">
-                                                <span className="w-2 h-2 rounded-full bg-yaksen-red animate-pulse" />
-                                                {project.impact}
-                                            </p>
-                                        </div>
+                                    <h3 className="text-3xl font-bold mb-2 group-hover:text-white transition-colors font-sinhala tracking-tight">{project.title}</h3>
+                                    {project.subtitle && (
+                                        <p className="text-sm text-white/70 line-clamp-2 mb-4 font-sinhala leading-relaxed">{project.subtitle}</p>
                                     )}
 
                                     {project.tech_stack && (
-                                        <div className="flex flex-wrap gap-2 mt-3">
+                                        <div className="flex flex-wrap gap-1.5">
                                             {project.tech_stack.map((tech: string, i: number) => (
-                                                <span key={i} className="px-2 py-1 text-xs bg-white/10 backdrop-blur-sm rounded-md text-white/70 border border-white/5">
+                                                <span key={i} className="px-3 py-1 text-[10px] font-medium bg-white/5 backdrop-blur-md rounded-full text-white/60 border border-white/5">
                                                     {tech}
                                                 </span>
                                             ))}

@@ -21,6 +21,7 @@ import faqEn from '../content/en/faq.json';
 import faqSi from '../content/si/faq.json';
 import frameworkEn from '../content/en/framework.json';
 import frameworkSi from '../content/si/framework.json';
+import contactEn from '../content/en/contact.json';
 import contactSi from '../content/si/contact.json';
 import toolkit from '../shared/toolkit.json';
 
@@ -32,6 +33,7 @@ const content = {
         projects: projectsEn,
         faq: faqEn,
         framework: frameworkEn,
+        contact: contactEn,
     },
     si: {
         hero: heroSi,
@@ -40,6 +42,7 @@ const content = {
         projects: projectsSi,
         faq: faqSi,
         framework: frameworkSi,
+        contact: contactSi,
     },
 };
 
@@ -67,10 +70,23 @@ export function getFrameworkContent(lang: Language = 'si'): FrameworkContent {
     return content[lang].framework as unknown as FrameworkContent;
 }
 
-export function getToolkitContent(): ToolkitContent {
+export function getToolkitContent(lang?: Language): ToolkitContent {
     return toolkit as unknown as ToolkitContent;
 }
 
-export function getContactContent(): ContactContent {
-    return contactSi as unknown as ContactContent;
+
+export function getContactContent(lang: Language = 'si'): ContactContent {
+    return content[lang].contact as unknown as ContactContent;
+}
+
+export function getAllServices(lang: Language = 'si') {
+    return content[lang].services.services;
+}
+
+export function getServiceBySlug(slug: string, lang: Language = 'si') {
+    const services = content[lang].services.services;
+    return services.find(s => {
+        const sSlug = s.title.toLowerCase().replace(/ & /g, '-and-').replace(/ /g, '-');
+        return sSlug === slug;
+    });
 }

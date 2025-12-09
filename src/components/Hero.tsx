@@ -2,74 +2,65 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, ArrowDown } from "lucide-react";
 import Link from "next/link";
-import ConstellationCanvas from "./ConstellationCanvas";
 import { getHeroContent } from "@/data/lib/content-loader";
+import { useLanguage } from "@/context/LanguageContext";
+import TriangleCanvas from "@/components/TriangleCanvas";
 
 export default function Hero() {
-    const content = getHeroContent('si'); // Default to Sinhala for now
+    const { language } = useLanguage();
+    const content = getHeroContent(language);
 
     return (
-        <section className="relative flex flex-col items-center justify-center min-h-screen px-6 overflow-hidden text-center pt-20">
-            {/* Background Orb */}
-            <motion.div
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.6 }}
-                transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[500px] md:h-[500px] bg-yaksen-red rounded-full blur-[120px] -z-10"
-            />
+        <section className="relative h-screen flex items-center justify-center overflow-hidden bg-yaksen-black">
+            {/* Background elements would go here, simplified for now */}
+            <TriangleCanvas />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yaksen-black/90 pointer-events-none" />
 
-            {/* 3D Constellation System */}
-            <ConstellationCanvas />
-
-            <div className="max-w-4xl space-y-8 z-10">
-                <motion.h1
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.2, duration: 0.8 }}
-                    className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight font-sinhala"
-                >
-                    {content.headline.split(content.highlightText)[0]}
-                    <br className="hidden md:block" />
-                    <span className="text-yaksen-red">{content.highlightText}</span>
-                    {content.headline.split(content.highlightText)[1]}
-                </motion.h1>
-
-                <motion.p
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                    className="text-lg md:text-xl text-yaksen-muted max-w-2xl mx-auto"
-                >
-                    {content.subtitle} <br className="hidden md:block" />
-                    <span className="font-sinhala">{content.description}</span>
-                </motion.p>
-
+            <div className="container mx-auto px-6 relative z-10 text-center">
                 <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.6, duration: 0.8 }}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="max-w-4xl mx-auto"
                 >
-                    <Link
-                        href={content.ctaLink}
-                        className="inline-block px-8 py-4 text-lg font-semibold text-white bg-yaksen-red rounded-full hover:bg-red-600 transition-all duration-300 shadow-[0_0_20px_rgba(241,72,53,0.5)] hover:shadow-[0_0_40px_rgba(241,72,53,0.7)]"
-                    >
-                        {content.ctaText}
-                    </Link>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
+                        <Sparkles className="w-4 h-4 text-yaksen-red" />
+                        <span className="text-sm text-gray-300">Sri Lanka’s #1 AI-First Studio</span>
+                    </div>
+
+                    <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight font-sinhala">
+                        {content.headline}
+                    </h1>
+
+                    <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed font-sinhala">
+                        {content.description}
+                    </p>
+
+                    <div className="flex flex-col md:flex-row items-center justify-center gap-6">
+                        <button
+                            onClick={() => document.getElementById('framework')?.scrollIntoView({ behavior: 'smooth' })}
+                            className="group relative px-8 py-4 bg-yaksen-red text-white text-lg font-bold rounded-lg overflow-hidden transition-all hover:bg-red-600"
+                        >
+                            <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:animate-shimmer" />
+                            <span className="relative flex items-center gap-2">
+                                {content.ctaText}
+                                <ArrowDown className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            </span>
+                        </button>
+                    </div>
                 </motion.div>
             </div>
 
-            {/* Floating Elements / Decor */}
+            {/* Scroll Indicator */}
             <motion.div
-                animate={{ y: [0, -20, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-1/4 left-10 w-4 h-4 bg-white/10 rounded-full"
-            />
-            <motion.div
-                animate={{ y: [0, 20, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-1/4 right-10 w-6 h-6 bg-yaksen-red/20 rounded-full"
-            />
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 text-gray-500"
+            >
+                <ArrowDown className="w-6 h-6" />
+            </motion.div>
         </section>
     );
 }

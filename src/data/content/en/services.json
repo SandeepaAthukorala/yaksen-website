@@ -1,22 +1,74 @@
 {
-    "title": "Services",
+    "title": "Our Services",
+    "subtitle": "We do this to turn your Business into a Brand System.",
     "services": [
         {
             "id": "01",
             "title": "Branding",
-            "description": "Logo Design, Brand Books, Corporate Kits.",
-            "icon": "Palette"
+            "subtitle": "Branding",
+            "pain_point": "Struggling with competition? Is your brand forgettable?",
+            "description": "We create professional, memorable Brand Identities that set you apart from the competition.",
+            "deliverables": "Logo Suite (10+ formats) · Brand Guidelines (30+ pages) · Social Media Kit",
+            "icon": "Palette",
+            "process_steps": [
+                {
+                    "step_number": "01",
+                    "title": "Discovery & AI Audit",
+                    "description": "We analyze your market position using AI-driven sentiment analysis to find gaps."
+                },
+                {
+                    "step_number": "02",
+                    "title": "Concept Generation",
+                    "description": "Using generative design, we explore hundreds of directions before refining the perfect one."
+                },
+                {
+                    "step_number": "03",
+                    "title": "System Design",
+                    "description": "We don’t just make logos. We build a complete visual language including typography, color, and patterns."
+                },
+                {
+                    "step_number": "04",
+                    "title": "Guidelines & Launch",
+                    "description": "You receive a comprehensive brand book ensuring consistency across every touchpoint."
+                }
+            ],
+            "tech_stack": [
+                "Figma",
+                "Adobe Illustrator",
+                "Midjourney",
+                "Blender"
+            ],
+            "case_studies": [
+                {
+                    "title": "Reimagining Fintech",
+                    "client": "PayFast Solutions",
+                    "image": "/images/work/branding-1.jpg",
+                    "result": "200% Increase in User Trust"
+                },
+                {
+                    "title": "Eco-Friendly Packaging",
+                    "client": "GreenLeaf",
+                    "image": "/images/work/branding-2.jpg",
+                    "result": "Featured in Packaging World"
+                }
+            ]
         },
         {
             "id": "02",
             "title": "Web & Systems",
-            "description": "Next.js Websites, Landing Pages, E-commerce.",
+            "subtitle": "Web & Systems",
+            "pain_point": "Losing customers due to a slow website? Not on Google?",
+            "description": "We build high-performance websites that load in 2 seconds, are SEO-ready, and drive sales.",
+            "deliverables": "Lightning-Fast Website (Next.js) · Google SEO Setup · Easy CMS",
             "icon": "Monitor"
         },
         {
             "id": "03",
-            "title": "Content & Social",
-            "description": "Social Media Mgmt, AI Video Ads, Short-form Content.",
+            "title": "Social Media & Ads",
+            "subtitle": "Social Media & Ads",
+            "pain_point": "Posting but no sales? Is no one watching?",
+            "description": "We make your brand viral and increase sales across all platforms including Facebook, Instagram, TikTok, LinkedIn, and YouTube.",
+            "deliverables": "Meta Ads (FB/Insta) · TikTok & YouTube Growth · LinkedIn B2B · Campaign Management",
             "icon": "Video"
         }
     ]

@@ -1,22 +1,72 @@
 {
-    "title": "The Yaksen Team",
-    "subtitle": "Small team, massive impact.",
+    "title": "Our Team",
+    "subtitle": "A small team. A massive impact.",
     "members": [
         {
             "id": "1",
-            "name": "Sandeepa Dilshan",
-            "role": "CEO & Lead Architect",
-            "description": "The bridge between Design and Code.",
+            "name": "Sandeepa Athukorala",
+            "role": "Founder & AI Architect",
+            "description": "The Founder acting as the technical heart of Yaksen, determining our vision and strategic direction.",
             "icon": "User",
-            "image": null
+            "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1739950572/Sandeepa_pvvibe.webp",
+            "social_links": [
+                {
+                    "platform": "GitHub",
+                    "url": "https://github.com/SandeepaAthukorala"
+                },
+                {
+                    "platform": "Facebook",
+                    "url": "https://web.facebook.com/Sanda.TheOG/"
+                },
+                {
+                    "platform": "LinkedIn",
+                    "url": "https://www.linkedin.com/in/sandeepaathukorala/"
+                },
+                {
+                    "platform": "Fiverr",
+                    "url": "https://www.fiverr.com/users/dilsana"
+                }
+            ]
         },
         {
             "id": "2",
+            "name": "Ishara Madhuwanthi",
+            "role": "Head of Operations",
+            "description": "The head of team coordination, ensuring projects are completed on timeline and within budget.",
+            "icon": "User",
+            "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1744031711/Ishara_poczun.webp",
+            "social_links": []
+        },
+        {
+            "id": "3",
+            "name": "Daham Gimhana",
+            "role": "Tech Lead",
+            "description": "The lead directing our technical infrastructure to provide unmatched security and a stable experience.",
+            "icon": "Code",
+            "image": "https://res.cloudinary.com/das8wrfd1/image/upload/v1740117790/daham_hutx9n.webp",
+            "social_links": [
+                {
+                    "platform": "GitHub",
+                    "url": "https://github.com/wmdgimhana"
+                },
+                {
+                    "platform": "Facebook",
+                    "url": "https://www.facebook.com/daham.gimhana.5"
+                },
+                {
+                    "platform": "LinkedIn",
+                    "url": "https://www.linkedin.com/in/wmd-gimhana-46622b305/"
+                }
+            ]
+        },
+        {
+            "id": "yaksen-ai",
             "name": "Yaksen AI",
-            "role": "Intelligence Unit",
-            "description": "Our 24/7 running Intelligence Unit.",
+            "role": "Digital Intelligence",
+            "description": "Our intelligent AI system that blends data and creativity to deliver results beyond human capabilities.",
             "icon": "Bot",
-            "image": null
+            "image": "/logo.svg",
+            "social_links": []
         }
     ]
 }
