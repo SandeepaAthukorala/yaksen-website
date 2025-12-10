@@ -1,32 +1,32 @@
 {
-    "title": "අපගේ සේවාවන්",
+    "title": "අපේ සේවාවන්",
     "subtitle": "ඔබේ Business එක Brand System එකක් කරන්න අපි මේවා කරනවා.",
     "services": [
         {
             "id": "01",
             "title": "සන්නාමකරණය",
             "subtitle": "Branding",
-            "pain_point": "ඔබේ Brand එක පාරිභෝගිකයන්ට අමතක වෙලාද?",
-            "description": "තරඟකරුවන් අතරින් ඔබව කැපී පෙනෙන, මතකයේ රැඳෙන වෘත්තීය මට්ටමේ සන්නාම අනන්‍යතාවයක් අපි ගොඩනඟමු.",
-            "deliverables": "Logo මෝස්තර 10+ ක්, පිටු 30ක Brand Guideline එකක් සහ Social Media Kit එකක්.",
+            "pain_point": "Competition එක සමඟ ගැටෙනවද? ඔබේ Brand එක මතක නැද්ද?",
+            "description": "Professional, මතක හිටින Brand Identity එකක් හදලා ඔයාව Competition එකෙන් වෙන් කරනවා.",
+            "deliverables": "Logo Suite (10+ formats) · Brand Guidelines (30+ pages) · Social Media Kit",
             "icon": "Palette"
         },
         {
             "id": "02",
-            "title": "වෙබ් අඩවි සහ පද්ධති",
+            "title": "වෙබ් සහ පද්ධති",
             "subtitle": "Web & Systems",
-            "pain_point": "Slow වෙබ් අඩවියක් නිසා පාරිභෝගිකයන් මඟ හැරෙනවාද? Google Search එකේ ඔබ නැද්ද?",
-            "description": "අපි තත්පර 2ක් වැනි කෙටි කාලයකින් Load වන, ඉහළම කාර්යසාධනයක් සහිත සහ SEO සඳහා සූදානම් කළ වෙබ් අඩවි නිර්මාණය කරමු.",
-            "deliverables": "අකුණු වේගයෙන් වැඩ කරන වෙබ් අඩවියක් (Next.js), Google SEO සැකසුම සහ පහසු පාලක පුවරුවක් (CMS).",
+            "pain_point": "Slow Website එකෙන් Customers නැති වෙනවද? Google එකේ නැද්ද?",
+            "description": "තත්පර 2න් Load වෙන, SEO-Ready, Sales ගේන High-Performance Websites හදනවා.",
+            "deliverables": "Lightning-Fast Website (Next.js) · Google SEO Setup · Easy CMS",
             "icon": "Monitor"
         },
         {
             "id": "03",
             "title": "සමාජ මාධ්‍ය සහ දැන්වීම්",
             "subtitle": "Social Media & Ads",
-            "pain_point": "Post දැම්මට විකුණුම් (Sales) නැද්ද?",
-            "description": "Facebook, Instagram, TikTok, LinkedIn සහ YouTube ඇතුළු සියලුම වේදිකා හරහා ඔබේ සන්නාමය ජනප්‍රිය කර විකුණුම් වැඩි කර දෙන්නෙමු.",
-            "deliverables": "Meta Ads (FB/Insta), TikTok සහ YouTube වර්ධනය, LinkedIn B2B සේවා සහ ව්‍යාපාර කළමනාකරණය.",
+            "pain_point": "Post දාලා Sales නැද්ද? මිනිස්සු බලන්නේ නැද්ද?",
+            "description": "Facebook, Instagram, TikTok, LinkedIn සහ YouTube ඇතුළු සියලුම Platform වල ඔබේ Brand එක Viral කර Sales වැඩි කරනවා.",
+            "deliverables": "Meta Ads (FB/Insta) · TikTok & YouTube Growth · LinkedIn B2B · Campaign Management",
             "icon": "Video"
         }
     ]
