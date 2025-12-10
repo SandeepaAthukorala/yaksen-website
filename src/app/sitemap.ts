@@ -1,17 +1,18 @@
 import { MetadataRoute } from 'next';
 import { getAllServices } from '@/data/lib/content-loader';
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://yaksen.com';
     const currentDate = new Date().toISOString();
     const langs = ['en', 'si'];
 
     const staticRoutes = [
         '',
-        '/work',
-        '/pricing',
-        '/blog',
-        '/privacy',
+        // Commented out routes that don't exist yet under [lang]
+        // '/work',
+        // '/pricing',
+        // '/blog',
+        // '/privacy',
     ];
 
     let sitemap: MetadataRoute.Sitemap = [];
@@ -28,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         }
 
         // Generate service routes
-        const services = getAllServices(lang as 'en' | 'si');
+        const services = await Promise.resolve(getAllServices(lang as 'en' | 'si'));
         for (const service of services) {
             const slug = service.title.toLowerCase().replace(/ & /g, '-and-').replace(/ /g, '-');
             sitemap.push({

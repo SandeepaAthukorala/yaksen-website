@@ -1,6 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { getServiceBySlug, getAllServices } from '@/data/lib/content-loader';
+import { ServiceCaseStudy } from '@/data/types/content';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { CheckCircle2, AlertCircle } from 'lucide-react';
@@ -87,7 +88,7 @@ export default async function ServicePage({ params }: { params: { lang: string; 
                 icon={service.icon}
             />
 
-            {service.tech_stack && <TechStackMarquee stack={service.tech_stack} />}
+            {service.tech_stack && service.tech_stack.length > 0 && <TechStackMarquee stack={service.tech_stack} />}
 
             <section className="py-20 px-6 bg-white/5">
                 <div className="container mx-auto max-w-4xl">
@@ -140,7 +141,7 @@ export default async function ServicePage({ params }: { params: { lang: string; 
                     <div className="container mx-auto px-6">
                         <h2 className="text-3xl font-bold mb-12 text-center">Success Stories</h2>
                         <div className="grid md:grid-cols-2 gap-8">
-                            {service.case_studies.map((study, i) => (
+                            {service.case_studies.map((study: ServiceCaseStudy, i: number) => (
                                 <div key={i} className="group relative aspect-video overflow-hidden rounded-2xl bg-gray-900 border border-white/10">
                                     {/* Placeholder Image Logic if needed */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">

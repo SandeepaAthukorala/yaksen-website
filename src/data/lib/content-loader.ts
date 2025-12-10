@@ -7,7 +7,8 @@ import {
     FAQContent,
     FrameworkContent,
     ToolkitContent,
-    ContactContent
+    ContactContent,
+    Service
 } from '../types/content';
 import heroEn from '../content/en/hero.json';
 import heroSi from '../content/si/hero.json';
@@ -79,12 +80,12 @@ export function getContactContent(lang: Language = 'si'): ContactContent {
     return content[lang].contact as unknown as ContactContent;
 }
 
-export function getAllServices(lang: Language = 'si') {
-    return content[lang].services.services;
+export function getAllServices(lang: Language = 'si'): Service[] {
+    return content[lang].services.services as Service[];
 }
 
-export function getServiceBySlug(slug: string, lang: Language = 'si') {
-    const services = content[lang].services.services;
+export function getServiceBySlug(slug: string, lang: Language = 'si'): Service | undefined {
+    const services = content[lang].services.services as Service[];
     return services.find(s => {
         const sSlug = s.title.toLowerCase().replace(/ & /g, '-and-').replace(/ /g, '-');
         return sSlug === slug;

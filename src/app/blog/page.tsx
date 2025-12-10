@@ -4,8 +4,11 @@ import Footer from "@/components/Footer";
 import Link from "next/link";
 import { getBlogPosts } from "@/data/lib/markdown-parser";
 
-export default function BlogListing() {
-    const posts = getBlogPosts('si'); // Default to Sinhala
+// Force server-side rendering
+export const dynamic = 'force-dynamic';
+
+export default async function BlogListing() {
+    const posts = await Promise.resolve(getBlogPosts('si')); // Default to Sinhala
 
     return (
         <main className="min-h-screen bg-yaksen-black text-white selection:bg-yaksen-red selection:text-white">
