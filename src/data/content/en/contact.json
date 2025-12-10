@@ -15,5 +15,23 @@
         }
     ],
     "footer_privacy": "Privacy Policy",
-    "footer_rights": "© 2025 Yaksen Studio. All Rights Reserved."
+    "footer_rights": "© 2025 Yaksen Studio. All Rights Reserved.",
+    "free_consultation_badge": "First Call is Free!",
+    "whatsapp_label": "WhatsApp (Quick Response)",
+    "form_name_label": "Name",
+    "form_name_placeholder": "Your Name",
+    "form_phone_label": "Phone Number",
+    "form_phone_placeholder": "+94 7...",
+    "form_business_label": "Business Name",
+    "form_business_placeholder": "Your Brand Name...",
+    "form_service_label": "What do you need?",
+    "form_service_placeholder": "Select...",
+    "form_service_branding": "Build a Brand (Branding)",
+    "form_service_web": "Website / System (Web & Systems)",
+    "form_service_marketing": "Marketing / Social Media (Growth)",
+    "form_service_automation": "Make Work Easier (Automation)",
+    "form_message_label": "Message",
+    "form_message_placeholder": "I need to create a website...",
+    "form_submit_button": "Send Message",
+    "form_footer_note": "We'll respond to you within 24 hours."
 }

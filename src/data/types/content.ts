@@ -19,6 +19,24 @@ export interface ContactContent {
     social_links: SocialLink[];
     footer_privacy: string;
     footer_rights: string;
+    free_consultation_badge: string;
+    whatsapp_label: string;
+    form_name_label: string;
+    form_name_placeholder: string;
+    form_phone_label: string;
+    form_phone_placeholder: string;
+    form_business_label: string;
+    form_business_placeholder: string;
+    form_service_label: string;
+    form_service_placeholder: string;
+    form_service_branding: string;
+    form_service_web: string;
+    form_service_marketing: string;
+    form_service_automation: string;
+    form_message_label: string;
+    form_message_placeholder: string;
+    form_submit_button: string;
+    form_footer_note: string;
 }
 
 // Hero Section

@@ -15,5 +15,23 @@
         }
     ],
     "footer_privacy": "පෞද්ගලිකත්ව ප්‍රතිපත්තිය",
-    "footer_rights": "© 2025 Yaksen Studio. All Rights Reserved."
+    "footer_rights": "© 2025 Yaksen Studio. All Rights Reserved.",
+    "free_consultation_badge": "පළමු Call එක නොමිලේ!",
+    "whatsapp_label": "WhatsApp (ඉක්මනින් පිළිතුරු)",
+    "form_name_label": "නම",
+    "form_name_placeholder": "ඔබේ නම",
+    "form_phone_label": "දුරකථන අංකය",
+    "form_phone_placeholder": "+94 7...",
+    "form_business_label": "ව්‍යාපාරයේ නම",
+    "form_business_placeholder": "Brand එකේ නම...",
+    "form_service_label": "ඔබට අවශ්‍ය දේ?",
+    "form_service_placeholder": "තෝරන්න...",
+    "form_service_branding": "Brand එකක් හදාගන්න (Branding)",
+    "form_service_web": "Website / System එකක් (Web & Systems)",
+    "form_service_marketing": "Marketing / Social Media (Growth)",
+    "form_service_automation": "වැඩ ලේසි කරගන්න (Automation)",
+    "form_message_label": "පණිවිඩය",
+    "form_message_placeholder": "මට අවශ්‍ය වෙබ් අඩවියක් නිර්මාණය කරගන්න...",
+    "form_submit_button": "පණිවිඩය යවන්න",
+    "form_footer_note": "පැය 24ක් ඇතුළත අපි ඔබට පිළිතුරු දෙන්නෙමු."
 }

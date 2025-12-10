@@ -44,7 +44,7 @@ export default function Contact() {
                             className="inline-flex items-center gap-3 px-6 py-3 bg-yaksen-red/10 border border-yaksen-red/20 rounded-full mb-10 backdrop-blur-md shadow-[0_0_20px_rgba(241,72,53,0.15)]"
                         >
                             <Sparkles className="w-5 h-5 text-yaksen-red animate-pulse" />
-                            <span className="text-base font-bold text-yaksen-red">පළමු Call එක නොමිලේ!</span>
+                            <span className="text-base font-bold text-yaksen-red">{content.free_consultation_badge}</span>
                         </motion.div>
 
                         <div className="space-y-4">
@@ -63,7 +63,7 @@ export default function Contact() {
                                         <MessageCircle className="text-white group-hover:text-yaksen-red w-7 h-7" />
                                     </div>
                                     <div className="flex-1">
-                                        <p className="text-sm text-yaksen-muted font-medium">WhatsApp (ඉක්මනින් පිළිතුරු)</p>
+                                        <p className="text-sm text-yaksen-muted font-medium">{content.whatsapp_label}</p>
                                         <p className="text-xl font-bold">{content.phone}</p>
                                     </div>
                                     <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-yaksen-red transition-colors" />
@@ -129,41 +129,41 @@ export default function Contact() {
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-sm font-semibold text-white/80 ml-1">නම</label>
+                                <label className="text-sm font-semibold text-white/80 ml-1">{content.form_name_label}</label>
                                 <input
                                     type="text"
                                     className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
-                                    placeholder="ඔබේ නම"
+                                    placeholder={content.form_name_placeholder}
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-sm font-semibold text-white/80 ml-1">දුරකථන අංකය</label>
+                                <label className="text-sm font-semibold text-white/80 ml-1">{content.form_phone_label}</label>
                                 <input
                                     type="tel"
                                     className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
-                                    placeholder="+94 7..."
+                                    placeholder={content.form_phone_placeholder}
                                 />
                             </div>
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-semibold text-white/80 ml-1">ව්‍යාපාරයේ නම</label>
+                            <label className="text-sm font-semibold text-white/80 ml-1">{content.form_business_label}</label>
                             <input
                                 type="text"
                                 className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
-                                placeholder="Brand එකේ නම..."
+                                placeholder={content.form_business_placeholder}
                             />
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-semibold text-white/80 ml-1">ඔබට අවශ්‍ය දේ?</label>
+                            <label className="text-sm font-semibold text-white/80 ml-1">{content.form_service_label}</label>
                             <div className="relative">
                                 <select className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all text-white appearance-none cursor-pointer">
-                                    <option value="" className="bg-yaksen-black">තෝරන්න...</option>
-                                    <option className="bg-yaksen-black">Brand එකක් හදාගන්න (Branding)</option>
-                                    <option className="bg-yaksen-black">Website / System එකක් (Web & Systems)</option>
-                                    <option className="bg-yaksen-black">Marketing / Social Media (Growth)</option>
-                                    <option className="bg-yaksen-black">වැඩ ලේසි කරගන්න (Automation)</option>
+                                    <option value="" className="bg-yaksen-black">{content.form_service_placeholder}</option>
+                                    <option className="bg-yaksen-black">{content.form_service_branding}</option>
+                                    <option className="bg-yaksen-black">{content.form_service_web}</option>
+                                    <option className="bg-yaksen-black">{content.form_service_marketing}</option>
+                                    <option className="bg-yaksen-black">{content.form_service_automation}</option>
                                 </select>
                                 <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
                                     <ArrowRight className="w-4 h-4 rotate-90" />
@@ -172,11 +172,11 @@ export default function Contact() {
                         </div>
 
                         <div className="space-y-2">
-                            <label className="text-sm font-semibold text-white/80 ml-1">පණිවිඩය</label>
+                            <label className="text-sm font-semibold text-white/80 ml-1">{content.form_message_label}</label>
                             <textarea
                                 rows={4}
                                 className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all resize-none placeholder:text-white/20 text-white"
-                                placeholder="මට අවශ්‍ය වෙබ් අඩවියක් නිර්මාණය කරගන්න..."
+                                placeholder={content.form_message_placeholder}
                             />
                         </div>
 
@@ -186,11 +186,11 @@ export default function Contact() {
                             whileTap={{ scale: 0.98 }}
                             className="w-full py-4 bg-gradient-to-r from-yaksen-red to-[#ff7e5f] text-white font-bold rounded-xl shadow-lg shadow-yaksen-red/20 hover:shadow-yaksen-red/40 transition-all flex items-center justify-center gap-2 btn-glow"
                         >
-                            පණිවිඩය යවන්න <Send className="w-4 h-4" />
+                            {content.form_submit_button} <Send className="w-4 h-4" />
                         </motion.button>
 
                         <p className="text-xs text-center text-yaksen-muted mt-4">
-                            පැය 24ක් ඇතුළත අපි ඔබට පිළිතුරු දෙන්නෙමු.
+                            {content.form_footer_note}
                         </p>
                     </motion.form>
                 </div>
