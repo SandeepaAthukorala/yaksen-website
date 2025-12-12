@@ -72,15 +72,26 @@ export async function POST(request: NextRequest) {
         });
 
         if (!response.ok) {
-            throw new Error('Webhook request failed');
+            const errorText = await response.text();
+            console.error('Webhook error:', {
+                status: response.status,
+                statusText: response.statusText,
+                body: errorText
+            });
+            throw new Error(`Webhook request failed: ${response.status} - ${errorText}`);
         }
 
         return NextResponse.json({ success: true }, { status: 200 });
 
     } catch (error) {
         console.error('Contact form error:', error);
+        // Return more detailed error in development
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         return NextResponse.json(
-            { error: 'Failed to process request' },
+            {
+                error: 'Failed to process request',
+                details: process.env.NODE_ENV === 'development' ? errorMessage : undefined
+            },
             { status: 500 }
         );
     }
