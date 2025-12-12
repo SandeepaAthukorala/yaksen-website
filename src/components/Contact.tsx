@@ -13,8 +13,8 @@ const socialIcons: Record<string, React.ComponentType<any>> = {
     LinkedIn: Linkedin,
 };
 
-// Webhook endpoint
-const WEBHOOK_URL = "http://185.215.166.12:5678/webhook/yaksen-website";
+// API endpoint (server-side proxy to webhook)
+const API_ENDPOINT = "/api/contact";
 
 export default function Contact() {
     const { language } = useLanguage();
@@ -44,7 +44,7 @@ export default function Contact() {
         setSubmitSuccess(false);
 
         try {
-            const response = await fetch(WEBHOOK_URL, {
+            const response = await fetch(API_ENDPOINT, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
