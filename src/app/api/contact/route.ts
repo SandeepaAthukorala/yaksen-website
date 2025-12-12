@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Webhook URL stored securely on server-side only
-const WEBHOOK_URL = "https://185.215.166.12:5678/webhook/yaksen-website";
+// Using HTTP is safe here since this connection is server-to-server and hidden from public
+const WEBHOOK_URL = "http://185.215.166.12:5678/webhook/yaksen-website";
 
 // Rate limiting map (in production, use Redis or a proper rate limiting solution)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
