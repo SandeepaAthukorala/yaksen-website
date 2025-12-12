@@ -57,7 +57,10 @@ export default function Contact() {
             });
 
             if (!response.ok) {
-                throw new Error("Failed to submit form");
+                const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
+                const errorMsg = errorData.details || errorData.error || 'Failed to submit form';
+                console.error('API Error:', { status: response.status, data: errorData });
+                throw new Error(errorMsg);
             }
 
             setSubmitSuccess(true);
@@ -73,7 +76,8 @@ export default function Contact() {
             setTimeout(() => setSubmitSuccess(false), 5000);
         } catch (error) {
             console.error("Form submission error:", error);
-            setSubmitError("Failed to send message. Please try again or contact us directly.");
+            const errorMsg = error instanceof Error ? error.message : "Failed to send message";
+            setSubmitError(errorMsg + ". Please try again or contact us directly.");
         } finally {
             setIsSubmitting(false);
         }
