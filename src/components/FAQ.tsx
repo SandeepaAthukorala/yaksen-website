@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, ChevronDown } from "lucide-react";
 import { getFAQContent } from "@/data/lib/content-loader";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -47,10 +47,29 @@ function formatAnswer(text: string) {
     }).filter(Boolean);
 }
 
+const seeMoreText = {
+    en: {
+        seeMore: "Show More Questions",
+        seeLess: "Show Less",
+        remaining: "more questions"
+    },
+    si: {
+        seeMore: "තවත් ප්‍රශ්න බලන්න",
+        seeLess: "අඩු කරන්න",
+        remaining: "තවත් ප්‍රශ්න"
+    }
+};
+
 export default function FAQ() {
     const { language } = useLanguage();
     const content = getFAQContent(language);
+    const text = seeMoreText[language];
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
+    const [showAll, setShowAll] = useState(false);
+
+    const INITIAL_COUNT = 6;
+    const displayedQuestions = showAll ? content.questions : content.questions.slice(0, INITIAL_COUNT);
+    const remainingCount = content.questions.length - INITIAL_COUNT;
 
     return (
         <section className="py-20 px-6 bg-white/5">
@@ -63,9 +82,12 @@ export default function FAQ() {
                 </div>
 
                 <div className="space-y-4">
-                    {content.questions.map((faq, index) => (
-                        <div
-                            key={index}
+                    {displayedQuestions.map((faq, index) => (
+                        <motion.div
+                            key={faq.id}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.05 }}
                             className="border border-white/10 rounded-xl overflow-hidden bg-black/20 hover:border-white/20 transition-colors"
                         >
                             <button
@@ -96,9 +118,55 @@ export default function FAQ() {
                                     </motion.div>
                                 )}
                             </AnimatePresence>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
+
+                {/* Creative See More Button */}
+                {content.questions.length > INITIAL_COUNT && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.4 }}
+                        className="mt-8 flex justify-center"
+                    >
+                        <button
+                            onClick={() => setShowAll(!showAll)}
+                            className="group relative px-8 py-4 bg-gradient-to-r from-yaksen-red to-yaksen-orange rounded-2xl text-white font-bold overflow-hidden hover:shadow-2xl hover:shadow-yaksen-red/50 transition-all duration-300 hover:scale-105"
+                        >
+                            {/* Animated background */}
+                            <div className="absolute inset-0 bg-gradient-to-r from-yaksen-purple to-yaksen-red opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                            {/* Content */}
+                            <div className="relative flex items-center gap-3">
+                                <span className="font-sinhala">
+                                    {showAll ? text.seeLess : text.seeMore}
+                                </span>
+
+                                {/* Count badge */}
+                                {!showAll && remainingCount > 0 && (
+                                    <span className="px-2.5 py-0.5 bg-white/20 rounded-full text-sm backdrop-blur-xl">
+                                        +{remainingCount}
+                                    </span>
+                                )}
+
+                                {/* Animated icon */}
+                                <motion.div
+                                    animate={{
+                                        rotate: showAll ? 180 : 0,
+                                        y: showAll ? 0 : [0, 3, 0]
+                                    }}
+                                    transition={{
+                                        rotate: { duration: 0.3 },
+                                        y: { duration: 1.5, repeat: showAll ? 0 : Infinity }
+                                    }}
+                                >
+                                    <ChevronDown className="w-5 h-5" />
+                                </motion.div>
+                            </div>
+                        </button>
+                    </motion.div>
+                )}
             </div>
         </section>
     );
