@@ -186,7 +186,7 @@ export default function FeaturedWork() {
                             className="group relative px-8 py-4 bg-gradient-to-r from-yaksen-red to-yaksen-orange rounded-2xl text-white font-bold overflow-hidden hover:shadow-2xl hover:shadow-yaksen-red/50 transition-all duration-300 hover:scale-105"
                         >
                             {/* Animated background */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-yaksen-purple to-yaksen-red opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                             {/* Content */}
                             <div className="relative flex items-center gap-3">
