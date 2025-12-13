@@ -12,8 +12,39 @@ import Image from 'next/image';
 
 const WEBHOOK_URL = 'http://185.215.166.12:5678/webhook/yaksen-website-chatbot';
 
+// Localized text for chatbot UI
+const chatbotText = {
+    en: {
+        header: 'YAKSEN AI',
+        status: 'Online • Ready to help',
+        emailTitle: 'Let\'s Connect',
+        emailSubtitle: 'Enter your email to start chatting with our AI assistant',
+        emailPlaceholder: 'your.email@example.com',
+        emailButton: 'Start Chatting',
+        emailRequired: 'Email is required',
+        emailInvalid: 'Please enter a valid email address',
+        emailError: 'Failed to submit email. Please try again.',
+        messagePlaceholder: 'Type your message...',
+        sendButton: 'Send'
+    },
+    si: {
+        header: 'YAKSEN AI',
+        status: 'Online • ඔබට උදව් කිරීමට සූදානම්',
+        emailTitle: 'අපිත් එක්ක සම්බන්ධ වෙන්න',
+        emailSubtitle: 'අපේ AI සහායක එක්ක කතා කරන්න ඔයාගේ email එක දාන්න',
+        emailPlaceholder: 'ඔයාගේ.email@example.com',
+        emailButton: 'චැට් එක පටන් ගන්න',
+        emailRequired: 'Email එක අවශ්‍යයි',
+        emailInvalid: 'නිවැරදි email එකක් දාන්න',
+        emailError: 'Email එක යවන්න බැරි වුනා. නැවත උත්සාහ කරන්න.',
+        messagePlaceholder: 'ඔයාගේ message එක ලියන්න...',
+        sendButton: 'යවන්න'
+    }
+};
+
 export default function ChatWidget() {
     const { language } = useLanguage();
+    const text = chatbotText[language]; // Get localized text
     const {
         isVerified,
         isOpen,
@@ -59,12 +90,12 @@ export default function ChatWidget() {
         setEmailError('');
 
         if (!email.trim()) {
-            setEmailError('Email is required');
+            setEmailError(text.emailRequired);
             return;
         }
 
         if (!validateEmail(email)) {
-            setEmailError('Please enter a valid email address');
+            setEmailError(text.emailInvalid);
             return;
         }
 
@@ -111,7 +142,7 @@ export default function ChatWidget() {
             await verify();
         } catch (error) {
             console.error('Email submission error:', error);
-            setEmailError('Failed to submit email. Please try again.');
+            setEmailError(text.emailError);
         }
     };
 
@@ -257,8 +288,8 @@ export default function ChatWidget() {
                             </div>
 
                             <div>
-                                <h2 className="text-xl font-bold text-white">YAKSEN AI</h2>
-                                <p className="text-xs text-gray-400 font-medium">Online • Ready to help</p>
+                                <h2 className="text-xl font-bold text-white">{text.header}</h2>
+                                <p className="text-xs text-gray-400 font-medium">{text.status}</p>
                             </div>
                         </div>
 
@@ -275,8 +306,8 @@ export default function ChatWidget() {
                                     <Mail className="w-20 h-20 text-[#F14835] relative z-10" />
                                 </motion.div>
                                 <div>
-                                    <h4 className="text-2xl font-bold text-white mb-2">Get Started</h4>
-                                    <p className="text-gray-300 text-sm">Enter your email to chat with Yaksen AI</p>
+                                    <h4 className="text-2xl font-bold text-white mb-2">{text.emailTitle}</h4>
+                                    <p className="text-gray-300 text-sm">{text.emailSubtitle}</p>
                                 </div>
                                 <form onSubmit={handleEmailSubmit} className="w-full space-y-4">
                                     <div>
@@ -284,7 +315,7 @@ export default function ChatWidget() {
                                             type="email"
                                             value={email}
                                             onChange={(e) => setEmail(e.target.value)}
-                                            placeholder="your@email.com"
+                                            placeholder={text.emailPlaceholder}
                                             className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
                                             style={{
                                                 boxShadow: '0 0 20px rgba(241, 72, 53, 0.1)'
@@ -309,7 +340,7 @@ export default function ChatWidget() {
                                             boxShadow: '0 0 30px rgba(241, 72, 53, 0.4)'
                                         }}
                                     >
-                                        <span className="relative z-10">Continue</span>
+                                        <span className="relative z-10">{text.emailButton}</span>
                                         <div className="absolute inset-0 bg-gradient-to-r from-[#F14835] to-[#ff6b5a] opacity-0 group-hover:opacity-100 transition-opacity" />
                                     </motion.button>
                                 </form>
@@ -414,7 +445,7 @@ export default function ChatWidget() {
                                         <input
                                             value={input}
                                             onChange={(e) => setInput(e.target.value)}
-                                            placeholder="Type your message..."
+                                            placeholder={text.messagePlaceholder}
                                             className="flex-1 bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
                                         />
                                         <motion.button
