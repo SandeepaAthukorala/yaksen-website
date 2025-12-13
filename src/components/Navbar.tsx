@@ -133,6 +133,7 @@ export default function Navbar() {
                             </button>
                         </div>
                     </div>
+                </div>
             </motion.nav>
 
             {/* Mobile Menu Overlay */}
