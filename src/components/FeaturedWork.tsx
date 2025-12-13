@@ -54,7 +54,7 @@ export default function FeaturedWork() {
 
                 {/* Featured Project - Full Width */}
                 {featuredProject && (
-                    <Link href={`/work/${featuredProject.slug}`}>
+                    <Link href={`/${language}/work/${featuredProject.slug}`}>
                         <motion.div
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function FeaturedWork() {
                 {/* Other Projects - Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {displayedOtherProjects.map((project, index) => (
-                        <Link href={`/work/${project.slug}`} key={project.id}>
+                        <Link href={`/${language}/work/${project.slug}`} key={project.id}>
                             <motion.div
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}

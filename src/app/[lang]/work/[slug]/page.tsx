@@ -48,7 +48,7 @@ export default function ProjectPage() {
             <div className="min-h-screen bg-yaksen-black flex items-center justify-center text-white">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold mb-4">{text.notFound}</h1>
-                    <Link href="/" className="text-yaksen-red hover:underline">
+                    <Link href={`/${language}`} className="text-yaksen-red hover:underline">
                         {text.goHome}
                     </Link>
                 </div>
@@ -63,7 +63,7 @@ export default function ProjectPage() {
     return (
         <main className="min-h-screen bg-yaksen-black text-white font-sans selection:bg-yaksen-red selection:text-white">
             {/* Floating Home Button */}
-            <Link href="/" className="fixed top-8 left-8 z-50 group">
+            <Link href={`/${language}`} className="fixed top-8 left-8 z-50 group">
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -241,12 +241,12 @@ export default function ProjectPage() {
             <section className="py-32 border-t border-white/10">
                 <div className="container mx-auto px-6">
                     <div className="flex justify-between items-end">
-                        <Link href="/" className="group flex items-center gap-2 text-gray-500 hover:text-white transition-colors">
+                        <Link href={`/${language}`} className="group flex items-center gap-2 text-gray-500 hover:text-white transition-colors">
                             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                             <span>{text.backToHome}</span>
                         </Link>
 
-                        <Link href={`/work/${nextProject.slug}`} className="group text-right">
+                        <Link href={`/${language}/work/${nextProject.slug}`} className="group text-right">
                             <span className="block text-sm text-yaksen-red mb-2 uppercase tracking-widest">{text.nextCaseStudy}</span>
                             <div className="flex items-center gap-4 text-3xl md:text-6xl font-bold text-white hover:text-gray-300 transition-colors">
                                 <span>{nextProject.title}</span>
