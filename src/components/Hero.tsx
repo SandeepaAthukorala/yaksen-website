@@ -46,7 +46,7 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 0.2 }}
                         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel mb-10 group hover:bg-white/10 transition-all duration-300 animate-border-glow"
                     >
-                        <Sparkles className="w-4 h-4 text-yaksen-red animate-float" />
+                        <div className="w-2 h-2 rounded-full bg-yaksen-red animate-glow-pulse" />
                         <span className="text-sm text-gray-300 font-medium">Sri Lanka's #1 AI-First Studio</span>
                         <div className="w-2 h-2 rounded-full bg-yaksen-red animate-glow-pulse" />
                     </motion.div>
@@ -96,18 +96,6 @@ export default function Hero() {
                     </motion.div>
                 </motion.div>
             </div>
-
-            {/* Enhanced Scroll Indicator */}
-            <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2"
-            >
-                <div className="flex flex-col items-center gap-2 glass-panel px-4 py-3 rounded-full">
-                    <span className="text-xs text-gray-500 uppercase tracking-wider">Scroll</span>
-                    <ArrowDown className="w-4 h-4 text-yaksen-red" />
-                </div>
-            </motion.div>
         </section>
     );
 }
