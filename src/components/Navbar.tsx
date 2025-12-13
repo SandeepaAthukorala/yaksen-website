@@ -33,11 +33,11 @@ export default function Navbar() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className={`fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-out ${scrolled
-                    ? "w-[90%] md:w-[600px] h-16 rounded-full glass-panel"
-                    : "w-full h-24 bg-transparent border-transparent"
+                    ? "max-w-[90%] md:max-w-[700px] w-full h-16 rounded-full glass-panel"
+                    : "w-full max-w-full h-24 bg-transparent border-transparent"
                     }`}
             >
-                <div className={`h-full flex items-center justify-between px-6 ${scrolled ? "md:px-4" : "container mx-auto"
+                <div className={`h-full flex items-center justify-between px-6 ${scrolled ? "md:px-6" : "container mx-auto"
                     }`}>
 
                     {/* Brand */}
@@ -64,23 +64,21 @@ export default function Navbar() {
                         </AnimatePresence>
                     </Link>
 
-                    {/* Desktop Center - Business Knowledge */}
-                    <div className="hidden md:flex items-center absolute left-1/2 -translate-x-1/2">
+                    {/* Right Controls */}
+                    <div className="flex items-center gap-4">
+                        {/* Business Knowledge Link */}
                         <Link
                             href="https://blogs.yaksen.cloud"
                             target="_blank"
-                            className={`flex items-center gap-2 text-sm font-medium transition-all duration-300 ${scrolled
+                            className={`hidden md:flex items-center gap-2 text-sm font-medium transition-all duration-300 ${scrolled
                                 ? "text-white/80 hover:text-yaksen-red"
                                 : "text-white/70 hover:text-yaksen-red"
                                 }`}
                         >
                             <span>{language === 'si' ? 'ව්‍යාපාරික දැනුම' : 'Business Knowledge'}</span>
-                            {scrolled && <ArrowRight className="w-4 h-4 text-yaksen-red" />}
+                            <ArrowRight className="w-4 h-4" />
                         </Link>
-                    </div>
 
-                    {/* Right Controls */}
-                    <div className="flex items-center gap-4">
                         {/* Language Selector */}
                         <div className="relative">
                             <button
