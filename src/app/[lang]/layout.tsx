@@ -1,59 +1,40 @@
 import type { Metadata } from "next";
-import { Poppins, Noto_Sans_Sinhala } from "next/font/google";
-import "../globals.css";
-import Cursor from "@/components/Cursor";
-import ChatWidget from "@/components/ChatWidget";
+import { Geist, Geist_Mono, Noto_Sans_Sinhala } from "next/font/google";
+import "./globals.css";
+import { LanguageProvider } from "@/context/LanguageContext";
+import { generateMetadata as generateDynamicMetadata } from "./metadata";
+import GeoLanguageDetector from "@/components/GeoLanguageDetector";
+import Script from 'next/script';
 
-const poppins = Poppins({
-  variable: "--font-poppins",
-  weight: ["300", "400", "500", "600", "700"],
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: 'swap',
+  preload: true,
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: 'swap',
+  preload: true,
 });
 
 const notoSansSinhala = Noto_Sans_Sinhala({
   variable: "--font-noto-sans-sinhala",
-  weight: ["400", "500", "600", "700"],
   subsets: ["sinhala"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  display: 'swap',
+  preload: true,
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://yaksen.com'),
-  title: {
-    default: "Yaksen Creative Studio | AI-First Creative Agency",
-    template: "%s | Yaksen Creative Studio"
-  },
-  description: "Sri Lanka's #1 AI-First Creative Studio. We combine Design, Technology, and Strategy to elevate your brand.",
-  keywords: ["AI Agency Sri Lanka", "Web Design Sri Lanka", "Creative Studio", "Next.js Developers", "Yaksen Solutions"],
-  authors: [{ name: "Yaksen Solutions" }],
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://yaksen.com',
-    siteName: 'Yaksen Creative Studio',
-    title: 'Yaksen Creative Studio | AI-First Creative Agency',
-    description: "Sri Lanka's #1 AI-First Creative Studio. We combine Design, Technology, and Strategy to elevate your brand.",
-    images: [
-      {
-        url: '/og-image.jpg', // Ensure this exists or use a generic one
-        width: 1200,
-        height: 630,
-        alt: 'Yaksen Creative Studio',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Yaksen Creative Studio',
-    description: "Sri Lanka's #1 AI-First Creative Studio.",
-    creator: '@yaksen_studio',
-  },
-  icons: {
-    icon: '/logo.svg',
-  },
-};
-
-import { LanguageProvider } from "@/context/LanguageContext";
-import GeoLanguageDetector from "@/components/GeoLanguageDetector";
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  return generateDynamicMetadata({ params });
+}
 
 export default async function RootLayout({
   children,
@@ -62,47 +43,31 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ lang: string }>;
 }>) {
-  const { lang } = await params;
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Yaksen Solutions',
-    url: 'https://yaksen.com',
-    logo: 'https://yaksen.com/logo.svg',
-    sameAs: [
-      'https://www.linkedin.com/company/yaksen',
-      'https://facebook.com/yaksen'
-    ],
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+94 76 666 4004',
-      contactType: 'customer service',
-      areaServed: 'LK',
-      availableLanguage: ['en', 'si']
-    }
-  }
+  const lang = (await params).lang;
 
   return (
-    <html lang={lang} className="dark" suppressHydrationWarning>
-      <body
-        suppressHydrationWarning
-        className={`${poppins.variable} ${notoSansSinhala.variable} antialiased bg-yaksen-black text-white font-sans selection:bg-yaksen-red selection:text-white`}
-      >
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <LanguageProvider initialLang={lang as 'en' | 'si'}>
+    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} ${notoSansSinhala.variable}`}>
+      <head>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://res.cloudinary.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+
+        {/* Preload critical assets */}
+        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+      </head>
+      <body className="antialiased">
+        <LanguageProvider initialLanguage={lang as "en" | "si"}>
           <GeoLanguageDetector />
-          <Cursor />
           {children}
-          <ChatWidget />
         </LanguageProvider>
+
+        {/* Load analytics and external scripts after page load */}
+        <Script
+          strategy="lazyOnload"
+          src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"
+        />
       </body>
     </html>
   );
-}
-
-export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'si' }];
 }

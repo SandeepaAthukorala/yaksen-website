@@ -1,19 +1,57 @@
 "use client";
 
 import React, { Suspense } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Framework from "@/components/Framework";
-import Services from "@/components/Services";
-import Toolkit from "@/components/Toolkit";
-import FeaturedWork from "@/components/FeaturedWork";
-import FAQ from "@/components/FAQ";
-import Contact from "@/components/Contact";
-import Team from "@/components/Team";
 import About from "@/components/About";
-import Testimonials from "@/components/Testimonials";
-import Footer from "@/components/Footer";
 import { useScrollRestoration } from "@/hooks/useScrollRestoration";
+
+// Lazy load below-the-fold components with loading states
+const Framework = dynamic(() => import("@/components/Framework"), {
+  loading: () => <div className="h-screen" />,
+  ssr: true
+});
+
+const Services = dynamic(() => import("@/components/Services"), {
+  loading: () => <div className="h-screen" />,
+  ssr: true
+});
+
+const Toolkit = dynamic(() => import("@/components/Toolkit"), {
+  loading: () => <div className="h-96" />,
+  ssr: true
+});
+
+const FeaturedWork = dynamic(() => import("@/components/FeaturedWork"), {
+  loading: () => <div className="h-screen" />,
+  ssr: true
+});
+
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+  loading: () => <div className="h-96" />,
+  ssr: true
+});
+
+const FAQ = dynamic(() => import("@/components/FAQ"), {
+  loading: () => <div className="h-screen" />,
+  ssr: true
+});
+
+const Contact = dynamic(() => import("@/components/Contact"), {
+  loading: () => <div className="h-screen" />,
+  ssr: true
+});
+
+const Team = dynamic(() => import("@/components/Team"), {
+  loading: () => <div className="h-96" />,
+  ssr: true
+});
+
+const Footer = dynamic(() => import("@/components/Footer"), {
+  loading: () => <div className="h-64" />,
+  ssr: true
+});
 
 function HomeContent() {
   useScrollRestoration();

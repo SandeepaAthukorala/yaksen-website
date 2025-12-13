@@ -1,8 +1,8 @@
 {
     "title": "Who We Are",
-    "subtitle": "Sri Lanka's AI-First Creative Agency",
-    "story": "We're not your traditional agency. Born from frustration with slow, expensive creative processes, Yaksen exists to prove that AI and human creativity aren't competitors—they're collaborators.",
-    "mission": "Our mission is simple: deliver world-class branding, websites, and advertising at speeds and prices that were impossible before AI. We're bridging the gap between Sri Lankan businesses and global standards.",
+    "subtitle": "Sri Lanka's #1 AI-First Creative Studio.",
+    "story": "We are a reformist agency that emerged to change the slow, high-cost processes of traditional agencies. Yaksen exists to prove that AI and human creativity are not competitors, but collaborators walking hand-in-hand toward success.",
+    "mission": "Our mission is crystal clear: To deliver world-class brand design, websites, and promotional services at a speed and cost previously impossible using AI, all according to **international standards**. We are bridging the gap between modern technology and the global marketplace.",
     "stats": [
         {
             "value": "25+",
@@ -10,7 +10,7 @@
         },
         {
             "value": "10x",
-            "label": "Faster Production"
+            "label": "Faster Production Speed"
         },
         {
             "value": "70%",
@@ -18,21 +18,21 @@
         },
         {
             "value": "100%",
-            "label": "Sri Lankan Innovation"
+            "label": "Foundation of Innovation"
         }
     ],
     "values": [
         {
-            "title": "AI + Human",
-            "description": "We use AI for speed, humans for soul. Every project blends cutting-edge technology with creative expertise."
+            "title": "AI Speed + Human Insight",
+            "description": "We utilize AI for efficiency, and human intelligence for creating emotionally resonant and deeply meaningful designs. Every project is a blend of modern technology and creative expertise."
         },
         {
             "title": "Results Over Hours",
-            "description": "We're not paid for time spent. We're paid for transformations delivered. Your success is our metric."
+            "description": "Our focus is not on the time spent, but on the tangible business results you achieve. Your success is our primary benchmark."
         },
         {
-            "title": "Local, Global Standards",
-            "description": "Proudly Sri Lankan, competing globally. We bring international quality to the local market."
+            "title": "Cutting-Edge Global Standards",
+            "description": "We use the **highest international standards** for the quality of our designs. Our goal is to elevate your business to a level where it can compete anywhere in the world."
         }
     ]
 }
