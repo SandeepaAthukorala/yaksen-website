@@ -1,0 +1,38 @@
+{
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by leading businesses across Sri Lanka",
+    "testimonials": [
+        {
+            "id": "1",
+            "name": "Makola Medicare Hospital",
+            "role": "Healthcare Provider",
+            "company": "Makola Medicare Hospital",
+            "content": "All are good. Many thanks for your support. I am very satisfied with your work as well as the friendly way you handled this design. All the very best for you and your business. Love to get your service again.",
+            "rating": 5
+        },
+        {
+            "id": "2",
+            "name": "Nalaka Mahesh Ranasinghe",
+            "role": "Business Owner",
+            "company": "Nalaka Mahesh",
+            "content": "They truly created the logo design I had in my mind. Thank you for the excellent service and outstanding follow-up support.",
+            "rating": 5
+        },
+        {
+            "id": "3",
+            "name": "VAYA Fashion",
+            "role": "Fashion Brand",
+            "company": "VAYA Fashion",
+            "content": "Yaksen Creative Studio was really friendly. Thank you for the excellent service. Highly recommended 💐",
+            "rating": 5
+        },
+        {
+            "id": "4",
+            "name": "LOOCHA",
+            "role": "Business",
+            "company": "LOOCHA",
+            "content": "A place you can confidently hand over your work to. Highly Recommend! 💯",
+            "rating": 5
+        }
+    ]
+}

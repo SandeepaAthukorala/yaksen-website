@@ -10,6 +10,7 @@ import FeaturedWork from "@/components/FeaturedWork";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
 import Team from "@/components/Team";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { useScrollRestoration } from "@/hooks/useScrollRestoration";
 
@@ -24,6 +25,7 @@ function HomeContent() {
       <Services />
       <Toolkit />
       <FeaturedWork />
+      <Testimonials />
       <FAQ />
       <Contact />
       <Team />
