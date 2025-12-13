@@ -10,10 +10,34 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 
 import ProjectGallery from "@/components/work/ProjectGallery";
 
+const projectPageText = {
+    en: {
+        notFound: "Project Not Found",
+        goHome: "Go Home",
+        challenge: "The Challenge",
+        solution: "The Solution",
+        result: "The Result",
+        impact: "Impact",
+        backToHome: "Back to Home",
+        nextCaseStudy: "Next Case Study"
+    },
+    si: {
+        notFound: "ව්‍යාපෘතිය හමු නොවිණි",
+        goHome: "මුල් පිටුවට",
+        challenge: "අභියෝගය",
+        solution: "විසඳුම",
+        result: "ප්‍රතිඵලය",
+        impact: "බලපෑම",
+        backToHome: "මුල් පිටුවට",
+        nextCaseStudy: "ඊළඟ අධ්‍යයනය"
+    }
+};
+
 export default function ProjectPage() {
     const params = useParams();
     const slug = params.slug as string;
     const { language } = useLanguage();
+    const text = projectPageText[language];
     const content = getProjectsContent(language);
     const project = content.projects.find((p) => p.slug === slug);
 
@@ -21,9 +45,9 @@ export default function ProjectPage() {
         return (
             <div className="min-h-screen bg-yaksen-black flex items-center justify-center text-white">
                 <div className="text-center">
-                    <h1 className="text-4xl font-bold mb-4">Project Not Found</h1>
+                    <h1 className="text-4xl font-bold mb-4">{text.notFound}</h1>
                     <Link href="/" className="text-yaksen-red hover:underline">
-                        Go Home
+                        {text.goHome}
                     </Link>
                 </div>
             </div>
@@ -119,7 +143,7 @@ export default function ProjectPage() {
                                 transition={{ duration: 0.6 }}
                                 className="grid md:grid-cols-12 gap-8 items-start"
                             >
-                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red sticky top-32">The Challenge</h2>
+                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red sticky top-32">{text.challenge}</h2>
                                 <p className="md:col-span-8 text-xl md:text-2xl text-gray-300 leading-relaxed font-sinhala">
                                     {project.challenge}
                                 </p>
@@ -135,7 +159,7 @@ export default function ProjectPage() {
                                 transition={{ duration: 0.6 }}
                                 className="grid md:grid-cols-12 gap-8 items-start"
                             >
-                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red sticky top-32">The Solution</h2>
+                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red sticky top-32">{text.solution}</h2>
                                 <p className="md:col-span-8 text-xl md:text-2xl text-gray-300 leading-relaxed font-sinhala">
                                     {project.solution}
                                 </p>
@@ -171,14 +195,14 @@ export default function ProjectPage() {
 
                                 <div className="grid md:grid-cols-2 gap-12 items-end relative z-10">
                                     <div>
-                                        <h2 className="text-3xl font-bold mb-6 text-white">The Result</h2>
+                                        <h2 className="text-3xl font-bold mb-6 text-white">{text.result}</h2>
                                         <p className="text-xl text-gray-300 leading-relaxed font-sinhala">
                                             {project.result}
                                         </p>
                                     </div>
                                     {project.impact && (
                                         <div className="bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
-                                            <div className="text-sm uppercase tracking-widest text-yaksen-muted mb-2">Impact</div>
+                                            <div className="text-sm uppercase tracking-widest text-yaksen-muted mb-2">{text.impact}</div>
                                             <div className="text-4xl md:text-6xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
                                                 {project.impact}
                                             </div>
@@ -204,11 +228,11 @@ export default function ProjectPage() {
                     <div className="flex justify-between items-end">
                         <Link href="/" className="group flex items-center gap-2 text-gray-500 hover:text-white transition-colors">
                             <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                            <span>Back to Home</span>
+                            <span>{text.backToHome}</span>
                         </Link>
 
                         <Link href={`/work/${nextProject.slug}`} className="group text-right">
-                            <span className="block text-sm text-yaksen-red mb-2 uppercase tracking-widest">Next Case Study</span>
+                            <span className="block text-sm text-yaksen-red mb-2 uppercase tracking-widest">{text.nextCaseStudy}</span>
                             <div className="flex items-center gap-4 text-3xl md:text-6xl font-bold text-white hover:text-gray-300 transition-colors">
                                 <span>{nextProject.title}</span>
                                 <ArrowRight className="w-8 h-8 md:w-16 md:h-16 group-hover:translate-x-4 transition-transform duration-500" />
