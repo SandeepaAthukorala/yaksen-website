@@ -5,7 +5,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Shield, Database, Clock, X, MessageCircle } from 'lucide-react';
+import { Send, Shield, Database, Clock, X, MessageCircle, Mail } from 'lucide-react';
 import { useChatbot } from '@/hooks/useChatbot';
 import { DragonEye } from './icons/DragonEye';
 
@@ -26,13 +26,52 @@ export default function ChatWidget() {
     const [input, setInput] = useState('');
     const [showSources, setShowSources] = useState(false);
     const [showMemory, setShowMemory] = useState(false);
+
+    // Email collection state
+    const [email, setEmail] = useState('');
+    const [emailSubmitted, setEmailSubmitted] = useState(false);
+    const [emailError, setEmailError] = useState('');
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
+
+    // Load email from localStorage on mount
+    useEffect(() => {
+        const savedEmail = localStorage.getItem('yaksen_chatbot_email');
+        if (savedEmail) {
+            setEmail(savedEmail);
+            setEmailSubmitted(true);
+        }
+    }, []);
 
     // Auto-scroll
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages]);
+
+    // Email validation function
+    const validateEmail = (email: string): boolean => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    const handleEmailSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        setEmailError('');
+
+        if (!email.trim()) {
+            setEmailError('Email is required');
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            setEmailError('Please enter a valid email address');
+            return;
+        }
+
+        // Store email in localStorage
+        localStorage.setItem('yaksen_chatbot_email', email);
+        setEmailSubmitted(true);
+    };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -91,7 +130,38 @@ export default function ChatWidget() {
                         </div>
 
                         {/* Content Area */}
-                        {!isVerified ? (
+                        {!emailSubmitted ? (
+                            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#F14835] blur-xl opacity-20 animate-pulse" />
+                                    <Mail className="w-20 h-20 text-[#F14835] relative z-10" />
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-bold text-white mb-2">Enter Your Email</h4>
+                                    <p className="text-gray-400 text-sm">Required to access Yaksen AI Assistant</p>
+                                </div>
+                                <form onSubmit={handleEmailSubmit} className="w-full space-y-4">
+                                    <div>
+                                        <input
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="your@email.com"
+                                            className="w-full bg-gray-900/50 border border-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-[#F14835]/50 focus:bg-gray-900 transition-all placeholder:text-gray-600 text-sm"
+                                        />
+                                        {emailError && (
+                                            <p className="text-red-400 text-xs mt-2 text-left">{emailError}</p>
+                                        )}
+                                    </div>
+                                    <button
+                                        type="submit"
+                                        className="w-full py-3 bg-[#F14835] text-white font-bold uppercase tracking-widest hover:bg-[#d63a28] transition-all rounded-lg text-sm"
+                                    >
+                                        Continue
+                                    </button>
+                                </form>
+                            </div>
+                        ) : !isVerified ? (
                             <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
                                 <div className="relative">
                                     <div className="absolute inset-0 bg-[#F14835] blur-xl opacity-20 animate-pulse" />
@@ -221,7 +291,7 @@ export default function ChatWidget() {
                         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F14835] to-transparent opacity-50" />
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence >
 
             <style jsx global>{`
                 @keyframes float-up {
