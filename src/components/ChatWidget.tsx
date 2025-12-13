@@ -243,29 +243,23 @@ export default function ChatWidget() {
                                         radial-gradient(at 80% 0%, rgba(241, 72, 53, 0.2) 0px, transparent 50%)`
                         }} />
                         {/* Header with gradient overlay */}
-                        <div className="relative p-5 flex items-center justify-between border-b border-white/5"
+                        <div className="relative p-5 flex items-center gap-3 border-b border-white/10 z-10"
                             style={{
-                                background: 'linear-gradient(180deg, rgba(241, 72, 53, 0.2) 0%, rgba(241, 72, 53, 0.1) 50%, transparent 100%)'
+                                background: 'linear-gradient(180deg, rgba(241, 72, 53, 0.15) 0%, transparent 100%)'
                             }}
                         >
-                            <div className="flex items-center gap-3">
-                                <div className="relative">
-                                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                                    <div className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full animate-ping" />
+                            {/* Status indicator */}
+                            <div className="relative">
+                                <div className="absolute inset-0 animate-ping opacity-75">
+                                    <div className="w-3 h-3 rounded-full bg-green-400" />
                                 </div>
-                                <div>
-                                    <h3 className="text-white font-bold text-lg tracking-wide">YAKSEN AI</h3>
-                                    <p className="text-[#F14835]/70 text-xs">Online</p>
-                                </div>
+                                <div className="w-3 h-3 rounded-full bg-green-400" />
                             </div>
-                            <motion.button
-                                onClick={toggleOpen}
-                                className="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-lg"
-                                whileHover={{ rotate: 90 }}
-                                transition={{ duration: 0.2 }}
-                            >
-                                <X className="w-5 h-5" />
-                            </motion.button>
+
+                            <div>
+                                <h2 className="text-xl font-bold text-white">YAKSEN AI</h2>
+                                <p className="text-xs text-gray-400 font-medium">Online • Ready to help</p>
+                            </div>
                         </div>
 
                         {/* Content Area */}
