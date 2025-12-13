@@ -119,6 +119,7 @@ export interface Project {
     links?: ProjectLink[]; // New field
     showcase_images?: string[]; // New field
     showcase_videos?: string[]; // New field
+    showcase_websites?: string[]; // New field for interactive website embeds
 }
 
 export interface ProjectsContent {
