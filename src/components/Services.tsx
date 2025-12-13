@@ -50,7 +50,7 @@ export default function Services() {
                                 </div>
 
                                 {/* Gradient overlay on hover */}
-                                <div className="absolute inset-0 bg-gradient-to-br from-yaksen-red/5 to-yaksen-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl" />
+                                <div className="absolute inset-0 bg-gradient-to-br from-yaksen-red/5 to-yaksen-red/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl" />
 
                                 {/* Icon container with enhanced effects */}
                                 <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-yaksen-red/20 to-yaksen-orange/20 border border-yaksen-red/20 text-yaksen-red flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 shadow-lg shadow-yaksen-red/10 animate-border-glow">

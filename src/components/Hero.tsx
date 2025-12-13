@@ -83,7 +83,7 @@ export default function Hero() {
                             className="group relative px-10 py-5 bg-gradient-to-r from-yaksen-red to-yaksen-orange text-white text-lg font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-yaksen-red/50 hover:scale-105"
                         >
                             {/* Animated gradient overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-yaksen-purple to-yaksen-red opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                             {/* Shimmer effect */}
                             <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700" />
