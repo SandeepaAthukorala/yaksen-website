@@ -27,7 +27,7 @@ export default function About() {
     const content: AboutContent = require(`@/data/content/${language}/about.json`);
 
     return (
-        <section className="py-32 px-6 relative overflow-hidden">
+        <section id="about" className="py-32 px-6 relative overflow-hidden">
             {/* Background gradient mesh */}
             <div className="absolute inset-0 opacity-5 pointer-events-none bg-gradient-mesh" />
 

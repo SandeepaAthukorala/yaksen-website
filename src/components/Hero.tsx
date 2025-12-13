@@ -79,7 +79,7 @@ export default function Hero() {
                         className="flex flex-col md:flex-row items-center justify-center gap-6"
                     >
                         <button
-                            onClick={() => document.getElementById('framework')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                             className="group relative px-10 py-5 bg-gradient-to-r from-yaksen-red to-yaksen-orange text-white text-lg font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-yaksen-red/50 hover:scale-105"
                         >
                             {/* Animated gradient overlay */}
