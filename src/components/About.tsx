@@ -22,6 +22,43 @@ interface AboutContent {
 
 const valueIcons = [Sparkles, Target, Globe];
 
+// Rich text formatter for About content
+function formatRichText(text: string) {
+    return text.split('\n').map((line, lineIndex) => {
+        // Handle bullet points
+        if (line.trim().startsWith('- ')) {
+            const bulletText = line.trim().substring(2);
+            const parts = bulletText.split(/(\*\*.*?\*\*)/).filter(Boolean);
+
+            return (
+                <li key={lineIndex} className="ml-4">
+                    {parts.map((part, i) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                            return <strong key={i} className="text-white font-bold">{part.slice(2, -2)}</strong>;
+                        }
+                        return <span key={i}>{part}</span>;
+                    })}
+                </li>
+            );
+        }
+
+        // Handle bold text
+        const parts = line.split(/(\*\*.*?\*\*)/).filter(Boolean);
+
+        return (
+            <span key={lineIndex}>
+                {parts.map((part, i) => {
+                    if (part.startsWith('**') && part.endsWith('**')) {
+                        return <strong key={i} className="text-white font-bold">{part.slice(2, -2)}</strong>;
+                    }
+                    return <span key={i}>{part}</span>;
+                })}
+                {lineIndex < text.split('\n').length - 1 && <br />}
+            </span>
+        );
+    });
+}
+
 // Counter animation component
 function AnimatedCounter({ value, inView }: { value: string; inView: boolean }) {
     const [count, setCount] = useState(0);
@@ -133,11 +170,11 @@ export default function About() {
                             />
 
                             <p className="text-xl md:text-2xl text-gray-300 leading-relaxed font-sinhala mb-8">
-                                {content.story}
+                                {formatRichText(content.story)}
                             </p>
                             <div className="h-px bg-gradient-to-r from-transparent via-yaksen-red/30 to-transparent mb-8" />
                             <p className="text-lg text-gray-400 leading-relaxed font-sinhala">
-                                {content.mission}
+                                {formatRichText(content.mission)}
                             </p>
                         </div>
                     </motion.div>
@@ -234,7 +271,7 @@ export default function About() {
                                         {value.title}
                                     </h3>
                                     <p className="text-gray-400 leading-relaxed font-sinhala">
-                                        {value.description}
+                                        {formatRichText(value.description)}
                                     </p>
 
                                     {/* Bottom accent line */}
