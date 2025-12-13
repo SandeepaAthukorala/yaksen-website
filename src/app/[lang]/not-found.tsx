@@ -1,26 +1,77 @@
+"use client";
+
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Home } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
+
+const notFoundText = {
+    en: {
+        title: 'Page Not Found',
+        description: 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.',
+        button: 'Return Home'
+    },
+    si: {
+        title: 'පිටුව හමු නොවීය',
+        description: 'ඔබ සොයන පිටුව ඉවත් කර ඇති, එහි නම වෙනස් කර ඇති හෝ තාවකාලිකව නොමැති විය හැක.',
+        button: 'ආපසු මුල් පිටුවට'
+    }
+};
 
 export default function NotFound() {
+    const { language } = useLanguage();
+    const text = notFoundText[language];
+
     return (
         <div className="h-screen w-full flex flex-col items-center justify-center bg-yaksen-black text-white relative overflow-hidden">
-            {/* Background Gradient */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-yaksen-black/90 pointer-events-none" />
+            {/* Background gradient mesh */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none bg-gradient-mesh" />
 
-            <div className="relative z-10 text-center px-6">
-                <h1 className="text-9xl font-bold text-yaksen-red opacity-20 mb-4 select-none">404</h1>
-                <h2 className="text-4xl md:text-5xl font-bold mb-6">Page Not Found</h2>
-                <p className="text-gray-400 text-lg mb-12 max-w-md mx-auto">
-                    The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
-                </p>
-
-                <Link
-                    href="/"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-yaksen-red/50 rounded-full transition-all duration-300 group"
+            <div className="relative z-10 text-center px-6 max-w-2xl">
+                {/* Animated 404 */}
+                <motion.h1
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 0.15, scale: 1 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-[200px] md:text-[280px] font-black text-yaksen-red mb-0 select-none leading-none"
                 >
-                    <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                    <span>Return Home</span>
-                </Link>
+                    404
+                </motion.h1>
+
+                {/* Title */}
+                <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2, duration: 0.6 }}
+                    className="text-4xl md:text-5xl font-bold mb-6 -mt-12"
+                >
+                    {text.title}
+                </motion.h2>
+
+                {/* Description */}
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    className="text-gray-400 text-lg mb-12 leading-relaxed"
+                >
+                    {text.description}
+                </motion.p>
+
+                {/* Button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4, duration: 0.6 }}
+                >
+                    <Link
+                        href="/"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-yaksen-red to-yaksen-orange text-white font-bold rounded-2xl hover:shadow-2xl hover:shadow-yaksen-red/50 hover:scale-105 transition-all duration-300"
+                    >
+                        <ArrowLeft className="w-5 h-5" />
+                        <span>{text.button}</span>
+                    </Link>
+                </motion.div>
             </div>
         </div>
     );

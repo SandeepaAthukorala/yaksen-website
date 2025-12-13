@@ -35,12 +35,13 @@ export default function Navbar() {
                 className="fixed top-6 left-0 right-0 z-50"
             >
                 <div
-                    className={`mx-auto transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] outline-none ${scrolled
+                    className={`mx-auto transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] outline-none focus-visible:outline-none ${scrolled
                         ? "max-w-[90%] md:max-w-[700px] h-16 rounded-full px-6"
                         : "container h-24 bg-transparent px-6"
                         }`}
                     style={{
                         willChange: scrolled ? 'auto' : 'max-width, height, border-radius',
+                        outline: 'none',
                         ...(scrolled && {
                             background: 'rgba(10, 10, 15, 0.85)',
                             backdropFilter: 'blur(20px)',
