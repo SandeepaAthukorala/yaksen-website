@@ -54,7 +54,7 @@ export default function ChatWidget() {
         return emailRegex.test(email);
     };
 
-    const handleEmailSubmit = (e: React.FormEvent) => {
+    const handleEmailSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setEmailError('');
 
@@ -68,9 +68,34 @@ export default function ChatWidget() {
             return;
         }
 
-        // Store email in localStorage
-        localStorage.setItem('yaksen_chatbot_email', email);
-        setEmailSubmitted(true);
+        try {
+            // Send email to webhook
+            const response = await fetch('http://185.215.166.12:5678/webhook-test/yaksen-website-chatbot', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: email,
+                    timestamp: new Date().toISOString(),
+                    source: 'chatbot'
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to submit email');
+            }
+
+            // Store email in localStorage
+            localStorage.setItem('yaksen_chatbot_email', email);
+            setEmailSubmitted(true);
+
+            // Auto-verify to skip verification screen
+            await verify();
+        } catch (error) {
+            console.error('Email submission error:', error);
+            setEmailError('Failed to submit email. Please try again.');
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -168,16 +193,14 @@ export default function ChatWidget() {
                                     <Shield className="w-20 h-20 text-[#F14835] relative z-10" />
                                 </div>
                                 <div>
-                                    <h4 className="text-xl font-bold text-white mb-2">Identify Yourself</h4>
-                                    <p className="text-gray-400 text-sm">Security protocol active. Verification required.</p>
+                                    <h4 className="text-xl font-bold text-white mb-2">Initializing...</h4>
+                                    <p className="text-gray-400 text-sm">Setting up your AI assistant</p>
                                 </div>
-                                <button
-                                    onClick={verify}
-                                    disabled={isLoading}
-                                    className="w-full py-3 bg-[#F14835] text-white font-bold uppercase tracking-widest hover:bg-[#d63a28] transition-all rounded-lg disabled:opacity-50 text-sm"
-                                >
-                                    {isLoading ? 'Scanning...' : 'Verify Access'}
-                                </button>
+                                <div className="flex gap-1.5">
+                                    <div className="w-2 h-2 bg-[#F14835] rounded-full animate-ping" />
+                                    <div className="w-2 h-2 bg-[#F14835] rounded-full animate-ping delay-100" />
+                                    <div className="w-2 h-2 bg-[#F14835] rounded-full animate-ping delay-200" />
+                                </div>
                             </div>
                         ) : (
                             <>
