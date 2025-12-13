@@ -60,6 +60,11 @@
                     "url": "https://westernjewellers.shop/"
                 }
             ],
+            "showcase_websites": [
+                "https://www.yaksen.cloud",
+                "https://sanda.work",
+                "https://westernjewellers.shop/"
+            ],
             "showcase_images": [
                 "https://res.cloudinary.com/das8wrfd1/image/upload/v1734180936/Screenshot_2024-12-14_144149_sxpcfl.png"
             ]

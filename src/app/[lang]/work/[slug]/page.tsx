@@ -208,6 +208,33 @@ export default function ProjectPage() {
                                     </div>
                                 )}
 
+                                {/* Showcase Websites - Interactive Previews */}
+                                {project.showcase_websites && project.showcase_websites.length > 0 && (
+                                    <div className="mb-16">
+                                        <h3 className="text-2xl font-bold text-white mb-6">Live Website Previews</h3>
+                                        <div className="grid gap-8">
+                                            {project.showcase_websites.map((website, i) => (
+                                                <div key={i} className="rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl">
+                                                    <div className="bg-white/5 px-4 py-2 border-b border-white/10 flex items-center gap-2">
+                                                        <div className="flex gap-1.5">
+                                                            <div className="w-3 h-3 rounded-full bg-red-500/50" />
+                                                            <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
+                                                            <div className="w-3 h-3 rounded-full bg-green-500/50" />
+                                                        </div>
+                                                        <span className="text-xs text-white/50 ml-2 font-mono">{website}</span>
+                                                    </div>
+                                                    <iframe
+                                                        src={website}
+                                                        className="w-full h-[600px]"
+                                                        title={`Website preview: ${website}`}
+                                                        loading="lazy"
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
                                 <div className="grid md:grid-cols-2 gap-12 items-end relative z-10">
                                     <div>
                                         <h2 className="text-3xl font-bold mb-6 text-white">{text.result}</h2>
