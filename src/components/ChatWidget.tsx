@@ -180,11 +180,11 @@ export default function ChatWidget() {
 
     return (
         <>
-            {/* Animated GIF Toggle Button - Bottom Left */}
-            <div className="fixed bottom-8 left-8 z-[60]">
+            {/* Animated GIF Toggle Button - Bottom Right */}
+            <div className="fixed bottom-8 right-8 z-[60]">
                 <motion.button
                     onClick={toggleOpen}
-                    className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group"
+                    className="relative w-20 h-20 rounded-full overflow-hidden shadow-lg group"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
@@ -203,14 +203,14 @@ export default function ChatWidget() {
 
                     {isOpen ? (
                         <div className="relative w-full h-full flex items-center justify-center bg-[#F14835] rounded-full">
-                            <X className="w-8 h-8 text-white" />
+                            <X className="w-10 h-10 text-white" />
                         </div>
                     ) : (
                         <Image
                             src="https://res.cloudinary.com/das8wrfd1/image/upload/v1743822916/hi_j74hqj.gif"
                             alt="Chat"
-                            width={64}
-                            height={64}
+                            width={80}
+                            height={80}
                             className="w-full h-full object-cover"
                             unoptimized
                         />
@@ -222,16 +222,16 @@ export default function ChatWidget() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, x: -20, y: 20 }}
+                        initial={{ opacity: 0, scale: 0.9, x: 20, y: 20 }}
                         animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, x: -20, y: 20 }}
+                        exit={{ opacity: 0, scale: 0.9, x: 20, y: 20 }}
                         transition={{
                             type: "spring",
                             damping: 20,
                             stiffness: 200,
                             opacity: { duration: 0.3 }
                         }}
-                        className="fixed bottom-28 left-8 z-50 w-[420px] max-w-[calc(100vw-4rem)] h-[650px] max-h-[calc(100vh-10rem)] flex flex-col overflow-hidden rounded-3xl"
+                        className="fixed bottom-28 right-8 z-50 w-[420px] max-w-[calc(100vw-4rem)] h-[650px] max-h-[calc(100vh-10rem)] flex flex-col overflow-hidden rounded-3xl"
                         style={{
                             background: 'rgba(10, 10, 15, 0.55)',
                             backdropFilter: 'blur(40px)',
