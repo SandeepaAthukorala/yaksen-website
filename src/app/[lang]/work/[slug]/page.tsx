@@ -12,6 +12,7 @@ import ProjectGallery from "@/components/work/ProjectGallery";
 
 const projectPageText = {
     en: {
+        home: "Home",
         notFound: "Project Not Found",
         goHome: "Go Home",
         challenge: "The Challenge",
@@ -22,6 +23,7 @@ const projectPageText = {
         nextCaseStudy: "Next Case Study"
     },
     si: {
+        home: "මුල් පිටුව",
         notFound: "ව්‍යාපෘතිය හමු නොවිණි",
         goHome: "මුල් පිටුවට",
         challenge: "අභියෝගය",
@@ -60,6 +62,19 @@ export default function ProjectPage() {
 
     return (
         <main className="min-h-screen bg-yaksen-black text-white font-sans selection:bg-yaksen-red selection:text-white">
+            {/* Floating Home Button */}
+            <Link href="/" className="fixed top-8 left-8 z-50 group">
+                <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex items-center gap-2 px-5 py-3 glass-panel rounded-full hover:bg-white/10 transition-all duration-300"
+                >
+                    <ArrowLeft className="w-4 h-4 text-yaksen-red group-hover:-translate-x-1 transition-transform" />
+                    <span className="text-sm font-medium text-white">{text.home}</span>
+                </motion.div>
+            </Link>
+
             {/* Hero Section */}
             <section className={`relative pt-32 md:pt-48 pb-20 px-6 overflow-hidden min-h-[80vh] flex items-center`}>
                 {/* Dynamic Background Blur */}
