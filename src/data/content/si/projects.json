@@ -42,8 +42,8 @@
             ],
             "challenge": "ඕනෑම ඩිවයිස් එකක (Device) ඉතා හොඳින් සහ වේගයෙන් වැඩ කරන වෙබ් අඩවි ව්‍යාපාරවලට අවශ්‍යයි. නමුත් සාම්ප්‍රදායික ක්‍රම මගින් මෙය කිරීමට මාස ගණනක් සහ විශාල මුදලක් වැය වේ.",
             "solution": "අපි ඉහළම ක්‍රියාකාරීත්වය සඳහා Next.js තාක්ෂණයත්, වේගවත් සංවර්ධනය සඳහා AI සහායත් භාවිතා කළෙමු. සෑම වෙබ් අඩවියක්ම SEO සඳහා ප්‍රශස්ත කර ඇති අතර මොබයිල් ෆෝන් සඳහාද (Mobile-first) ඉතා හොඳින් ගැලපේ.",
-            "result": "ඉතා ඉහළ Mobile Scores සමඟ තත්පර 2ට අඩු කාලයකින් Load වන yaksen.cloud, sanda.work, සහ westernjewellers.shop වෙබ් අඩවි දියත් කරන ලදී.",
-            "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1734180936/Screenshot_2024-12-14_144149_sxpcfl.png",
+            "result": "පරිපූර්ණ ජංගම ලකුණු සමඟ තත්පර 2ට අඩු කාලයක් තුළ yaksen.cloud, sanda.work, සහ westernjewellers.shop දියත් කළා.",
+            "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1739949359/Service_Header_xo8zrn.webp",
             "color": "bg-blue-900",
             "featured": true,
             "links": [
@@ -66,7 +66,7 @@
                 "https://westernjewellers.shop/"
             ],
             "showcase_images": [
-                "https://res.cloudinary.com/das8wrfd1/image/upload/v1734180936/Screenshot_2024-12-14_144149_sxpcfl.png"
+                "https://res.cloudinary.com/das8wrfd1/image/upload/v1739949359/Service_Header_xo8zrn.webp"
             ]
         },
         {
