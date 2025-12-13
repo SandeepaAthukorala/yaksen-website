@@ -272,186 +272,184 @@ export default function ChatWidget() {
 
                         {/* Content Area */}
                         {!emailSubmitted ? (
-                            {/* Email Collection Screen */ }
-                            < div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
-                        <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            transition={{ type: "spring", delay: 0.1 }}
-                            className="relative"
-                        >
-                            <div className="absolute inset-0 bg-[#F14835] blur-2xl opacity-30 animate-pulse" />
-                            <Mail className="w-20 h-20 text-[#F14835] relative z-10" />
-                        </motion.div>
-                        <div>
-                            <h4 className="text-2xl font-bold text-white mb-2">Get Started</h4>
-                            <p className="text-gray-300 text-sm">Enter your email to chat with Yaksen AI</p>
-                        </div>
-                        <form onSubmit={handleEmailSubmit} className="w-full space-y-4">
-                            <div>
-                                <input
-                                    type="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="your@email.com"
-                                    className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
-                                    style={{
-                                        boxShadow: '0 0 20px rgba(241, 72, 53, 0.1)'
-                                    }}
-                                />
-                                {emailError && (
-                                    <motion.p
-                                        initial={{ opacity: 0, y: -10 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        className="text-red-400 text-xs mt-2 text-left"
+                            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
+                                <motion.div
+                                    initial={{ scale: 0 }}
+                                    animate={{ scale: 1 }}
+                                    transition={{ type: "spring", delay: 0.1 }}
+                                    className="relative"
+                                >
+                                    <div className="absolute inset-0 bg-[#F14835] blur-2xl opacity-30 animate-pulse" />
+                                    <Mail className="w-20 h-20 text-[#F14835] relative z-10" />
+                                </motion.div>
+                                <div>
+                                    <h4 className="text-2xl font-bold text-white mb-2">Get Started</h4>
+                                    <p className="text-gray-300 text-sm">Enter your email to chat with Yaksen AI</p>
+                                </div>
+                                <form onSubmit={handleEmailSubmit} className="w-full space-y-4">
+                                    <div>
+                                        <input
+                                            type="email"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            placeholder="your@email.com"
+                                            className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
+                                            style={{
+                                                boxShadow: '0 0 20px rgba(241, 72, 53, 0.1)'
+                                            }}
+                                        />
+                                        {emailError && (
+                                            <motion.p
+                                                initial={{ opacity: 0, y: -10 }}
+                                                animate={{ opacity: 1, y: 0 }}
+                                                className="text-red-400 text-xs mt-2 text-left"
+                                            >
+                                                {emailError}
+                                            </motion.p>
+                                        )}
+                                    </div>
+                                    <motion.button
+                                        type="submit"
+                                        className="w-full py-3 bg-[#F14835] text-white font-bold rounded-xl transition-all text-sm relative overflow-hidden group"
+                                        whileHover={{ scale: 1.02 }}
+                                        whileTap={{ scale: 0.98 }}
+                                        style={{
+                                            boxShadow: '0 0 30px rgba(241, 72, 53, 0.4)'
+                                        }}
                                     >
-                                        {emailError}
-                                    </motion.p>
-                                )}
+                                        <span className="relative z-10">Continue</span>
+                                        <div className="absolute inset-0 bg-gradient-to-r from-[#F14835] to-[#ff6b5a] opacity-0 group-hover:opacity-100 transition-opacity" />
+                                    </motion.button>
+                                </form>
                             </div>
-                            <motion.button
-                                type="submit"
-                                className="w-full py-3 bg-[#F14835] text-white font-bold rounded-xl transition-all text-sm relative overflow-hidden group"
-                                whileHover={{ scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                style={{
-                                    boxShadow: '0 0 30px rgba(241, 72, 53, 0.4)'
-                                }}
-                            >
-                                <span className="relative z-10">Continue</span>
-                                <div className="absolute inset-0 bg-gradient-to-r from-[#F14835] to-[#ff6b5a] opacity-0 group-hover:opacity-100 transition-opacity" />
-                            </motion.button>
-                        </form>
-                    </div>
-                ) : !isVerified ? (
-                {/* Initializing Screen */}
-                <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
-                    <div className="relative">
-                        <div className="absolute inset-0 bg-[#F14835] blur-2xl opacity-20 animate-pulse" />
-                        <div className="w-16 h-16 border-4 border-[#F14835]/30 border-t-[#F14835] rounded-full animate-spin relative" />
-                    </div>
-                    <div>
-                        <h4 className="text-xl font-bold text-white mb-2">Initializing...</h4>
-                        <p className="text-gray-400 text-sm">Setting up your AI assistant</p>
-                    </div>
-                </div>
-                ) : (
-                <>
-                    {/* Messages */}
-                    <div className="flex-1 overflow-y-auto p-6 space-y-4">
-                        {chatMessages.length === 0 && (
-                            <div className="flex flex-col items-center justify-center h-full text-center opacity-40">
-                                <p className="text-sm text-gray-400">Start a conversation...</p>
+                        ) : !isVerified ? (
+                            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
+                                <div className="relative">
+                                    <div className="absolute inset-0 bg-[#F14835] blur-2xl opacity-20 animate-pulse" />
+                                    <div className="w-16 h-16 border-4 border-[#F14835]/30 border-t-[#F14835] rounded-full animate-spin relative" />
+                                </div>
+                                <div>
+                                    <h4 className="text-xl font-bold text-white mb-2">Initializing...</h4>
+                                    <p className="text-gray-400 text-sm">Setting up your AI assistant</p>
+                                </div>
                             </div>
-                        )}
+                        ) : (
+                            <>
+                                {/* Messages */}
+                                <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                                    {chatMessages.length === 0 && (
+                                        <div className="flex flex-col items-center justify-center h-full text-center opacity-40">
+                                            <p className="text-sm text-gray-400">Start a conversation...</p>
+                                        </div>
+                                    )}
 
-                        {chatMessages.map((msg, index) => (
-                            <motion.div
-                                key={msg.id}
-                                initial={{
-                                    opacity: 0,
-                                    x: msg.role === 'user' ? 50 : -50,
-                                    y: 20
-                                }}
-                                animate={{
-                                    opacity: 1,
-                                    x: 0,
-                                    y: 0
-                                }}
-                                transition={{
-                                    type: "spring",
-                                    damping: 25,
-                                    stiffness: 200,
-                                    delay: index * 0.05
-                                }}
-                                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                            >
+                                    {chatMessages.map((msg, index) => (
+                                        <motion.div
+                                            key={msg.id}
+                                            initial={{
+                                                opacity: 0,
+                                                x: msg.role === 'user' ? 50 : -50,
+                                                y: 20
+                                            }}
+                                            animate={{
+                                                opacity: 1,
+                                                x: 0,
+                                                y: 0
+                                            }}
+                                            transition={{
+                                                type: "spring",
+                                                damping: 25,
+                                                stiffness: 200,
+                                                delay: index * 0.05
+                                            }}
+                                            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                                        >
+                                            <div
+                                                className={`max-w-[85%] px-4 py-3 rounded-2xl ${msg.role === 'user'
+                                                    ? 'bg-[#F14835] text-white rounded-br-sm'
+                                                    : 'bg-white/5 text-gray-100 border border-white/10 rounded-bl-sm backdrop-blur-xl'
+                                                    }`}
+                                                style={msg.role === 'user' ? {
+                                                    boxShadow: '0 0 20px rgba(241, 72, 53, 0.4), 0 4px 12px rgba(241, 72, 53, 0.2)'
+                                                } : {
+                                                    boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+                                                }}
+                                            >
+                                                <p className="text-sm leading-relaxed">{msg.content}</p>
+                                            </div>
+                                        </motion.div>
+                                    ))}
+
+                                    {isSending && (
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            className="flex justify-start"
+                                        >
+                                            <div className="bg-white/5 backdrop-blur-xl px-5 py-3 rounded-2xl rounded-bl-sm border border-white/10">
+                                                <div className="flex gap-1.5">
+                                                    {[0, 1, 2].map((i) => (
+                                                        <motion.div
+                                                            key={i}
+                                                            className="w-2 h-2 bg-[#F14835] rounded-full"
+                                                            animate={{
+                                                                y: [-4, 4, -4],
+                                                                opacity: [1, 0.5, 1]
+                                                            }}
+                                                            transition={{
+                                                                duration: 1,
+                                                                repeat: Infinity,
+                                                                delay: i * 0.15
+                                                            }}
+                                                        />
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                    <div ref={messagesEndRef} />
+                                </div>
+
+                                {/* Input Area */}
                                 <div
-                                    className={`max-w-[85%] px-4 py-3 rounded-2xl ${msg.role === 'user'
-                                            ? 'bg-[#F14835] text-white rounded-br-sm'
-                                            : 'bg-white/5 text-gray-100 border border-white/10 rounded-bl-sm backdrop-blur-xl'
-                                        }`}
-                                    style={msg.role === 'user' ? {
-                                        boxShadow: '0 0 20px rgba(241, 72, 53, 0.4), 0 4px 12px rgba(241, 72, 53, 0.2)'
-                                    } : {
-                                        boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+                                    className="p-4 border-t border-white/5"
+                                    style={{
+                                        background: 'rgba(5, 5, 10, 0.6)',
+                                        backdropFilter: 'blur(20px)'
                                     }}
                                 >
-                                    <p className="text-sm leading-relaxed">{msg.content}</p>
-                                </div>
-                            </motion.div>
-                        ))}
-
-                        {isSending && (
-                            <motion.div
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                className="flex justify-start"
-                            >
-                                <div className="bg-white/5 backdrop-blur-xl px-5 py-3 rounded-2xl rounded-bl-sm border border-white/10">
-                                    <div className="flex gap-1.5">
-                                        {[0, 1, 2].map((i) => (
+                                    <form onSubmit={handleSubmit} className="relative flex items-center gap-2">
+                                        <input
+                                            value={input}
+                                            onChange={(e) => setInput(e.target.value)}
+                                            placeholder="Type your message..."
+                                            className="flex-1 bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
+                                        />
+                                        <motion.button
+                                            type="submit"
+                                            disabled={isSending || !input.trim()}
+                                            className="p-3 bg-[#F14835] text-white rounded-xl disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            style={{
+                                                boxShadow: '0 0 20px rgba(241, 72, 53, 0.4)'
+                                            }}
+                                        >
+                                            <Send className="w-5 h-5 relative z-10" />
                                             <motion.div
-                                                key={i}
-                                                className="w-2 h-2 bg-[#F14835] rounded-full"
-                                                animate={{
-                                                    y: [-4, 4, -4],
-                                                    opacity: [1, 0.5, 1]
-                                                }}
-                                                transition={{
-                                                    duration: 1,
-                                                    repeat: Infinity,
-                                                    delay: i * 0.15
-                                                }}
+                                                className="absolute inset-0 bg-white/20"
+                                                initial={{ scale: 0, opacity: 1 }}
+                                                whileTap={{ scale: 2, opacity: 0 }}
+                                                transition={{ duration: 0.5 }}
                                             />
-                                        ))}
-                                    </div>
+                                        </motion.button>
+                                    </form>
                                 </div>
-                            </motion.div>
+                            </>
                         )}
-                        <div ref={messagesEndRef} />
-                    </div>
-
-                    {/* Input Area */}
-                    <div
-                        className="p-4 border-t border-white/5"
-                        style={{
-                            background: 'rgba(5, 5, 10, 0.6)',
-                            backdropFilter: 'blur(20px)'
-                        }}
-                    >
-                        <form onSubmit={handleSubmit} className="relative flex items-center gap-2">
-                            <input
-                                value={input}
-                                onChange={(e) => setInput(e.target.value)}
-                                placeholder="Type your message..."
-                                className="flex-1 bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
-                            />
-                            <motion.button
-                                type="submit"
-                                disabled={isSending || !input.trim()}
-                                className="p-3 bg-[#F14835] text-white rounded-xl disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                style={{
-                                    boxShadow: '0 0 20px rgba(241, 72, 53, 0.4)'
-                                }}
-                            >
-                                <Send className="w-5 h-5 relative z-10" />
-                                <motion.div
-                                    className="absolute inset-0 bg-white/20"
-                                    initial={{ scale: 0, opacity: 1 }}
-                                    whileTap={{ scale: 2, opacity: 0 }}
-                                    transition={{ duration: 0.5 }}
-                                />
-                            </motion.button>
-                        </form>
-                    </div>
-                </>
-                        )}
-            </motion.div>
+                    </motion.div>
                 )}
-        </AnimatePresence >
+            </AnimatePresence >
         </>
     );
 }
