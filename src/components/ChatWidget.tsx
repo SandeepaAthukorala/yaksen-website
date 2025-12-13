@@ -184,7 +184,7 @@ export default function ChatWidget() {
             <div className="fixed bottom-8 right-8 z-[60]">
                 <motion.button
                     onClick={toggleOpen}
-                    className="relative w-20 h-20 rounded-full overflow-hidden shadow-lg group"
+                    className="relative w-20 h-20 rounded-full overflow-hidden group"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     animate={{
@@ -195,26 +195,25 @@ export default function ChatWidget() {
                             duration: 3,
                             repeat: Infinity,
                             ease: "easeInOut"
-                        }
+                        },
+                        scale: { duration: 0.2 }
+                    }}
+                    style={{
+                        boxShadow: '0 8px 32px rgba(241, 72, 53, 0.3)'
                     }}
                 >
                     {/* Glow ring on hover */}
-                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#F14835] to-[#F14835]/50 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#F14835] to-yaksen-orange opacity-0 group-hover:opacity-100 blur-xl transition-all duration-300" />
 
-                    {isOpen ? (
-                        <div className="relative w-full h-full flex items-center justify-center bg-[#F14835] rounded-full">
-                            <X className="w-10 h-10 text-white" />
-                        </div>
-                    ) : (
-                        <Image
-                            src="https://res.cloudinary.com/das8wrfd1/image/upload/v1743822916/hi_j74hqj.gif"
-                            alt="Chat"
-                            width={80}
-                            height={80}
-                            className="w-full h-full object-cover"
-                            unoptimized
-                        />
-                    )}
+                    {/* Always show GIF */}
+                    <Image
+                        src="https://res.cloudinary.com/das8wrfd1/image/upload/v1743822916/hi_j74hqj.gif"
+                        alt="Chat"
+                        width={80}
+                        height={80}
+                        className="w-full h-full object-cover relative z-10"
+                        unoptimized
+                    />
                 </motion.button>
             </div>
 
@@ -222,28 +221,27 @@ export default function ChatWidget() {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, x: 20, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, x: 20, y: 20 }}
+                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.95, y: 20 }}
                         transition={{
-                            type: "spring",
-                            damping: 20,
-                            stiffness: 200,
-                            opacity: { duration: 0.3 }
+                            duration: 0.3,
+                            ease: [0.34, 1.56, 0.64, 1]
                         }}
-                        className="fixed bottom-28 right-8 z-50 w-[420px] max-w-[calc(100vw-4rem)] h-[650px] max-h-[calc(100vh-10rem)] flex flex-col overflow-hidden rounded-3xl"
+                        className="fixed bottom-28 right-8 z-50 w-[420px] max-w-[calc(100vw-4rem)] h-[650px] max-h-[calc(100vh-10rem)] flex flex-col overflow-hidden rounded-3xl outline-none"
                         style={{
-                            background: 'rgba(10, 10, 15, 0.55)',
-                            backdropFilter: 'blur(40px)',
-                            WebkitBackdropFilter: 'blur(40px)',
-                            border: '1px solid rgba(241, 72, 53, 0.15)',
-                            boxShadow: `
-                                0 8px 32px rgba(241, 72, 53, 0.15),
-                                0 20px 60px rgba(0, 0, 0, 0.3),
-                                inset 0 0 60px rgba(241, 72, 53, 0.05)
-                            `
+                            background: 'rgba(10, 10, 15, 0.85)',
+                            backdropFilter: 'blur(20px)',
+                            WebkitBackdropFilter: 'blur(20px)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
                         }}
                     >
+                        {/* Gradient mesh overlay - matching website */}
+                        <div className="absolute inset-0 opacity-10 pointer-events-none" style={{
+                            background: `radial-gradient(at 40% 20%, rgba(102, 126, 234, 0.2) 0px, transparent 50%),
+                                        radial-gradient(at 80% 0%, rgba(241, 72, 53, 0.2) 0px, transparent 50%)`
+                        }} />
                         {/* Header with gradient overlay */}
                         <div className="relative p-5 flex items-center justify-between border-b border-white/5"
                             style={{
