@@ -1,0 +1,38 @@
+{
+    "title": "Who We Are",
+    "subtitle": "Sri Lanka's AI-First Creative Agency",
+    "story": "We're not your traditional agency. Born from frustration with slow, expensive creative processes, Yaksen exists to prove that AI and human creativity aren't competitors—they're collaborators.",
+    "mission": "Our mission is simple: deliver world-class branding, websites, and advertising at speeds and prices that were impossible before AI. We're bridging the gap between Sri Lankan businesses and global standards.",
+    "stats": [
+        {
+            "value": "25+",
+            "label": "Brands Transformed"
+        },
+        {
+            "value": "10x",
+            "label": "Faster Production"
+        },
+        {
+            "value": "70%",
+            "label": "Cost Savings"
+        },
+        {
+            "value": "100%",
+            "label": "Sri Lankan Innovation"
+        }
+    ],
+    "values": [
+        {
+            "title": "AI + Human",
+            "description": "We use AI for speed, humans for soul. Every project blends cutting-edge technology with creative expertise."
+        },
+        {
+            "title": "Results Over Hours",
+            "description": "We're not paid for time spent. We're paid for transformations delivered. Your success is our metric."
+        },
+        {
+            "title": "Local, Global Standards",
+            "description": "Proudly Sri Lankan, competing globally. We bring international quality to the local market."
+        }
+    ]
+}
