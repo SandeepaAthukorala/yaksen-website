@@ -1,36 +1,56 @@
 {
-    "title": "FAQ",
-    "subtitle": "Questions you might have and our answers.",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our services, process, and how we help your business grow.",
     "questions": [
         {
             "id": "1",
-            "question": "How long does it take to build a website?",
-            "answer": "A standard business website takes 2-3 weeks, while an E-Commerce site takes 4-6 weeks. Custom Systems take about 6-8 weeks. We provide you with a progress update every week."
+            "question": "How long will it take to complete my project?",
+            "answer": "The timeline depends on the scope and complexity of your project. A simple website can be launched quickly, while custom software systems require more time for development. We provide a clear timeline before starting and ensure we deliver on schedule."
         },
         {
             "id": "2",
-            "question": "What about pricing? Will it fit my budget?",
-            "answer": "A simple Landing Page starts from Rs. 50,000. A full website (5-10 pages) ranges between Rs. 150,000 - 300,000. We have flexible payment plans. Contact us, and we will create a solution that fits your budget perfectly."
+            "question": "How is the pricing determined? Will it fit my budget?",
+            "answer": "We focus on providing value for your investment. Pricing varies based on your specific requirements and features. We offer flexible solutions tailored to different budget levels—from startups to established enterprises. Contact us for a custom proposal that meets your needs."
         },
         {
             "id": "3",
-            "question": "Is the website speed reliable?",
-            "answer": "Absolutely. We use the latest technologies like Next.js. We provide you with an SEO Optimized website that loads in under 2 seconds. Hosting and SSL for the first year are completely free."
+            "question": "Can you guarantee the speed and quality of the website?",
+            "answer": "Absolutely. We utilize modern, high-performance technologies (like Next.js) to ensure your website loads fast, is fully mobile-responsive, and secure. We also include essential SEO optimizations to help your site rank better on Google."
         },
         {
             "id": "4",
-            "question": "How does maintenance work?",
-            "answer": "All maintenance is free for the first 3 months after handover. Afterward, we handle updates and security under a very affordable annual package. You don't need to worry about technical issues."
+            "question": "Do you provide support after the website is launched?",
+            "answer": "Yes, we believe in long-term partnerships. We provide a period of free technical support immediately after launch. Following that, we offer comprehensive Annual Maintenance packages to handle updates, security, and backups, giving you peace of mind."
         },
         {
             "id": "5",
-            "question": "What is the benefit of AI technology for my business?",
-            "answer": "AI Chatbots can answer customers 24/7, and AI Content Generation can quickly create content for social media. This saves your time and can reduce costs by about 70%."
+            "question": "How can AI technology benefit my business practically?",
+            "answer": "AI can significantly boost your efficiency. From integrating AI Chatbots that handle customer inquiries 24/7 to using AI tools for rapid content generation, we implement solutions that save you time and operational costs."
         },
         {
             "id": "6",
-            "question": "Why should I trust Yaksen?",
-            "answer": "We are a Sri Lanka based agency with over 3 years of experience, serving 25+ leading organizations like Frulora and IN HUMAN. Check our Portfolio and customer reviews. Talk to us before starting work to build trust."
+            "question": "Do you handle Domain Names and Web Hosting?",
+            "answer": "Yes, we handle the entire technical setup. We can register your Domain Name and set up secure, high-speed Web Hosting for you, so you don't have to worry about the technical details."
+        },
+        {
+            "id": "7",
+            "question": "Can I update the website content myself later?",
+            "answer": "Definitely. We build websites with user-friendly Administration Panels (CMS). You will have full control to update text, images, and products easily without needing any coding knowledge. We also provide training on how to use it."
+        },
+        {
+            "id": "8",
+            "question": "What is included in your Branding services?",
+            "answer": "Branding is about giving your business a professional identity. We assist with Logo Design, defining your visual style (colors, typography), and creating a cohesive brand image that builds trust and recognition with your customers."
+        },
+        {
+            "id": "9",
+            "question": "How do your Social Media & Ads services help increase sales?",
+            "answer": "We go beyond just posting. We create strategic ad campaigns on platforms like Facebook, Instagram, and Google to target your ideal audience. Our goal is to drive high-quality traffic to your business and convert viewers into paying customers."
+        },
+        {
+            "id": "10",
+            "question": "Can you build Custom Software Systems tailored to my needs?",
+            "answer": "Yes. Whether you need an Inventory System, a CRM, or a Booking Platform, we specialize in developing custom software solutions. We analyze your business operations and build systems that automate tasks and solve your specific challenges."
         }
     ]
 }
