@@ -36,11 +36,18 @@ export default function Navbar() {
             >
                 <div
                     className={`mx-auto transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${scrolled
-                        ? "max-w-[90%] md:max-w-[700px] h-16 rounded-full glass-panel px-6"
+                        ? "max-w-[90%] md:max-w-[700px] h-16 rounded-full px-6"
                         : "container h-24 bg-transparent px-6"
                         }`}
                     style={{
                         willChange: scrolled ? 'auto' : 'max-width, height, border-radius',
+                        ...(scrolled && {
+                            background: 'rgba(10, 10, 15, 0.85)',
+                            backdropFilter: 'blur(20px)',
+                            WebkitBackdropFilter: 'blur(20px)',
+                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.4)'
+                        })
                     }}
                 >
                     <div className="h-full flex items-center justify-between">
