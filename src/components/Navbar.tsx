@@ -34,10 +34,14 @@ export default function Navbar() {
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                 className="fixed top-6 left-0 right-0 z-50"
             >
-                <div className={`mx-auto transition-all duration-500 ease-out ${scrolled
-                    ? "max-w-[90%] md:max-w-[700px] h-16 rounded-full glass-panel px-6"
-                    : "container h-24 bg-transparent px-6"
-                    }`}
+                <div
+                    className={`mx-auto transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${scrolled
+                        ? "max-w-[90%] md:max-w-[700px] h-16 rounded-full glass-panel px-6"
+                        : "container h-24 bg-transparent px-6"
+                        }`}
+                    style={{
+                        willChange: scrolled ? 'auto' : 'max-width, height, border-radius',
+                    }}
                 >
                     <div className="h-full flex items-center justify-between">
 
