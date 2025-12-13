@@ -2,7 +2,7 @@
 // Usage: node scripts/test-gemini.js
 
 async function testGeminiAPI() {
-    const apiKey = process.env.GEMINI_API_KEY || 'AIzaSyD5Dbtq1Sb1YkYvH8_b8ea00NL_5xg9Dmk';
+    const apiKey = process.env.GEMINI_API_KEY;
 
     console.log('🔑 Testing Gemini API...');
     console.log(`API Key: ${apiKey.substring(0, 10)}...`);

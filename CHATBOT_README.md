@@ -22,7 +22,7 @@ Create a `.env.local` file in the project root (if it doesn't exist):
 
 ```bash
 # f:\projects\websites\web\.env.local
-GEMINI_API_KEY=AIzaSyD5Dbtq1Sb1YkYvH8_b8ea00NL_5xg9Dmk
+GEMINI_API_KEY=your_gemini_api_key_here
 ```
 
 > **⚠️ IMPORTANT**: Never commit `.env.local` to version control. Ensure it's in `.gitignore`.
