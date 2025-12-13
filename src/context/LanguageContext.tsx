@@ -22,6 +22,8 @@ export function LanguageProvider({ children, initialLang }: { children: ReactNod
     const setLanguage = (lang: Language) => {
         setLanguageState(lang);
         localStorage.setItem('yaksen-lang', lang);
+        // Mark as manually set to prevent geo-detection override
+        localStorage.setItem('yaksen_lang_manual', 'true');
 
         // redirect to new locale
         if (!pathname) return;

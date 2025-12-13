@@ -53,6 +53,7 @@ export const metadata: Metadata = {
 };
 
 import { LanguageProvider } from "@/context/LanguageContext";
+import GeoLanguageDetector from "@/components/GeoLanguageDetector";
 
 export default async function RootLayout({
   children,
@@ -92,6 +93,7 @@ export default async function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         <LanguageProvider initialLang={lang as 'en' | 'si'}>
+          <GeoLanguageDetector />
           <Cursor />
           {children}
           <ChatWidget />
