@@ -97,9 +97,21 @@ export default function ChatWidget() {
                 throw new Error('Failed to submit email');
             }
 
-            // Get welcome message from webhook response
-            const data = await response.json();
-            const welcomeMessage = data.message || data.reply || 'Welcome! How can I help you today?';
+            // Get welcome message from webhook response (handle both JSON and plain text)
+            let welcomeMessage = 'Welcome! How can I help you today!';
+            try {
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    const data = await response.json();
+                    welcomeMessage = data.message || data.reply || welcomeMessage;
+                } else {
+                    // Handle plain text response
+                    const textResponse = await response.text();
+                    welcomeMessage = textResponse || welcomeMessage;
+                }
+            } catch (parseError) {
+                console.log('Using default welcome message');
+            }
 
             // Store email in localStorage
             localStorage.setItem('yaksen_chatbot_email', email);
@@ -156,8 +168,21 @@ export default function ChatWidget() {
                 throw new Error('Failed to send message');
             }
 
-            const data = await response.json();
-            const replyMessage = data.message || data.reply || 'I received your message.';
+            // Handle both JSON and plain text responses
+            let replyMessage = 'I received your message.';
+            try {
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('application/json')) {
+                    const data = await response.json();
+                    replyMessage = data.message || data.reply || replyMessage;
+                } else {
+                    // Handle plain text response
+                    const textResponse = await response.text();
+                    replyMessage = textResponse || replyMessage;
+                }
+            } catch (parseError) {
+                console.error('Error parsing response:', parseError);
+            }
 
             // Add assistant response to chat
             setChatMessages(prev => [...prev, {
