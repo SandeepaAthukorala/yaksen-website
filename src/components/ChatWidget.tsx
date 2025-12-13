@@ -1,35 +1,27 @@
 "use client";
 
-// AI Chatbot Widget - Dragon Aesthetic
-// Features: Dragon Eye Toggle, Shield Shape, Breathing Glow, Ember Particles
+// Glassmorphic AI Chatbot Widget
+// Features: Bold glass effects, fluid animations, glowing message bubbles
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Send, Shield, Database, Clock, X, MessageCircle, Mail } from 'lucide-react';
+import { Send, X, Mail } from 'lucide-react';
 import { useChatbot } from '@/hooks/useChatbot';
-import { DragonEye } from './icons/DragonEye';
 import { useLanguage } from '@/context/LanguageContext';
+import Image from 'next/image';
 
 const WEBHOOK_URL = 'http://185.215.166.12:5678/webhook-test/yaksen-website-chatbot';
 
 export default function ChatWidget() {
     const { language } = useLanguage();
     const {
-        messages,
         isVerified,
         isOpen,
-        isLoading,
-        error,
-        memory,
         verify,
-        sendMessage,
         toggleOpen,
-        clearError,
     } = useChatbot();
 
     const [input, setInput] = useState('');
-    const [showSources, setShowSources] = useState(false);
-    const [showMemory, setShowMemory] = useState(false);
 
     // Email collection state
     const [email, setEmail] = useState('');
@@ -41,7 +33,6 @@ export default function ChatWidget() {
     const [isSending, setIsSending] = useState(false);
 
     const messagesEndRef = useRef<HTMLDivElement>(null);
-    const [isHovered, setIsHovered] = useState(false);
 
     // Load email from localStorage on mount
     useEffect(() => {
@@ -55,7 +46,7 @@ export default function ChatWidget() {
     // Auto-scroll
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages]);
+    }, [chatMessages]);
 
     // Email validation function
     const validateEmail = (email: string): boolean => {
@@ -78,12 +69,9 @@ export default function ChatWidget() {
         }
 
         try {
-            // Send email to webhook with action: register
             const response = await fetch(WEBHOOK_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     action: 'register',
                     email: email,
@@ -97,7 +85,6 @@ export default function ChatWidget() {
                 throw new Error('Failed to submit email');
             }
 
-            // Get welcome message from webhook response (handle both JSON and plain text)
             let welcomeMessage = 'Welcome! How can I help you today!';
             try {
                 const contentType = response.headers.get('content-type');
@@ -105,7 +92,6 @@ export default function ChatWidget() {
                     const data = await response.json();
                     welcomeMessage = data.message || data.reply || welcomeMessage;
                 } else {
-                    // Handle plain text response
                     const textResponse = await response.text();
                     welcomeMessage = textResponse || welcomeMessage;
                 }
@@ -113,18 +99,15 @@ export default function ChatWidget() {
                 console.log('Using default welcome message');
             }
 
-            // Store email in localStorage
             localStorage.setItem('yaksen_chatbot_email', email);
             setEmailSubmitted(true);
 
-            // Add welcome message to chat
             setChatMessages([{
                 id: 'welcome_' + Date.now(),
                 role: 'assistant',
                 content: welcomeMessage
             }]);
 
-            // Auto-verify to skip verification screen
             await verify();
         } catch (error) {
             console.error('Email submission error:', error);
@@ -139,7 +122,6 @@ export default function ChatWidget() {
         const userMessage = input.trim();
         setInput('');
 
-        // Add user message to chat
         const userMsg = {
             id: 'user_' + Date.now(),
             role: 'user' as const,
@@ -149,12 +131,9 @@ export default function ChatWidget() {
         setIsSending(true);
 
         try {
-            // Send message to webhook with action: chatting
             const response = await fetch(WEBHOOK_URL, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     action: 'chatting',
                     email: email,
@@ -168,7 +147,6 @@ export default function ChatWidget() {
                 throw new Error('Failed to send message');
             }
 
-            // Handle both JSON and plain text responses
             let replyMessage = 'I received your message.';
             try {
                 const contentType = response.headers.get('content-type');
@@ -176,7 +154,6 @@ export default function ChatWidget() {
                     const data = await response.json();
                     replyMessage = data.message || data.reply || replyMessage;
                 } else {
-                    // Handle plain text response
                     const textResponse = await response.text();
                     replyMessage = textResponse || replyMessage;
                 }
@@ -184,7 +161,6 @@ export default function ChatWidget() {
                 console.error('Error parsing response:', parseError);
             }
 
-            // Add assistant response to chat
             setChatMessages(prev => [...prev, {
                 id: 'assistant_' + Date.now(),
                 role: 'assistant',
@@ -192,7 +168,6 @@ export default function ChatWidget() {
             }]);
         } catch (error) {
             console.error('Chat error:', error);
-            // Add error message
             setChatMessages(prev => [...prev, {
                 id: 'error_' + Date.now(),
                 role: 'assistant',
@@ -205,223 +180,278 @@ export default function ChatWidget() {
 
     return (
         <>
-            {/* Dragon Eye Toggle */}
-            <div className="fixed bottom-8 right-8 z-[60]">
+            {/* Animated GIF Toggle Button - Bottom Left */}
+            <div className="fixed bottom-8 left-8 z-[60]">
                 <motion.button
                     onClick={toggleOpen}
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-                    className="relative w-16 h-16 rounded-full flex items-center justify-center bg-black/80 backdrop-blur-sm border border-[#F14835]/30 shadow-lg overflow-hidden group hover:border-[#F14835] transition-colors"
-                    whileHover={{ scale: 1.1 }}
+                    className="relative w-16 h-16 rounded-full overflow-hidden shadow-lg group"
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    animate={{
+                        y: [0, -8, 0],
+                    }}
+                    transition={{
+                        y: {
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }
+                    }}
                 >
-                    <div className="absolute inset-0 bg-[#F14835]/10" />
-                    <div className="w-full h-full p-3 text-[#F14835]">
-                        {isOpen ? <X className="w-8 h-8" /> : <MessageCircle className="w-8 h-8" />}
-                    </div>
+                    {/* Glow ring on hover */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-[#F14835] to-[#F14835]/50 opacity-0 group-hover:opacity-100 blur-xl transition-opacity duration-300" />
+
+                    {isOpen ? (
+                        <div className="relative w-full h-full flex items-center justify-center bg-[#F14835] rounded-full">
+                            <X className="w-8 h-8 text-white" />
+                        </div>
+                    ) : (
+                        <Image
+                            src="https://res.cloudinary.com/das8wrfd1/image/upload/v1743822916/hi_j74hqj.gif"
+                            alt="Chat"
+                            width={64}
+                            height={64}
+                            className="w-full h-full object-cover"
+                            unoptimized
+                        />
+                    )}
                 </motion.button>
             </div>
 
-            {/* Shield Chat Window */}
+            {/* Glassmorphic Chat Window */}
             <AnimatePresence>
                 {isOpen && (
-
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                        transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                        className="fixed bottom-28 right-8 z-50 w-[380px] max-w-[calc(100vw-2rem)] h-[600px] max-h-[calc(100vh-8rem)] bg-[#0A0A0A] border border-[#F14835]/30 shadow-2xl flex flex-col overflow-hidden backdrop-blur-xl rounded-2xl"
+                        initial={{ opacity: 0, scale: 0.9, x: -20, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, x: -20, y: 20 }}
+                        transition={{
+                            type: "spring",
+                            damping: 20,
+                            stiffness: 200,
+                            opacity: { duration: 0.3 }
+                        }}
+                        className="fixed bottom-28 left-8 z-50 w-[420px] max-w-[calc(100vw-4rem)] h-[650px] max-h-[calc(100vh-10rem)] flex flex-col overflow-hidden rounded-3xl"
+                        style={{
+                            background: 'rgba(10, 10, 15, 0.55)',
+                            backdropFilter: 'blur(40px)',
+                            WebkitBackdropFilter: 'blur(40px)',
+                            border: '1px solid rgba(241, 72, 53, 0.15)',
+                            boxShadow: `
+                                0 8px 32px rgba(241, 72, 53, 0.15),
+                                0 20px 60px rgba(0, 0, 0, 0.3),
+                                inset 0 0 60px rgba(241, 72, 53, 0.05)
+                            `
+                        }}
                     >
-                        {/* Breathing Glow Border Effect */}
-                        <div className="absolute inset-0 pointer-events-none rounded-[inherit] border border-[#F14835]/20 animate-pulse" />
-
-                        {/* Header */}
-                        <div className="relative bg-gradient-to-b from-[#F14835]/10 to-transparent p-4 flex items-center justify-between border-b border-[#F14835]/10">
+                        {/* Header with gradient overlay */}
+                        <div className="relative p-5 flex items-center justify-between border-b border-white/5"
+                            style={{
+                                background: 'linear-gradient(180deg, rgba(241, 72, 53, 0.2) 0%, rgba(241, 72, 53, 0.1) 50%, transparent 100%)'
+                            }}
+                        >
                             <div className="flex items-center gap-3">
-                                <div className="p-2 bg-[#F14835]/10 rounded-lg border border-[#F14835]/20">
-                                    <Shield className="w-5 h-5 text-[#F14835]" />
+                                <div className="relative">
+                                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                                    <div className="absolute inset-0 w-2 h-2 bg-green-400 rounded-full animate-ping" />
                                 </div>
                                 <div>
-                                    <h3 className="text-white font-bold text-base tracking-wide">YAKSEN AI</h3>
-                                    <p className="text-[#F14835]/70 text-[10px] uppercase tracking-widest">System Online</p>
+                                    <h3 className="text-white font-bold text-lg tracking-wide">YAKSEN AI</h3>
+                                    <p className="text-[#F14835]/70 text-xs">Online</p>
                                 </div>
                             </div>
-                            <button onClick={toggleOpen} className="text-white/50 hover:text-white transition-colors p-1 hover:bg-white/5 rounded">
+                            <motion.button
+                                onClick={toggleOpen}
+                                className="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/5 rounded-lg"
+                                whileHover={{ rotate: 90 }}
+                                transition={{ duration: 0.2 }}
+                            >
                                 <X className="w-5 h-5" />
-                            </button>
+                            </motion.button>
                         </div>
 
                         {/* Content Area */}
                         {!emailSubmitted ? (
-                            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#F14835] blur-xl opacity-20 animate-pulse" />
-                                    <Mail className="w-20 h-20 text-[#F14835] relative z-10" />
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-bold text-white mb-2">Enter Your Email</h4>
-                                    <p className="text-gray-400 text-sm">Required to access Yaksen AI Assistant</p>
-                                </div>
-                                <form onSubmit={handleEmailSubmit} className="w-full space-y-4">
-                                    <div>
-                                        <input
-                                            type="email"
-                                            value={email}
-                                            onChange={(e) => setEmail(e.target.value)}
-                                            placeholder="your@email.com"
-                                            className="w-full bg-gray-900/50 border border-gray-800 text-white px-4 py-3 rounded-lg focus:outline-none focus:border-[#F14835]/50 focus:bg-gray-900 transition-all placeholder:text-gray-600 text-sm"
-                                        />
-                                        {emailError && (
-                                            <p className="text-red-400 text-xs mt-2 text-left">{emailError}</p>
-                                        )}
-                                    </div>
-                                    <button
-                                        type="submit"
-                                        className="w-full py-3 bg-[#F14835] text-white font-bold uppercase tracking-widest hover:bg-[#d63a28] transition-all rounded-lg text-sm"
+                            {/* Email Collection Screen */ }
+                            < div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
+                        <motion.div
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            transition={{ type: "spring", delay: 0.1 }}
+                            className="relative"
+                        >
+                            <div className="absolute inset-0 bg-[#F14835] blur-2xl opacity-30 animate-pulse" />
+                            <Mail className="w-20 h-20 text-[#F14835] relative z-10" />
+                        </motion.div>
+                        <div>
+                            <h4 className="text-2xl font-bold text-white mb-2">Get Started</h4>
+                            <p className="text-gray-300 text-sm">Enter your email to chat with Yaksen AI</p>
+                        </div>
+                        <form onSubmit={handleEmailSubmit} className="w-full space-y-4">
+                            <div>
+                                <input
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    placeholder="your@email.com"
+                                    className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
+                                    style={{
+                                        boxShadow: '0 0 20px rgba(241, 72, 53, 0.1)'
+                                    }}
+                                />
+                                {emailError && (
+                                    <motion.p
+                                        initial={{ opacity: 0, y: -10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        className="text-red-400 text-xs mt-2 text-left"
                                     >
-                                        Continue
-                                    </button>
-                                </form>
-                            </div>
-                        ) : !isVerified ? (
-                            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
-                                <div className="relative">
-                                    <div className="absolute inset-0 bg-[#F14835] blur-xl opacity-20 animate-pulse" />
-                                    <Shield className="w-20 h-20 text-[#F14835] relative z-10" />
-                                </div>
-                                <div>
-                                    <h4 className="text-xl font-bold text-white mb-2">Initializing...</h4>
-                                    <p className="text-gray-400 text-sm">Setting up your AI assistant</p>
-                                </div>
-                                <div className="flex gap-1.5">
-                                    <div className="w-2 h-2 bg-[#F14835] rounded-full animate-ping" />
-                                    <div className="w-2 h-2 bg-[#F14835] rounded-full animate-ping delay-100" />
-                                    <div className="w-2 h-2 bg-[#F14835] rounded-full animate-ping delay-200" />
-                                </div>
-                            </div>
-                        ) : (
-                            <>
-                                {/* Controls */}
-                                <div className="px-6 py-2 flex gap-2 border-b border-[#F14835]/10 bg-black/20">
-                                    <button
-                                        onClick={() => setShowSources(!showSources)}
-                                        className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs uppercase tracking-wider font-medium border transition-all ${showSources ? 'border-[#F14835] text-[#F14835] bg-[#F14835]/10' : 'border-gray-800 text-gray-500 hover:text-gray-300'
-                                            }`}
-                                    >
-                                        <Database className="w-3 h-3" /> Source
-                                    </button>
-                                    <button
-                                        onClick={() => setShowMemory(!showMemory)}
-                                        className={`flex items-center gap-1.5 px-3 py-1 rounded text-xs uppercase tracking-wider font-medium border transition-all ${showMemory ? 'border-[#F14835] text-[#F14835] bg-[#F14835]/10' : 'border-gray-800 text-gray-500 hover:text-gray-300'
-                                            }`}
-                                    >
-                                        <Clock className="w-3 h-3" /> Memory
-                                    </button>
-                                </div>
-
-                                {/* Memory Panel */}
-                                {showMemory && (
-                                    <div className="bg-black/50 border-b border-[#F14835]/10 p-4 max-h-32 overflow-y-auto">
-                                        {memory.length === 0 ? (
-                                            <p className="text-xs text-gray-600 italic">No memory data available.</p>
-                                        ) : (
-                                            memory.map((m, i) => (
-                                                <div key={i} className="mb-2 pb-2 border-b border-gray-800 last:border-0">
-                                                    <p className="text-xs text-gray-400">Q: {m.q}</p>
-                                                </div>
-                                            ))
-                                        )}
-                                    </div>
+                                        {emailError}
+                                    </motion.p>
                                 )}
-
-                                {/* Messages */}
-                                <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                                    {chatMessages.length === 0 && (
-                                        <div className="flex flex-col items-center justify-center h-full text-center opacity-30">
-                                            <DragonEye isOpen={true} />
-                                            <p className="mt-4 text-sm font-mono text-[#F14835]">Awaiting Input...</p>
-                                        </div>
-                                    )}
-
-                                    {chatMessages.map((msg) => (
-                                        <motion.div
-                                            key={msg.id}
-                                            initial={{ opacity: 0, y: 10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                                        >
-                                            <div className={`max-w-[85%] p-3 rounded-2xl ${msg.role === 'user'
-                                                ? 'bg-[#F14835] text-white rounded-br-none'
-                                                : 'bg-gray-800/80 text-gray-200 rounded-bl-none'
-                                                }`}>
-                                                <p className="text-sm leading-relaxed">{msg.content}</p>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-
-                                    {isSending && (
-                                        <div className="flex justify-start">
-                                            <div className="bg-gray-900 p-4 border border-[#F14835]/30">
-                                                <div className="flex gap-1.5">
-                                                    <div className="w-1.5 h-1.5 bg-[#F14835] rounded-full animate-ping" />
-                                                    <div className="w-1.5 h-1.5 bg-[#F14835] rounded-full animate-ping delay-100" />
-                                                    <div className="w-1.5 h-1.5 bg-[#F14835] rounded-full animate-ping delay-200" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )}
-                                    <div ref={messagesEndRef} />
-                                </div>
-
-                                {/* Error */}
-                                {error && (
-                                    <div className="p-2 bg-red-900/50 border-t border-red-500/30 flex justify-between items-center text-xs text-red-200">
-                                        <span>Error: {error}</span>
-                                        <button onClick={clearError}><X className="w-3 h-3" /></button>
-                                    </div>
-                                )}
-
-                                {/* Input Area */}
-                                <form onSubmit={handleSubmit} className="p-4 bg-black/40 border-t border-[#F14835]/10 pb-12">
-                                    <div className="relative flex items-center">
-                                        <input
-                                            value={input}
-                                            onChange={(e) => setInput(e.target.value)}
-                                            placeholder="Ask Yaksen AI..."
-                                            className="w-full bg-gray-900/50 border border-gray-800 text-white px-4 py-3 pr-12 rounded-lg focus:outline-none focus:border-[#F14835]/50 focus:bg-gray-900 transition-all placeholder:text-gray-600 text-sm"
-                                        />
-                                        <button
-                                            type="submit"
-                                            disabled={isSending || !input.trim()}
-                                            className="absolute right-2 p-2 text-[#F14835] hover:text-white transition-colors disabled:opacity-30"
-                                        >
-                                            <Send className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                </form>
-                            </>
+                            </div>
+                            <motion.button
+                                type="submit"
+                                className="w-full py-3 bg-[#F14835] text-white font-bold rounded-xl transition-all text-sm relative overflow-hidden group"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
+                                style={{
+                                    boxShadow: '0 0 30px rgba(241, 72, 53, 0.4)'
+                                }}
+                            >
+                                <span className="relative z-10">Continue</span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-[#F14835] to-[#ff6b5a] opacity-0 group-hover:opacity-100 transition-opacity" />
+                            </motion.button>
+                        </form>
+                    </div>
+                ) : !isVerified ? (
+                {/* Initializing Screen */}
+                <div className="flex-1 flex flex-col items-center justify-center p-8 text-center space-y-6">
+                    <div className="relative">
+                        <div className="absolute inset-0 bg-[#F14835] blur-2xl opacity-20 animate-pulse" />
+                        <div className="w-16 h-16 border-4 border-[#F14835]/30 border-t-[#F14835] rounded-full animate-spin relative" />
+                    </div>
+                    <div>
+                        <h4 className="text-xl font-bold text-white mb-2">Initializing...</h4>
+                        <p className="text-gray-400 text-sm">Setting up your AI assistant</p>
+                    </div>
+                </div>
+                ) : (
+                <>
+                    {/* Messages */}
+                    <div className="flex-1 overflow-y-auto p-6 space-y-4">
+                        {chatMessages.length === 0 && (
+                            <div className="flex flex-col items-center justify-center h-full text-center opacity-40">
+                                <p className="text-sm text-gray-400">Start a conversation...</p>
+                            </div>
                         )}
 
-                        {/* Decorative Bottom Glow */}
-                        <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#F14835] to-transparent opacity-50" />
-                    </motion.div>
-                )}
-            </AnimatePresence >
+                        {chatMessages.map((msg, index) => (
+                            <motion.div
+                                key={msg.id}
+                                initial={{
+                                    opacity: 0,
+                                    x: msg.role === 'user' ? 50 : -50,
+                                    y: 20
+                                }}
+                                animate={{
+                                    opacity: 1,
+                                    x: 0,
+                                    y: 0
+                                }}
+                                transition={{
+                                    type: "spring",
+                                    damping: 25,
+                                    stiffness: 200,
+                                    delay: index * 0.05
+                                }}
+                                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                            >
+                                <div
+                                    className={`max-w-[85%] px-4 py-3 rounded-2xl ${msg.role === 'user'
+                                            ? 'bg-[#F14835] text-white rounded-br-sm'
+                                            : 'bg-white/5 text-gray-100 border border-white/10 rounded-bl-sm backdrop-blur-xl'
+                                        }`}
+                                    style={msg.role === 'user' ? {
+                                        boxShadow: '0 0 20px rgba(241, 72, 53, 0.4), 0 4px 12px rgba(241, 72, 53, 0.2)'
+                                    } : {
+                                        boxShadow: '0 0 15px rgba(255, 255, 255, 0.1)'
+                                    }}
+                                >
+                                    <p className="text-sm leading-relaxed">{msg.content}</p>
+                                </div>
+                            </motion.div>
+                        ))}
 
-            <style jsx global>{`
-                @keyframes float-up {
-                    0% { transform: translateY(0); opacity: 0; }
-                    50% { opacity: 0.5; }
-                    100% { transform: translateY(-30px); opacity: 0; }
-                }
-                .animate-float-up {
-                    animation: float-up 3s ease-in-out infinite;
-                }
-                .animate-float-up-delayed {
-                    animation: float-up 4s ease-in-out infinite 1.5s;
-                }
-            `}</style>
+                        {isSending && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="flex justify-start"
+                            >
+                                <div className="bg-white/5 backdrop-blur-xl px-5 py-3 rounded-2xl rounded-bl-sm border border-white/10">
+                                    <div className="flex gap-1.5">
+                                        {[0, 1, 2].map((i) => (
+                                            <motion.div
+                                                key={i}
+                                                className="w-2 h-2 bg-[#F14835] rounded-full"
+                                                animate={{
+                                                    y: [-4, 4, -4],
+                                                    opacity: [1, 0.5, 1]
+                                                }}
+                                                transition={{
+                                                    duration: 1,
+                                                    repeat: Infinity,
+                                                    delay: i * 0.15
+                                                }}
+                                            />
+                                        ))}
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+                        <div ref={messagesEndRef} />
+                    </div>
+
+                    {/* Input Area */}
+                    <div
+                        className="p-4 border-t border-white/5"
+                        style={{
+                            background: 'rgba(5, 5, 10, 0.6)',
+                            backdropFilter: 'blur(20px)'
+                        }}
+                    >
+                        <form onSubmit={handleSubmit} className="relative flex items-center gap-2">
+                            <input
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Type your message..."
+                                className="flex-1 bg-white/5 border border-white/10 text-white px-4 py-3 rounded-xl focus:outline-none focus:border-[#F14835] focus:ring-2 focus:ring-[#F14835]/50 transition-all placeholder:text-gray-500 text-sm backdrop-blur-xl"
+                            />
+                            <motion.button
+                                type="submit"
+                                disabled={isSending || !input.trim()}
+                                className="p-3 bg-[#F14835] text-white rounded-xl disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden group"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                style={{
+                                    boxShadow: '0 0 20px rgba(241, 72, 53, 0.4)'
+                                }}
+                            >
+                                <Send className="w-5 h-5 relative z-10" />
+                                <motion.div
+                                    className="absolute inset-0 bg-white/20"
+                                    initial={{ scale: 0, opacity: 1 }}
+                                    whileTap={{ scale: 2, opacity: 0 }}
+                                    transition={{ duration: 0.5 }}
+                                />
+                            </motion.button>
+                        </form>
+                    </div>
+                </>
+                        )}
+            </motion.div>
+                )}
+        </AnimatePresence >
         </>
     );
 }
