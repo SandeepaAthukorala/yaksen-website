@@ -35,19 +35,20 @@ export default function Navbar() {
                 className="fixed top-6 left-0 right-0 z-50"
             >
                 <div
-                    className={`mx-auto transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] outline-none focus-visible:outline-none focus:outline-none ring-0 focus:ring-0 ${scrolled
+                    className={`mx-auto transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${scrolled
                         ? "max-w-[90%] md:max-w-[700px] h-16 rounded-full px-6"
                         : "container h-24 bg-transparent px-6"
                         }`}
                     style={{
                         willChange: scrolled ? 'auto' : 'max-width, height, border-radius',
-                        outline: 'none',
+                        outline: 'none !important',
+                        border: scrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none',
                         boxShadow: scrolled ? '0 8px 32px rgba(0, 0, 0, 0.4)' : 'none',
+                        WebkitTapHighlightColor: 'transparent',
                         ...(scrolled && {
                             background: 'rgba(10, 10, 15, 0.85)',
                             backdropFilter: 'blur(20px)',
-                            WebkitBackdropFilter: 'blur(20px)',
-                            border: '1px solid rgba(255, 255, 255, 0.1)'
+                            WebkitBackdropFilter: 'blur(20px)'
                         })
                     }}
                 >

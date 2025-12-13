@@ -74,7 +74,7 @@ export default function FeaturedWork() {
                             )}
 
                             {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-yaksen-black via-black/40 to-transparent opacity-90" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-yaksen-black via-black/60 to-transparent opacity-90" />
 
                             {/* Number Indicator */}
                             <div className="absolute top-8 left-8 text-9xl font-black text-white/[0.03] select-none">01</div>
@@ -137,7 +137,7 @@ export default function FeaturedWork() {
                                 )}
 
                                 {/* Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-yaksen-black via-black/20 to-transparent opacity-90" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-yaksen-black via-black/50 to-transparent opacity-90" />
 
                                 {/* Number Indicator */}
                                 <div className="absolute top-6 left-6 text-7xl font-black text-white/[0.03] select-none">
