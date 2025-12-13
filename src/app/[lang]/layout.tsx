@@ -94,7 +94,7 @@ export default async function RootLayout({
         <LanguageProvider initialLang={lang as 'en' | 'si'}>
           <Cursor />
           {children}
-          {/* <ChatWidget /> */}
+          <ChatWidget />
         </LanguageProvider>
       </body>
     </html>

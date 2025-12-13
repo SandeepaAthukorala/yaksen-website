@@ -14,15 +14,26 @@ export default function FeaturedWork() {
     const otherProjects = content.projects.slice(1);
 
     return (
-        <section className="py-20 px-6">
-            <div className="container mx-auto">
+        <section className="py-32 px-6 relative overflow-hidden">
+            {/* Background gradient */}
+            <div className="absolute inset-0 opacity-5 pointer-events-none bg-gradient-mesh" />
+
+            <div className="container mx-auto relative z-10">
                 {/* Header */}
-                <div className="mb-12">
-                    <h2 className="text-3xl md:text-5xl font-bold mb-4 font-sinhala">{content.title}</h2>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className="mb-16"
+                >
+                    <h2 className="text-display-2 font-bold mb-4 font-sinhala">
+                        <span className="text-gradient">{content.title}</span>
+                    </h2>
                     {content.subtitle && (
-                        <p className="text-yaksen-muted text-lg font-sinhala">{content.subtitle}</p>
+                        <p className="text-yaksen-muted text-xl font-sinhala max-w-2xl">{content.subtitle}</p>
                     )}
-                </div>
+                </motion.div>
 
                 {/* Featured Project - Full Width */}
                 {/* Featured Project - Full Width */}
