@@ -4,6 +4,91 @@
     "projects": [
         {
             "id": "1",
+            "slug": "ai-ads",
+            "title": "AI-Powered Advertising",
+            "subtitle": "Cinematic Ads That Convert",
+            "category": "AI Video Production",
+            "description": "Next-level advertising where AI efficiency meets human creativity. Delivering cinematic, high-converting ad content at unprecedented speed.",
+            "impact": "10x Faster Production",
+            "tech_stack": [
+                "AI Video Generation",
+                "Motion Graphics",
+                "Creative Direction"
+            ],
+            "challenge": "Traditional video production is expensive and time-consuming. Clients need high-quality ads fast without compromising creativity.",
+            "solution": "We harmonized AI-powered video generation with human creative direction. AI handles the heavy lifting while our team ensures emotional resonance and brand alignment.",
+            "result": "Delivering broadcast-quality ads in days instead of weeks. Our clients see higher engagement rates while spending 70% less on production costs.",
+            "coverImage": "https://img.youtube.com/vi/P2rqZDRoKG4/maxresdefault.jpg",
+            "color": "bg-red-900",
+            "featured": true,
+            "showcase_videos": [
+                "https://www.youtube.com/embed/P2rqZDRoKG4",
+                "https://www.youtube.com/embed/NO0cS4eh2YA",
+                "https://www.youtube.com/embed/jdy1iu31srM"
+            ]
+        },
+        {
+            "id": "2",
+            "slug": "web-development",
+            "title": "Lightning-Fast Websites",
+            "subtitle": "Code to Production in Record Time",
+            "category": "Web Development",
+            "description": "Enterprise-grade websites built with Next.js and AI integrations. From concept to live deployment faster than traditional development.",
+            "impact": "Sub-2s Load Times",
+            "tech_stack": [
+                "Next.js 14",
+                "AI Integration",
+                "Cloudflare CDN"
+            ],
+            "challenge": "Businesses need modern, fast websites that work flawlessly across devices. Traditional development takes months and costs a fortune.",
+            "solution": "We leverage Next.js for optimal performance and AI-assisted development for rapid iteration. Every site is SEO-optimized, mobile-first, and blazing fast.",
+            "result": "Launched yaksen.cloud, sanda.work, and westernjewellers.shop - all loading in under 2 seconds with perfect mobile scores.",
+            "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1734180936/Screenshot_2024-12-14_144149_sxpcfl.png",
+            "color": "bg-blue-900",
+            "featured": true,
+            "links": [
+                {
+                    "label": "Yaksen Cloud",
+                    "url": "https://www.yaksen.cloud"
+                },
+                {
+                    "label": "Sanda Work",
+                    "url": "https://sanda.work"
+                },
+                {
+                    "label": "Western Jewellers",
+                    "url": "https://westernjewellers.shop/"
+                }
+            ],
+            "showcase_images": [
+                "https://res.cloudinary.com/das8wrfd1/image/upload/v1734180936/Screenshot_2024-12-14_144149_sxpcfl.png"
+            ]
+        },
+        {
+            "id": "3",
+            "slug": "logo-design",
+            "title": "Unforgettable Branding",
+            "subtitle": "Logos That Stick in Memory",
+            "category": "Brand Identity",
+            "description": "Memorable logo designs that capture brand essence. Each mark is crafted to be instantly recognizable and timeless.",
+            "impact": "Brand Recognition",
+            "tech_stack": [
+                "AI Design Exploration",
+                "Vector Graphics",
+                "Brand Strategy"
+            ],
+            "challenge": "Creating logos that stand out in crowded markets while remaining simple and memorable.",
+            "solution": "We explore 100+ AI-generated variations, then refine the best concepts with human expertise. The result: logos that work at any size, in any context.",
+            "result": "Delivered iconic brand identities for 25+ businesses across Sri Lanka. Each logo tells a story and builds instant recognition.",
+            "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1734181305/logo-showcase_vqkmax.png",
+            "color": "bg-purple-900",
+            "featured": true,
+            "showcase_images": [
+                "https://res.cloudinary.com/das8wrfd1/image/upload/v1734181305/logo-showcase_vqkmax.png"
+            ]
+        },
+        {
+            "id": "4",
             "slug": "in-human",
             "title": "IN HUMAN <+>",
             "subtitle": "Music + AI Revolution",
@@ -37,10 +122,10 @@
             ]
         },
         {
-            "id": "2",
+            "id": "5",
             "slug": "yakira",
             "title": "Yakira",
-            "subtitle": "Sri Lanka’s First AI Fashion Model",
+            "subtitle": "Sri Lanka's First AI Fashion Model",
             "category": "AI-Driven Character Design",
             "description": "AI-generated virtual influencer showing Sri Lankan elegance and fashion.",
             "impact": "Digital Influencer Pioneer",
@@ -67,7 +152,7 @@
             ]
         },
         {
-            "id": "3",
+            "id": "6",
             "slug": "frulora",
             "title": "Frulora",
             "subtitle": "Global Branding for Local Food",
@@ -103,7 +188,7 @@
             ]
         },
         {
-            "id": "4",
+            "id": "7",
             "slug": "sakya",
             "title": "Sakya Route",
             "subtitle": "Operations Made Simple",

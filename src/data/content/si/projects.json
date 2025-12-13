@@ -1,22 +1,107 @@
 {
     "title": "සාර්ථක කතා",
-    "subtitle": "අපේ වැඩ බලන්න.",
+    "subtitle": "අපගේ වැඩ බලන්න.",
     "projects": [
         {
             "id": "1",
+            "slug": "ai-ads",
+            "title": "AI බලගතු ප්‍රචාරණ",
+            "subtitle": "පරිවර්තනය කරන සිනමානුරූපී දැන්වීම්",
+            "category": "AI වීඩියෝ නිෂ්පාදනය",
+            "description": "පළපුරුදු කාර්යක්ෂමතාවය මානව නිර්මාණශීලීත්වය සමඟ හමුවන තැන. පෙර නොවූ විරූ වේගයෙන් සිනමානුරූපී, ඉහළ පරිවර්තන දැන්වීම් අන්තර්ගතය ලබා දීම.",
+            "impact": "10x වේගවත් නිෂ්පාදනය",
+            "tech_stack": [
+                "AI වීඩියෝ ජනනය",
+                "චලන ග්‍රැෆික්ස්",
+                "නිර්මාණාත්මක මඟපෙන්වීම"
+            ],
+            "challenge": "සාම්ප්‍රදායික වීඩියෝ නිෂ්පාදනය මිල අධික සහ කාලය ගතවේ. ගනුදෙනුකරුවන්ට නිර්මාණාත්මකත්වය අඩු නොකර ඉක්මනින් උසස් තත්ත්වයේ දැන්වීම් අවශ්‍යයි.",
+            "solution": "අපි AI බලගතු වීඩියෝ ජනන මානව නිර්මාණාත්මක මඟපෙන්වීම සමඟ සමගාමී කළෙමු. AI බර වැඩ කරන අතර අපේ කණ්ඩායම හැඟීම්බර අනුනාදය සහ සන්නාම පෙළගැස්ම සහතික කරයි.",
+            "result": "සති ගණනකට වුවමනා වෙනුවට දින කිහිපයකින් විකාශන තත්ත්වයේ දැන්වීම් ලබා දීම. අපගේ ගනුදෙනුකරුවන් නිෂ්පාදන වියදම් 70% කින් අඩු කර ගනිමින් ඉහළ සම්බන්ධතා අනුපාත දකිති.",
+            "coverImage": "https://img.youtube.com/vi/P2rqZDRoKG4/maxresdefault.jpg",
+            "color": "bg-red-900",
+            "featured": true,
+            "showcase_videos": [
+                "https://www.youtube.com/embed/P2rqZDRoKG4",
+                "https://www.youtube.com/embed/NO0cS4eh2YA",
+                "https://www.youtube.com/embed/jdy1iu31srM"
+            ]
+        },
+        {
+            "id": "2",
+            "slug": "web-development",
+            "title": "අකුණු වේගයේ වෙබ් අඩවි",
+            "subtitle": "කේතයේ සිට නිෂ්පාදනය දක්වා වාර්තා කාලයේදී",
+            "category": "වෙබ් සංවර්ධනය",
+            "description": "Next.js සහ AI ඒකාබද්ධතා සමඟ ගොඩනගා ඇති ව්‍යවසාය මට්ටමේ වෙබ් අඩවි. සංකල්පයේ සිට සජීවී යෙදවීම දක්වා සාම්ප්‍රදායික සංවර්ධනයට වඩා වේගයෙන්.",
+            "impact": "තත්පර 2කට අඩු පටවන කාලය",
+            "tech_stack": [
+                "Next.js 14",
+                "AI ඒකාබද්ධකරණය",
+                "Cloudflare CDN"
+            ],
+            "challenge": "ව්‍යාපාරවලට උපාංග හරහා නිර්වින්දනව ක්‍රියා කරන නවීන, වේගවත් වෙබ් අඩවි අවශ්‍යයි. සාම්ප්‍රදායික සංවර්ධනයට මාස ගණනක් සහ විශාල මුදලක් වැය වේ.",
+            "solution": "අපි ප්‍රශස්ත කාර්යසාධනය සඳහා Next.js සහ වේගවත් පුනරාවර්තනය සඳහා AI-සහාය සංවර්ධනය භාවිතා කරමු. සෑම අඩවියක්ම SEO-ප්‍රශස්තකරණය, ජංගම-පළමු සහ කම්පන කරවන වේගයෙන් යුක්තයි.",
+            "result": "පරිපූර්ණ ජංගම ලකුණු සමඟ තත්පර 2ට අඩු කාලයක් තුළ yaksen.cloud, sanda.work, සහ westernjewellers.shop දියත් කළා.",
+            "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1734180936/Screenshot_2024-12-14_144149_sxpcfl.png",
+            "color": "bg-blue-900",
+            "featured": true,
+            "links": [
+                {
+                    "label": "Yaksen Cloud",
+                    "url": "https://www.yaksen.cloud"
+                },
+                {
+                    "label": "Sanda Work",
+                    "url": "https://sanda.work"
+                },
+                {
+                    "label": "Western Jewellers",
+                    "url": "https://westernjewellers.shop/"
+                }
+            ],
+            "showcase_images": [
+                "https://res.cloudinary.com/das8wrfd1/image/upload/v1734180936/Screenshot_2024-12-14_144149_sxpcfl.png"
+            ]
+        },
+        {
+            "id": "3",
+            "slug": "logo-design",
+            "title": "අමතක නොවන සන්නාම නිර්මාණය",
+            "subtitle": "මතකයේ රැඳෙන ලාංජනය",
+            "category": "සන්නාම අනන්‍යතාවය",
+            "description": "සන්නාම සාරය ග්‍රහණය කර ගන්නා අමතක නොවන ලාංජන නිර්මාණ. එක් එක් සලකුණ ක්ෂණිකව හඳුනාගත හැකි සහ කාලානුරූපී වන ලෙස නිර්මාණය කර ඇත.",
+            "impact": "සන්නාම හඳුනාගැනීම",
+            "tech_stack": [
+                "AI නිර්මාණ ගවේෂණය",
+                "දෛශික ග්‍රැෆික්ස්",
+                "සන්නාම උපායමාර්ගය"
+            ],
+            "challenge": "සරල සහ අමතක නොවන ලෙස පවතින අතරම තදබදය සහිත වෙළඳපොලවල කැපී පෙනෙන ලාංජන නිර්මාණය කිරීම.",
+            "solution": "අපි AI-ජනිත විචලනයන් 100+ක් ගවේෂණය කරමු, පසුව මානව විශේෂඥත්වයෙන් හොඳම සංකල්පයන් පිරිපහදු කරමු. ප්‍රතිඵලය: ඕනෑම ප්‍රමාණයකින්, ඕනෑම සන්දර්භයකදී ක්‍රියා කරන ලාංජන.",
+            "result": "ශ්‍රී ලංකාව පුරා ව්‍යාපාර 25+කට අනන්‍ය සන්නාම අනන්‍යතා ලබා දුන්නා. සෑම ලාංජනයක්ම කතන්දරයක් කියන අතර ක්ෂණික හඳුනාගැනීම ගොඩනඟයි.",
+            "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1734181305/logo-showcase_vqkmax.png",
+            "color": "bg-purple-900",
+            "featured": true,
+            "showcase_images": [
+                "https://res.cloudinary.com/das8wrfd1/image/upload/v1734181305/logo-showcase_vqkmax.png"
+            ]
+        },
+        {
+            "id": "4",
             "slug": "in-human",
             "title": "IN HUMAN <+>",
-            "subtitle": "Music + AI Revolution",
-            "category": "AI-Driven Content Creation",
-            "description": "Experimental music project pushing creative boundaries using AI-driven music composition.",
-            "impact": "New Genre Definition",
+            "subtitle": "සංගීතය + AI විප්ලවය",
+            "category": "AI-ධාවන අන්තර්ගත නිර්මාණය",
+            "description": "AI-ධාවන සංගීත රචනා භාවිතා කරමින් නිර්මාණාත්මක සීමාවන් තල්ලු කරන පරීක්ෂණාත්මක සංගීත ව්‍යාපෘතිය.",
+            "impact": "නව ප්‍රභේද නිර්වචනය",
             "tech_stack": [
-                "AI Audio",
-                "Generative Art"
+                "AI ශ්‍රව්‍ය",
+                "උත්පාදක කලාව"
             ],
-            "challenge": "Music Production කියන්නේ ලොකු වියදමක් යන වැඩක්. අපිට ඕන වුණා AI පාවිච්චි කරලා අලුත් සංගීත රැල්ලක් හදන්න.",
-            "solution": "Melody එකේ ඉඳන් Mastering වෙනකම් අපි AI Tools පාවිච්චි කළා. හැබැයි Emotion එක දුන්නේ අපි. මිනිස් හැඟීම් සහ AI Logic එකතු වුණ තැනක්.",
-            "result": "මේ Project එක හරහා අපි අලුත් Music Genre එකක් ගැන පර්යේෂණ කරනවා. YouTube සහ Spotify වල මේ වෙනකොට හොඳ ප්‍රතිචාර ලැබිලා තියෙනවා.",
+            "challenge": "සංගීත නිෂ්පාදනය මිල අධිකයි. අපට AI භාවිතයෙන් නව සංගීත රැල්ලක් නිර්මාණය කිරීමට අවශ්‍ය විය.",
+            "solution": "අපි Melody සිට Mastering දක්වා AI මෙවලම් භාවිතා කළෙමු. නමුත් හැඟීම අපේ. මානව හැඟීම් සහ AI තර්කනය හමු වූ ස්ථානයක්.",
+            "result": "මෙම ව්‍යාපෘතිය හරහා, අපි නව සංගීත ප්‍රභේදයක් පර්යේෂණය කරනවා. YouTube සහ Spotify හි හොඳ ප්‍රතිචාර ලැබී ඇත.",
             "coverImage": "https://res.cloudinary.com/das8wrfd1/image/upload/v1738145531/Banner_ivzrbi.png",
             "color": "bg-purple-900",
             "featured": true,
@@ -37,20 +122,20 @@
             ]
         },
         {
-            "id": "2",
+            "id": "5",
             "slug": "yakira",
-            "title": "Yakira",
-            "subtitle": "Sri Lanka’s First AI Fashion Model",
-            "category": "AI-Driven Character Design",
-            "description": "AI-generated virtual influencer showing Sri Lankan elegance and fashion.",
-            "impact": "Digital Influencer Pioneer",
+            "title": "යකිරා",
+            "subtitle": "ශ්‍රී ලංකාවේ පළමු AI විලාසිතා නිරූපිකාව",
+            "category": "AI-ධාවන චරිත නිර්මාණය",
+            "description": "ශ්‍රී ලාංකික අලංකාරය සහ විලාසිතාව පෙන්වන AI-ජනිත අතථ්‍ය බලපෑම්කරු.",
+            "impact": "ඩිජිටල් බලපෑම්කරු පුරෝගාමී",
             "tech_stack": [
-                "Character Design",
+                "චරිත නිර්මාණය",
                 "Stable Diffusion"
             ],
-            "challenge": "Influencer Marketing වලට යන ලොකු වියදම අඩු කරගන්න, හැබැයි ලංකාවේ පෙනුම තියෙන චරිතයක් නිර්මාණය කිරීම.",
-            "solution": "අපි 'Yakira' ව නිර්මාණය කළා. ඇය 100% ක් Digital වුණාට, පෙනුම සහ හැසිරීම හරියටම ලාංකිකයි. දැන් ඇඳුම් promote කරන්න Photoshoot ඕන නෑ.",
-            "result": "Yakira දැන් ලංකාවේ පළවෙනි AI Fashion Influencer විදියට වැඩ කරනවා. Brands වලට පුළුවන් එයා හරහා තමන්ගේ ඇඳුම් promote කරන්න, කිසිම Photoshoot වියදමක් නැතුව.",
+            "challenge": "බලපෑම්කරු අලෙවිකරණයේ ඉහළ පිරිවැය අඩු කරමින් ශ්‍රී ලාංකික පෙනුමක් සහිත චරිතයක් නිර්මාණය කිරීමට.",
+            "solution": "අපි 'යකිරා' නිර්මාණය කළෙමු. ඇය 100% ඩිජිටල් වුවත්, ඇයගේ පෙනුම සහ හැසිරීම සැබවින්ම ශ්‍රී ලාංකිකයි. දැන් ඇඳුම් ප්‍රචාරණය කිරීම සඳහා ඡායාරූප රූගත කිරීම් අවශ්‍ය නැත.",
+            "result": "යකිරා දැන් ශ්‍රී ලංකාවේ පළමු AI විලාසිතා බලපෑම්කරු ලෙස වැඩ කරයි. සන්නාම වලට ඡායාරූප රූගත කිරීම් වියදමකින් තොරව ඇය හරහා ඔවුන්ගේ ඇඳුම් ප්‍රචාරණය කළ හැකිය.",
             "coverImage": "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500331/freepik__yakira-woman-in-a-pastel-midi-skirt-with-soft-plea__15875_uogsmb.webp",
             "color": "bg-green-900",
             "featured": true,
@@ -67,20 +152,20 @@
             ]
         },
         {
-            "id": "3",
+            "id": "6",
             "slug": "frulora",
-            "title": "Frulora",
-            "subtitle": "Global Branding for Local Food",
-            "category": "AI-Driven Branding",
-            "description": "Premium dehydrated food brand built with AI-enhanced branding and design workflow.",
-            "impact": "Global Market Ready",
+            "title": "ෆෲලෝරා",
+            "subtitle": "දේශීය ආහාර සඳහා ගෝලීය සන්නාම නිර්මාණය",
+            "category": "AI-ධාවන සන්නාම නිර්මාණය",
+            "description": "AI-වර්ධිත සන්නාම නිර්මාණ සහ නිර්මාණ කාර්ය ප්‍රවාහය සමඟ ගොඩනගා ඇති වාරිජ ජලාපවහණය කළ ආහාර සන්නාමය.",
+            "impact": "ගෝලීය වෙළඳපොළ සූදානම්",
             "tech_stack": [
-                "AI Packaging",
-                "Brand Strategy"
+                "AI ඇසුරුම්කරණය",
+                "සන්නාම උපායමාර්ගය"
             ],
-            "challenge": "දේශීය Dehydrated කෑම වර්ග ජාත්‍යන්තර වෙළඳපොළට යවන්න පුළුවන් මට්ටමේ Premium පෙනුමක් ලබා දීම.",
-            "solution": "AI පාවිච්චි කරලා අපි Packaging Design 100+ හැදුවා. එතනින් හොඳම එක තෝරගෙන, Frulora එක World-Class Brand එකක් කළා.",
-            "result": "Frulora දැන් Export-ready brand එකක්. ඒගොල්ලන්ගේ Product line එක (Fruit Powders, Slices) දැන් ලෝක මට්ටමේ Brand එකක් වගේ පේනවා.",
+            "challenge": "ජාත්‍යන්තර වෙළඳපොළට ළඟා වීම සඳහා දේශීය ජලාපවහණය කළ ආහාරවලට වාරිජ පෙනුමක් ලබා දීමට.",
+            "solution": "AI භාවිතා කරමින්, අපි ඇසුරුම් නිර්මාණ 100+ ක් නිර්මාණය කළෙමු. අපි හොඳම එක තෝරාගෙන ෆෲලෝරා ලෝක මට්ටමේ සන්නාමයක් බවට පත් කළෙමු.",
+            "result": "ෆෲලෝරා දැන් අපනයන සූදානම් සන්නාමයකි. ඔවුන්ගේ නිෂ්පාදන පෙලගැස්ම (පලතුරු කුඩු, පෙති) දැන් ලෝක මට්ටමේ සන්නාමයක් ලෙස පෙනේ.",
             "coverImage": "https://res.cloudinary.com/dpc7doi10/image/upload/v1748500346/cover_art_sszyyr.jpg",
             "color": "bg-orange-800",
             "featured": true,
@@ -103,20 +188,20 @@
             ]
         },
         {
-            "id": "4",
+            "id": "7",
             "slug": "sakya",
             "title": "Sakya Route",
-            "subtitle": "Operations Made Simple",
-            "category": "Custom Software & Automation",
-            "description": "Software solution for scheduling, permissions, and real-time visitor check-ins.",
-            "impact": "Operational Efficiency",
+            "subtitle": "මෙහෙයුම් සරලව",
+            "category": "අනුකූලිත මෘදුකාංග සහ ස්වයංක්‍රීයකරණය",
+            "description": "කාලසටහන්, අවසර සහ තත්‍ය කාල අමුත්තන් පිරික්සුම් සඳහා මෘදුකාංග විසඳුම.",
+            "impact": "මෙහෙයුම් කාර්යක්ෂමතාව",
             "tech_stack": [
-                "App Development",
-                "GPS Tracking"
+                "යෙදුම් සංවර්ධනය",
+                "GPS ලුහුබැඳීම"
             ],
-            "challenge": "Field එකේ යන Sales කණ්ඩායම් සහ Visitors ලා කළමනාකරණය කිරීමේ අපහසුව.",
-            "solution": "අපි හැදුවා Smart App එකක්. කවුද එන්නේ, කීයටද එන්නේ, කොහෙද ඉන්නේ කියලා Real-time බලාගන්න පුළුවන්. ඉන්ධන සහ කාලය ඉතිරියි.",
-            "result": "දැනට ආයතන කිහිපයක් මේ System එක පාවිච්චි කරනවා. එයාලගේ Field Operations 100% ක් Digital වෙලා තියෙන්නේ. කාලය සහ ඉන්ධන වියදම් ලොකු ප්‍රමාණයකින් අඩු වුණා.",
+            "challenge": "ක්ෂේත්‍ර විකුණුම් කණ්ඩායම් සහ අමුත්තන් කළමනාකරණය කිරීමේ දුෂ්කරතාව.",
+            "solution": "අපි ස්මාර්ට් යෙදුමක් ගොඩනැගුවෙමු. කවුද එන්නේ, කුමන වේලාවේද, සහ ඔවුන් කොහෙද සිටින්නේ යන්න තත්‍ය කාලයේ බැලිය හැකිය. ඉන්ධන සහ කාලය ඉතිරි කරගන්න.",
+            "result": "සංවිධාන කිහිපයක් දැන් මෙම පද්ධතිය භාවිතා කරයි. ඔවුන්ගේ ක්ෂේත්‍ර මෙහෙයුම් 100% ඩිජිටල්. කාලය සහ ඉන්ධන වියදම් කැපී පෙනෙන ලෙස අඩු කර ඇත.",
             "coverImage": "https://res.cloudinary.com/dpc7doi10/image/upload/v1748964468/6188202942255974605_121_1_jenmny.webp",
             "color": "bg-blue-800",
             "featured": true,
