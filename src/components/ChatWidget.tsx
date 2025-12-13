@@ -8,8 +8,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Shield, Database, Clock, X, MessageCircle, Mail } from 'lucide-react';
 import { useChatbot } from '@/hooks/useChatbot';
 import { DragonEye } from './icons/DragonEye';
+import { useLanguage } from '@/context/LanguageContext';
+
+const WEBHOOK_URL = 'http://185.215.166.12:5678/webhook-test/yaksen-website-chatbot';
 
 export default function ChatWidget() {
+    const { language } = useLanguage();
     const {
         messages,
         isVerified,
@@ -31,6 +35,11 @@ export default function ChatWidget() {
     const [email, setEmail] = useState('');
     const [emailSubmitted, setEmailSubmitted] = useState(false);
     const [emailError, setEmailError] = useState('');
+
+    // Chat state for webhook-based messaging
+    const [chatMessages, setChatMessages] = useState<Array<{ id: string, role: 'user' | 'assistant', content: string }>>([]);
+    const [isSending, setIsSending] = useState(false);
+
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -69,14 +78,16 @@ export default function ChatWidget() {
         }
 
         try {
-            // Send email to webhook
-            const response = await fetch('http://185.215.166.12:5678/webhook-test/yaksen-website-chatbot', {
+            // Send email to webhook with action: register
+            const response = await fetch(WEBHOOK_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
+                    action: 'register',
                     email: email,
+                    language: language,
                     timestamp: new Date().toISOString(),
                     source: 'chatbot'
                 }),
@@ -86,9 +97,20 @@ export default function ChatWidget() {
                 throw new Error('Failed to submit email');
             }
 
+            // Get welcome message from webhook response
+            const data = await response.json();
+            const welcomeMessage = data.message || data.reply || 'Welcome! How can I help you today?';
+
             // Store email in localStorage
             localStorage.setItem('yaksen_chatbot_email', email);
             setEmailSubmitted(true);
+
+            // Add welcome message to chat
+            setChatMessages([{
+                id: 'welcome_' + Date.now(),
+                role: 'assistant',
+                content: welcomeMessage
+            }]);
 
             // Auto-verify to skip verification screen
             await verify();
@@ -100,9 +122,60 @@ export default function ChatWidget() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!input.trim() || isLoading) return;
-        await sendMessage(input);
+        if (!input.trim() || isSending) return;
+
+        const userMessage = input.trim();
         setInput('');
+
+        // Add user message to chat
+        const userMsg = {
+            id: 'user_' + Date.now(),
+            role: 'user' as const,
+            content: userMessage
+        };
+        setChatMessages(prev => [...prev, userMsg]);
+        setIsSending(true);
+
+        try {
+            // Send message to webhook with action: chatting
+            const response = await fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    action: 'chatting',
+                    email: email,
+                    message: userMessage,
+                    language: language,
+                    timestamp: new Date().toISOString()
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send message');
+            }
+
+            const data = await response.json();
+            const replyMessage = data.message || data.reply || 'I received your message.';
+
+            // Add assistant response to chat
+            setChatMessages(prev => [...prev, {
+                id: 'assistant_' + Date.now(),
+                role: 'assistant',
+                content: replyMessage
+            }]);
+        } catch (error) {
+            console.error('Chat error:', error);
+            // Add error message
+            setChatMessages(prev => [...prev, {
+                id: 'error_' + Date.now(),
+                role: 'assistant',
+                content: 'Sorry, I encountered an error. Please try again.'
+            }]);
+        } finally {
+            setIsSending(false);
+        }
     };
 
     return (
@@ -239,14 +312,14 @@ export default function ChatWidget() {
 
                                 {/* Messages */}
                                 <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                                    {messages.length === 0 && (
+                                    {chatMessages.length === 0 && (
                                         <div className="flex flex-col items-center justify-center h-full text-center opacity-30">
                                             <DragonEye isOpen={true} />
                                             <p className="mt-4 text-sm font-mono text-[#F14835]">Awaiting Input...</p>
                                         </div>
                                     )}
 
-                                    {messages.map((msg) => (
+                                    {chatMessages.map((msg) => (
                                         <motion.div
                                             key={msg.id}
                                             initial={{ opacity: 0, y: 10 }}
@@ -258,16 +331,11 @@ export default function ChatWidget() {
                                                 : 'bg-gray-800/80 text-gray-200 rounded-bl-none'
                                                 }`}>
                                                 <p className="text-sm leading-relaxed">{msg.content}</p>
-                                                {showSources && msg.sources && (
-                                                    <div className="mt-2 pt-2 border-t border-white/10 text-xs opacity-70">
-                                                        Sources: {msg.sources.join(', ')}
-                                                    </div>
-                                                )}
                                             </div>
                                         </motion.div>
                                     ))}
 
-                                    {isLoading && (
+                                    {isSending && (
                                         <div className="flex justify-start">
                                             <div className="bg-gray-900 p-4 border border-[#F14835]/30">
                                                 <div className="flex gap-1.5">
@@ -300,7 +368,7 @@ export default function ChatWidget() {
                                         />
                                         <button
                                             type="submit"
-                                            disabled={isLoading || !input.trim()}
+                                            disabled={isSending || !input.trim()}
                                             className="absolute right-2 p-2 text-[#F14835] hover:text-white transition-colors disabled:opacity-30"
                                         >
                                             <Send className="w-4 h-4" />
