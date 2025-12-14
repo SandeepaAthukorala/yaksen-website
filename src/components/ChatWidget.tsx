@@ -10,7 +10,7 @@ import { useChatbot } from '@/hooks/useChatbot';
 import { useLanguage } from '@/context/LanguageContext';
 import Image from 'next/image';
 
-const WEBHOOK_URL = 'http://185.215.166.12:5678/webhook/yaksen-website-chatbot';
+const WEBHOOK_URL = 'https://n8n.yaksen.cloud/webhook/yaksen-website-chatbot';
 
 // Localized text for chatbot UI
 const chatbotText = {
