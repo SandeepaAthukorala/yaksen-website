@@ -31,7 +31,7 @@ export default function FeaturedWork() {
     const remainingCount = allOtherProjects.length - INITIAL_OTHER_COUNT;
 
     return (
-        <section className="py-32 px-6 relative overflow-hidden">
+        <section className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden">
             {/* Background gradient */}
             <div className="absolute inset-0 opacity-5 pointer-events-none bg-gradient-mesh" />
 
@@ -48,7 +48,7 @@ export default function FeaturedWork() {
                         <span className="text-gradient">{content.title}</span>
                     </h2>
                     {content.subtitle && (
-                        <p className="text-yaksen-muted text-xl font-sinhala max-w-2xl">{content.subtitle}</p>
+                        <p className="text-yaksen-muted text-lg sm:text-xl font-sinhala max-w-2xl">{content.subtitle}</p>
                     )}
                 </motion.div>
 
@@ -60,7 +60,7 @@ export default function FeaturedWork() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                             viewport={{ once: true }}
-                            className="group relative h-[500px] md:h-[600px] rounded-3xl overflow-hidden cursor-pointer mb-8 border border-white/10 shadow-2xl transition-all duration-500 hover:shadow-yaksen-red/20"
+                            className="group relative h-[400px] sm:h-[500px] md:h-[600px] rounded-3xl overflow-hidden cursor-pointer mb-8 border border-white/10 shadow-2xl transition-all duration-500 hover:shadow-yaksen-red/20"
                         >
                             {/* Background Image */}
                             {featuredProject.coverImage ? (
@@ -77,20 +77,20 @@ export default function FeaturedWork() {
                             <div className="absolute inset-0 bg-gradient-to-t from-yaksen-black via-black/60 to-transparent opacity-90" />
 
                             {/* Number Indicator */}
-                            <div className="absolute top-8 left-8 text-9xl font-black text-white/[0.03] select-none">01</div>
+                            <div className="absolute top-6 sm:top-8 left-6 sm:left-8 text-7xl sm:text-9xl font-black text-white/[0.03] select-none">01</div>
 
                             {/* Arrow Icon */}
                             <div className="absolute top-8 right-8 w-14 h-14 glass-panel rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform group-hover:rotate-45">
                                 <ArrowUpRight className="w-6 h-6 text-white" />
                             </div>
 
-                            <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full">
+                            <div className="absolute bottom-0 left-0 p-6 sm:p-8 md:p-12 w-full">
                                 <span className="text-yaksen-red text-sm font-bold uppercase tracking-widest mb-3 block">
                                     {featuredProject.category}
                                 </span>
-                                <h3 className="text-4xl md:text-6xl font-bold mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300 font-sinhala tracking-tight">{featuredProject.title}</h3>
+                                <h3 className="text-3xl sm:text-4xl md:text-6xl font-bold mb-3 sm:mb-4 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all duration-300 font-sinhala tracking-tight">{featuredProject.title}</h3>
                                 {featuredProject.subtitle && (
-                                    <p className="text-xl text-white/80 mb-6 font-sinhala max-w-2xl leading-relaxed">{featuredProject.subtitle}</p>
+                                    <p className="text-base sm:text-lg md:text-xl text-white/80 mb-4 sm:mb-6 font-sinhala max-w-2xl leading-relaxed">{featuredProject.subtitle}</p>
                                 )}
 
                                 {featuredProject.impact && (
@@ -101,9 +101,9 @@ export default function FeaturedWork() {
                                 )}
 
                                 {featuredProject.tech_stack && (
-                                    <div className="flex flex-wrap gap-2 mt-2">
+                                    <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
                                         {featuredProject.tech_stack.map((tech: string, i: number) => (
-                                            <span key={i} className="px-4 py-1.5 text-xs font-semibold bg-white/5 backdrop-blur-md rounded-full text-white/70 border border-white/10 hover:bg-white/10 transition-colors">
+                                            <span key={i} className="px-3 sm:px-4 py-1 sm:py-1.5 text-[10px] sm:text-xs font-semibold bg-white/5 backdrop-blur-md rounded-full text-white/70 border border-white/10 hover:bg-white/10 transition-colors">
                                                 {tech}
                                             </span>
                                         ))}
@@ -115,7 +115,7 @@ export default function FeaturedWork() {
                 )}
 
                 {/* Other Projects - Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                     {displayedOtherProjects.map((project, index) => (
                         <Link href={`/${language}/work/${project.slug}`} key={project.id}>
                             <motion.div
@@ -123,7 +123,7 @@ export default function FeaturedWork() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="group relative h-[400px] rounded-3xl overflow-hidden cursor-pointer border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl"
+                                className="group relative h-[350px] sm:h-[400px] rounded-3xl overflow-hidden cursor-pointer border border-white/10 hover:border-white/20 transition-all duration-300 shadow-xl hover:shadow-2xl"
                             >
                                 {/* Background Image */}
                                 {project.coverImage ? (
@@ -149,11 +149,11 @@ export default function FeaturedWork() {
                                     <ArrowUpRight className="w-5 h-5 text-white" />
                                 </div>
 
-                                <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="absolute bottom-0 left-0 p-6 sm:p-8 w-full">
                                     <span className="text-yaksen-red text-xs font-bold uppercase tracking-widest mb-2 block">
                                         {project.category}
                                     </span>
-                                    <h3 className="text-3xl font-bold mb-2 group-hover:text-white transition-colors font-sinhala tracking-tight">{project.title}</h3>
+                                    <h3 className="text-2xl sm:text-3xl font-bold mb-2 group-hover:text-white transition-colors font-sinhala tracking-tight">{project.title}</h3>
                                     {project.subtitle && (
                                         <p className="text-sm text-white/70 line-clamp-2 mb-4 font-sinhala leading-relaxed">{project.subtitle}</p>
                                     )}
@@ -183,7 +183,7 @@ export default function FeaturedWork() {
                     >
                         <button
                             onClick={() => setShowAll(!showAll)}
-                            className="group relative px-8 py-4 bg-gradient-to-r from-yaksen-red to-yaksen-orange rounded-2xl text-white font-bold overflow-hidden hover:shadow-2xl hover:shadow-yaksen-red/50 transition-all duration-300 hover:scale-105"
+                            className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-yaksen-red to-yaksen-orange rounded-2xl text-white font-bold overflow-hidden hover:shadow-2xl hover:shadow-yaksen-red/50 transition-all duration-300 hover:scale-105 w-full max-w-md sm:w-auto"
                         >
                             {/* Animated background */}
                             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

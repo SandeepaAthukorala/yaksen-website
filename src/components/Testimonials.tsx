@@ -27,7 +27,7 @@ export default function Testimonials() {
     const content: TestimonialsData = require(`@/data/content/${language}/testimonials.json`);
 
     return (
-        <section className="py-32 px-6 relative overflow-hidden">
+        <section className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden">
             {/* Background gradient mesh */}
             <div className="absolute inset-0 opacity-5 pointer-events-none bg-gradient-mesh" />
 
@@ -43,13 +43,13 @@ export default function Testimonials() {
                     <h2 className="text-display-2 font-bold mb-4 font-sinhala">
                         <span className="text-gradient">{content.title}</span>
                     </h2>
-                    <p className="text-yaksen-muted text-xl font-sinhala max-w-2xl mx-auto">
+                    <p className="text-yaksen-muted text-lg sm:text-xl font-sinhala max-w-2xl mx-auto">
                         {content.subtitle}
                     </p>
                 </motion.div>
 
                 {/* Testimonials Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
                     {content.testimonials.map((testimonial, index) => (
                         <motion.div
                             key={testimonial.id}
@@ -60,7 +60,7 @@ export default function Testimonials() {
                             className="group relative"
                         >
                             {/* Card */}
-                            <div className="relative h-full p-8 glass-panel rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden">
+                            <div className="relative h-full p-6 sm:p-8 glass-panel rounded-3xl border border-white/10 hover:border-white/20 transition-all duration-500 overflow-hidden">
                                 {/* Gradient overlay on hover */}
                                 <div className="absolute inset-0 bg-gradient-to-br from-yaksen-red/5 to-yaksen-red/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl" />
 

@@ -36,8 +36,8 @@ export default function Navbar() {
             >
                 <div
                     className={`mx-auto transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${scrolled
-                        ? "max-w-[90%] md:max-w-[700px] h-16 rounded-full px-6"
-                        : "container h-24 bg-transparent px-6"
+                        ? "max-w-[95%] sm:max-w-[90%] md:max-w-[700px] h-14 sm:h-16 rounded-full px-4 sm:px-6"
+                        : "container h-20 sm:h-24 bg-transparent px-4 sm:px-6"
                         }`}
                     style={{
                         willChange: scrolled ? 'auto' : 'max-width, height, border-radius',
@@ -56,7 +56,7 @@ export default function Navbar() {
 
                         {/* Brand */}
                         <Link href="/" className="flex items-center gap-2 group relative z-50">
-                            <div className="relative w-8 h-8 md:w-10 md:h-10 overflow-hidden rounded-full border border-white/10 group-hover:border-yaksen-red/50 transition-colors">
+                            <div className="relative w-9 h-9 sm:w-10 sm:h-10 overflow-hidden rounded-full border border-white/10 group-hover:border-yaksen-red/50 transition-colors">
                                 <Image
                                     src="/logo.svg"
                                     alt="Yaksen"
@@ -129,7 +129,7 @@ export default function Navbar() {
                             {/* CTA Button */}
                             <Link
                                 href="#contact"
-                                className={`hidden md:flex items-center px-6 py-2 rounded-full text-sm font-bold transition-all btn-glow ${scrolled
+                                className={`hidden md:flex items-center px-5 sm:px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all btn-glow ${scrolled
                                     ? "bg-gradient-to-r from-yaksen-red to-[#ff7e5f] text-white shadow-lg shadow-yaksen-red/25"
                                     : "border border-yaksen-red/50 text-white hover:border-yaksen-red hover:bg-yaksen-red/10"
                                     }`}
@@ -139,8 +139,9 @@ export default function Navbar() {
 
                             {/* Mobile Toggle */}
                             <button
-                                className="md:hidden text-white p-2"
+                                className="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                                 onClick={() => setIsOpen(!isOpen)}
+                                aria-label="Toggle menu"
                             >
                                 <Menu className="w-6 h-6" />
                             </button>
@@ -165,29 +166,30 @@ export default function Navbar() {
                             <X className="w-8 h-8" />
                         </button>
 
-                        <div className="flex flex-col items-center gap-6 text-center">
+                        <div className="flex flex-col items-center gap-8 text-center px-6">
                             <Link
                                 href="https://blogs.yaksen.cloud"
                                 target="_blank"
-                                className="text-2xl font-medium text-white hover:text-yaksen-red transition-colors"
+                                onClick={() => setIsOpen(false)}
+                                className="text-2xl font-medium text-white hover:text-yaksen-red transition-colors min-h-[44px] flex items-center"
                             >
                                 {language === 'si' ? 'ව්‍යාපාරික දැනුම' : 'Business Knowledge'}
                             </Link>
 
-                            <hr className="w-12 border-white/10" />
+                            <hr className="w-16 border-white/10" />
 
                             <button
                                 onClick={toggleLanguage}
-                                className="flex items-center gap-2 text-xl text-gray-400 hover:text-white transition-colors"
+                                className="flex items-center gap-3 text-xl text-gray-400 hover:text-white transition-colors min-h-[44px] px-4"
                             >
-                                <Globe className="w-5 h-5" />
+                                <Globe className="w-6 h-6" />
                                 {language === 'si' ? 'English වලට මාරු වන්න' : 'Switch to Sinhala'}
                             </button>
 
                             <Link
                                 href="#contact"
                                 onClick={() => setIsOpen(false)}
-                                className="mt-8 px-8 py-4 bg-yaksen-red rounded-full text-xl font-bold text-white shadow-lg shadow-yaksen-red/20"
+                                className="mt-4 px-10 py-5 bg-yaksen-red rounded-full text-xl font-bold text-white shadow-lg shadow-yaksen-red/20 min-h-[56px] flex items-center justify-center"
                             >
                                 {language === 'si' ? 'කතා කරන්න' : "Let's Talk"}
                             </Link>

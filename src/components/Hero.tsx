@@ -13,7 +13,7 @@ export default function Hero() {
     const content = getHeroContent(language);
 
     return (
-        <section className="relative h-screen flex items-center justify-center overflow-hidden bg-yaksen-black">
+        <section className="relative min-h-screen h-screen flex items-center justify-center overflow-hidden bg-yaksen-black px-4 md:px-0">
             {/* Triangle Canvas Background */}
             <TriangleCanvas />
 
@@ -32,7 +32,7 @@ export default function Hero() {
             {/* Bottom Gradient */}
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-yaksen-black/90 pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10 text-center">
+            <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -44,10 +44,10 @@ export default function Hero() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass-panel mb-10 group hover:bg-white/10 transition-all duration-300 animate-border-glow"
+                        className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full glass-panel mb-6 sm:mb-10 group hover:bg-white/10 transition-all duration-300 animate-border-glow"
                     >
                         <div className="w-2 h-2 rounded-full bg-yaksen-red animate-glow-pulse" />
-                        <span className="text-sm text-gray-300 font-medium">Sri Lanka's #1 AI-First Studio</span>
+                        <span className="text-xs sm:text-sm text-gray-300 font-medium">Sri Lanka's #1 AI-First Studio</span>
                         <div className="w-2 h-2 rounded-full bg-yaksen-red animate-glow-pulse" />
                     </motion.div>
 
@@ -56,7 +56,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="text-display-1 font-bold text-white mb-8 leading-none font-sinhala"
+                        className="text-display-1 font-bold text-white mb-6 sm:mb-8 leading-none font-sinhala px-2"
                     >
                         {content.headline}
                     </motion.h1>
@@ -66,7 +66,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="text-xl md:text-2xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed font-sinhala"
+                        className="text-lg sm:text-xl md:text-2xl text-gray-400 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed font-sinhala px-4"
                     >
                         {content.description}
                     </motion.p>
@@ -76,11 +76,11 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="flex flex-col md:flex-row items-center justify-center gap-6"
+                        className="flex flex-col items-center justify-center gap-4 sm:gap-6 w-full px-4"
                     >
                         <button
                             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                            className="group relative px-10 py-5 bg-gradient-to-r from-yaksen-red to-yaksen-orange text-white text-lg font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-yaksen-red/50 hover:scale-105"
+                            className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-yaksen-red to-yaksen-orange text-white text-base sm:text-lg font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-yaksen-red/50 hover:scale-105 w-full max-w-xs sm:w-auto"
                         >
                             {/* Animated gradient overlay */}
                             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />

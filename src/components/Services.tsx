@@ -11,7 +11,7 @@ export default function Services() {
     const content = getServicesContent(language);
 
     return (
-        <section className="py-32 px-6 bg-yaksen-black relative overflow-hidden">
+        <section className="py-20 sm:py-32 px-4 sm:px-6 bg-yaksen-black relative overflow-hidden">
             {/* Background gradient mesh */}
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-gradient-mesh" />
 
@@ -27,11 +27,11 @@ export default function Services() {
                     <h2 className="text-display-2 font-bold mb-6 font-sinhala">
                         <span className="text-gradient">{content.title}</span>
                     </h2>
-                    <p className="text-yaksen-muted text-xl font-sinhala max-w-2xl mx-auto">{content.subtitle}</p>
+                    <p className="text-yaksen-muted text-lg sm:text-xl font-sinhala max-w-2xl mx-auto">{content.subtitle}</p>
                 </motion.div>
 
                 {/* Services Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {content.services.map((service, index) => {
                         const Icon = Icons[service.icon as keyof typeof Icons] as React.ComponentType<any>;
 
@@ -42,7 +42,7 @@ export default function Services() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="group p-8 rounded-3xl glass-panel-strong glass-panel-hover card-3d relative overflow-hidden"
+                                className="group p-6 sm:p-8 rounded-3xl glass-panel-strong glass-panel-hover card-3d relative overflow-hidden"
                             >
                                 {/* Background number */}
                                 <div className="absolute top-0 right-0 p-4 opacity-[0.02] font-black text-9xl text-white select-none transition-all duration-700 group-hover:scale-110 group-hover:opacity-[0.04]">
@@ -53,12 +53,12 @@ export default function Services() {
                                 <div className="absolute inset-0 bg-gradient-to-br from-yaksen-red/5 to-yaksen-red/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-3xl" />
 
                                 {/* Icon container with enhanced effects */}
-                                <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-br from-yaksen-red/20 to-yaksen-orange/20 border border-yaksen-red/20 text-yaksen-red flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 shadow-lg shadow-yaksen-red/10 animate-border-glow">
-                                    {Icon && <Icon className="w-8 h-8" />}
+                                <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-yaksen-red/20 to-yaksen-orange/20 border border-yaksen-red/20 text-yaksen-red flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-500 shadow-lg shadow-yaksen-red/10 animate-border-glow">
+                                    {Icon && <Icon className="w-7 h-7 sm:w-8 sm:h-8" />}
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-2xl font-bold mb-2 text-white font-sinhala tracking-tight group-hover:text-gradient transition-all duration-300">{service.title}</h3>
+                                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white font-sinhala tracking-tight group-hover:text-gradient transition-all duration-300">{service.title}</h3>
 
                                 {/* Subtitle */}
                                 <div className="text-xs text-yaksen-red font-bold mb-5 uppercase tracking-widest">{service.subtitle}</div>
