@@ -23,7 +23,6 @@ const nextConfig: NextConfig = {
 
   // Performance optimizations
   reactStrictMode: true,
-  swcMinify: true,
 
   // Compression
   compress: true,
