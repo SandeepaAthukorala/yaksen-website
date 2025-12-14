@@ -158,7 +158,7 @@ export default function ProjectPage() {
                                 transition={{ duration: 0.6 }}
                                 className="grid md:grid-cols-12 gap-8 items-start"
                             >
-                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red sticky top-32">{text.challenge}</h2>
+                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red">{text.challenge}</h2>
                                 <p className="md:col-span-8 text-xl md:text-2xl text-gray-300 leading-relaxed font-sinhala">
                                     {project.challenge}
                                 </p>
@@ -174,7 +174,7 @@ export default function ProjectPage() {
                                 transition={{ duration: 0.6 }}
                                 className="grid md:grid-cols-12 gap-8 items-start"
                             >
-                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red sticky top-32">{text.solution}</h2>
+                                <h2 className="md:col-span-4 text-3xl md:text-4xl font-bold text-yaksen-red">{text.solution}</h2>
                                 <p className="md:col-span-8 text-xl md:text-2xl text-gray-300 leading-relaxed font-sinhala">
                                     {project.solution}
                                 </p>
