@@ -4,6 +4,7 @@ import "../globals.css";
 import { LanguageProvider } from "@/context/LanguageContext";
 import GeoLanguageDetector from "@/components/GeoLanguageDetector";
 import Script from 'next/script';
+import CookieConsent from "@/components/CookieConsent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -84,6 +85,7 @@ export default async function RootLayout({
           strategy="lazyOnload"
           src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"
         />
+        <CookieConsent />
       </body>
     </html>
   );

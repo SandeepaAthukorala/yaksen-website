@@ -214,22 +214,47 @@ export default function ProjectPage() {
                                         <h3 className="text-2xl font-bold text-white mb-6">Live Website Previews</h3>
                                         <div className="grid gap-8">
                                             {project.showcase_websites.map((website, i) => (
-                                                <div key={i} className="rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl">
+                                                <a
+                                                    key={i}
+                                                    href={website}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block rounded-2xl overflow-hidden border border-white/10 bg-black/50 shadow-2xl hover:border-yaksen-red/50 transition-colors group cursor-pointer relative"
+                                                >
                                                     <div className="bg-white/5 px-4 py-2 border-b border-white/10 flex items-center gap-2">
                                                         <div className="flex gap-1.5">
                                                             <div className="w-3 h-3 rounded-full bg-red-500/50" />
                                                             <div className="w-3 h-3 rounded-full bg-yellow-500/50" />
                                                             <div className="w-3 h-3 rounded-full bg-green-500/50" />
                                                         </div>
-                                                        <span className="text-xs text-white/50 ml-2 font-mono">{website}</span>
+                                                        <span className="text-xs text-white/50 ml-2 font-mono flex-1 truncate">{website}</span>
+                                                        <a
+                                                            href={website}
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="p-1.5 hover:bg-white/10 rounded-lg transition-colors text-white/50 hover:text-white"
+                                                            title="Open in new tab"
+                                                        >
+                                                            <ArrowRight className="w-4 h-4 -rotate-45" />
+                                                        </a>
+                                                        <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity">
+                                                            <span className="text-xs font-bold text-yaksen-red uppercase tracking-wider flex items-center gap-1">
+                                                                Open Site <ArrowRight className="w-3 h-3" />
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                    <iframe
-                                                        src={website}
-                                                        className="w-full h-[600px]"
-                                                        title={`Website preview: ${website}`}
-                                                        loading="lazy"
-                                                    />
-                                                </div>
+                                                    <div className="relative">
+                                                        <iframe
+                                                            src={website}
+                                                            className="w-full h-[600px] pointer-events-none"
+                                                            title={`Website preview: ${website}`}
+                                                            loading="lazy"
+                                                            tabIndex={-1}
+                                                        />
+                                                        {/* Hover Overlay */}
+                                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 pointer-events-none" />
+                                                    </div>
+                                                </a>
                                             ))}
                                         </div>
                                     </div>
@@ -245,7 +270,7 @@ export default function ProjectPage() {
                                     {project.impact && (
                                         <div className="bg-white/5 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
                                             <div className="text-sm uppercase tracking-widest text-yaksen-muted mb-2">{text.impact}</div>
-                                            <div className="text-4xl md:text-6xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500">
+                                            <div className="text-3xl md:text-5xl font-bold text-white bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500 break-words hyphens-auto">
                                                 {project.impact}
                                             </div>
                                         </div>

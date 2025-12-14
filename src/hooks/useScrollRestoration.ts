@@ -11,29 +11,25 @@ export function useScrollRestoration() {
     const isRestored = useRef(false);
 
     useEffect(() => {
-        // Only run on the homepage
-        if (pathname === '/') {
-            const savedPosition = sessionStorage.getItem('homepage-scroll-position');
+        const storageKey = `scroll-position-${pathname}`;
+        const savedPosition = sessionStorage.getItem(storageKey);
 
-            if (savedPosition && !isRestored.current) {
-                // Small timeout to ensure content is rendered
-                setTimeout(() => {
-                    window.scrollTo({
-                        top: parseInt(savedPosition),
-                        behavior: 'instant'
-                    });
-                    isRestored.current = true;
-                }, 100);
-            }
+        if (savedPosition && !isRestored.current) {
+            // Small timeout to ensure content is rendered
+            setTimeout(() => {
+                window.scrollTo({
+                    top: parseInt(savedPosition),
+                    behavior: 'instant'
+                });
+                isRestored.current = true;
+            }, 100);
         }
     }, [pathname, searchParams]);
 
     useEffect(() => {
         const handleScroll = () => {
-            // Only save if we are on the homepage
-            if (window.location.pathname === '/') {
-                sessionStorage.setItem('homepage-scroll-position', window.scrollY.toString());
-            }
+            const storageKey = `scroll-position-${window.location.pathname}`;
+            sessionStorage.setItem(storageKey, window.scrollY.toString());
         };
 
         // Throttled save could be better, but native scroll event is fine for modern browsers
