@@ -53,6 +53,16 @@ const Footer = dynamic(() => import("@/components/Footer"), {
   ssr: true
 });
 
+const ChatWidget = dynamic(() => import("@/components/ChatWidget"), {
+  loading: () => null,
+  ssr: false
+});
+
+const Cursor = dynamic(() => import("@/components/Cursor"), {
+  loading: () => null,
+  ssr: false
+});
+
 function HomeContent() {
   useScrollRestoration();
 
@@ -70,6 +80,8 @@ function HomeContent() {
       <Contact />
       <Team />
       <Footer />
+      <ChatWidget />
+      <Cursor />
     </main>
   );
 }

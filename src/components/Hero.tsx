@@ -76,7 +76,7 @@ export default function Hero() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="flex flex-col items-center justify-center gap-4 sm:gap-6 w-full px-4"
+                        className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6"
                     >
                         <button
                             onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
