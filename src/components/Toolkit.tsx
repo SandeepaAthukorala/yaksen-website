@@ -25,6 +25,9 @@ export default function Toolkit() {
     const { language } = useLanguage();
     const content = getToolkitContent(language);
 
+    console.log('[TOOLKIT] Rendering with language:', language);
+    console.log('[TOOLKIT] Content loaded:', content);
+
     return (
         <section className="py-16 border-y border-white/5 bg-white/2 overflow-hidden">
             <div className="container mx-auto px-6 text-center">
@@ -72,9 +75,9 @@ export default function Toolkit() {
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
                     viewport={{ once: true }}
-                    className="mt-8 text-xs text-yaksen-muted font-sinhala"
+                    className={`mt-8 text-xs text-yaksen-muted ${language === 'si' ? 'font-sinhala' : ''}`}
                 >
-                    නවතම තාක්ෂණය භාවිතයෙන් ඔබේ ව්‍යාපාරය වේගවත් කරමු
+                    {content.bottom_text}
                 </motion.p>
             </div>
         </section>

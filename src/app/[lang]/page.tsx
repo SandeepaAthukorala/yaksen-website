@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Toolkit from "@/components/Toolkit";
 import { useScrollRestoration } from "@/hooks/useScrollRestoration";
 
 // Lazy load below-the-fold components with loading states
@@ -18,10 +19,11 @@ const Services = dynamic(() => import("@/components/Services"), {
   ssr: true
 });
 
-const Toolkit = dynamic(() => import("@/components/Toolkit"), {
-  loading: () => <div className="h-96" />,
-  ssr: true
-});
+// Temporarily using static import to debug rendering
+// const Toolkit = dynamic(() => import("@/components/Toolkit"), {
+//   loading: () => <div className="h-96" />,
+//   ssr: true
+// });
 
 const FeaturedWork = dynamic(() => import("@/components/FeaturedWork"), {
   loading: () => <div className="h-screen" />,

@@ -24,7 +24,8 @@ import frameworkEn from '../content/en/framework.json';
 import frameworkSi from '../content/si/framework.json';
 import contactEn from '../content/en/contact.json';
 import contactSi from '../content/si/contact.json';
-import toolkit from '../shared/toolkit.json';
+import toolkitEn from '../content/en/toolkit.json';
+import toolkitSi from '../content/si/toolkit.json';
 
 const content = {
     en: {
@@ -35,6 +36,7 @@ const content = {
         faq: faqEn,
         framework: frameworkEn,
         contact: contactEn,
+        toolkit: toolkitEn,
     },
     si: {
         hero: heroSi,
@@ -44,6 +46,7 @@ const content = {
         faq: faqSi,
         framework: frameworkSi,
         contact: contactSi,
+        toolkit: toolkitSi,
     },
 };
 
@@ -71,8 +74,8 @@ export function getFrameworkContent(lang: Language = 'si'): FrameworkContent {
     return content[lang].framework as unknown as FrameworkContent;
 }
 
-export function getToolkitContent(lang?: Language): ToolkitContent {
-    return toolkit as unknown as ToolkitContent;
+export function getToolkitContent(lang: Language = 'si'): ToolkitContent {
+    return content[lang].toolkit as unknown as ToolkitContent;
 }
 
 

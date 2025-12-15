@@ -165,6 +165,7 @@ export interface FrameworkContent {
 export interface ToolkitContent {
     label: string;
     tools: string[];
+    bottom_text: string;
 }
 
 // Blog Post (Markdown frontmatter)
