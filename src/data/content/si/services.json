@@ -9,7 +9,13 @@
             "pain_point": "Competition එක සමඟ ගැටෙනවද? ඔබේ Brand එක මතක නැද්ද?",
             "description": "Professional, මතක හිටින Brand Identity එකක් හදලා ඔයාව Competition එකෙන් වෙන් කරනවා.",
             "deliverables": "Logo Suite (10+ formats) · Brand Guidelines (30+ pages) · Social Media Kit",
-            "icon": "Palette"
+            "icon": "Palette",
+            "tech_stack": [
+                "Figma",
+                "Adobe Illustrator",
+                "Midjourney",
+                "Blender"
+            ]
         },
         {
             "id": "02",
