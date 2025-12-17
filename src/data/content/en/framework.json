@@ -6,40 +6,40 @@
             "id": "01",
             "title": "AUDIT",
             "subtitle": "Deep Analysis",
-            "pain_point": "What are the hidden flaws in your business?",
-            "description": "We deeply study your business, competitors, and market conditions to identify technical and marketing gaps, paving the way for success.",
+            "pain_point": "Guesswork is expensive. Data is clear.",
+            "description": "We don't guess. We use AI-driven market analysis to decode your competitors, identify gaps, and find the exact angle that will let you win.",
             "icon": "Search"
         },
         {
             "id": "02",
             "title": "ARCHITECT",
             "subtitle": "Strategic Design",
-            "pain_point": "Just a Logo? Or a Brand System?",
-            "description": "We create a unique Brand Identity and digital plan that wins customer trust and is specific to your business.",
+            "pain_point": "Design that converts, not just decorates.",
+            "description": "We engineer a scalable Visual Brand System that speaks directly to your customer's psychology and builds immediate trust.",
             "icon": "PenTool"
         },
         {
             "id": "03",
             "title": "ACTIVATE",
             "subtitle": "Technical Build",
-            "pain_point": "What happens to the business if the website is poor?",
-            "description": "Using world #1 technologies (Next.js), we build a Premium Website that works super fast on any device and ranks high on Google.",
+            "pain_point": "Performance is credibility.",
+            "description": "We deploy lightning-fast, SEO-optimized digital experiences using Next.js that rank high and turn visitors into leads.",
             "icon": "Rocket"
         },
         {
             "id": "04",
             "title": "AUTOMATE",
             "subtitle": "Efficiency",
-            "pain_point": "Still chasing customers the old way?",
-            "description": "We automate customer service 24/7 with AI Chatbots and CRM systems, saving your time and increasing sales by 3x.",
+            "pain_point": "Stop trading time for money.",
+            "description": "We integrate AI chatbots and CRM automations that nurture leads and close sales 24/7, even while you sleep.",
             "icon": "Bot"
         },
         {
             "id": "05",
             "title": "AMPLIFY",
             "subtitle": "Market Takeover",
-            "pain_point": "Built the business but no one knows?",
-            "description": "Through Data-Driven ads and Social Media Campaigns, we take your brand to the right customers and ensure results.",
+            "pain_point": "Dominance requires visibility.",
+            "description": "Launch with impact. We use data-backed campaigns to put your new brand in front of the people who matter most.",
             "icon": "Zap"
         }
     ]

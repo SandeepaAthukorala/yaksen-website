@@ -15,25 +15,19 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 import { useRouter, usePathname } from 'next/navigation';
 
 export function LanguageProvider({ children, initialLang }: { children: ReactNode; initialLang: Language }) {
-    const [language, setLanguageState] = useState<Language>(initialLang);
+    // Force English regardless of initialLang
+    const [language, setLanguageState] = useState<Language>('en');
     const router = useRouter();
     const pathname = usePathname();
 
     const setLanguage = (lang: Language) => {
-        setLanguageState(lang);
-        localStorage.setItem('yaksen-lang', lang);
-        // Mark as manually set to prevent geo-detection override
-        localStorage.setItem('yaksen_lang_manual', 'true');
-
-        // redirect to new locale
-        if (!pathname) return;
-        const newPath = pathname.replace(`/${language}`, `/${lang}`);
-        router.push(newPath);
+        // Disabled
+        console.log('Language switching disabled');
     };
 
     const toggleLanguage = () => {
-        const newLang = language === 'si' ? 'en' : 'si';
-        setLanguage(newLang);
+        // Disabled
+        console.log('Language switching disabled');
     };
 
     return (

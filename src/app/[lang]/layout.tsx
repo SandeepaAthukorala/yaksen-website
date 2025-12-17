@@ -5,6 +5,8 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import GeoLanguageDetector from "@/components/GeoLanguageDetector";
 import Script from 'next/script';
 import CookieConsent from "@/components/CookieConsent";
+import ScrollProgress from "@/components/ScrollProgress";
+import JsonLd from "@/components/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,6 +50,34 @@ export async function generateMetadata({
   return {
     title: titles[lang as keyof typeof titles] || titles.en,
     description: descriptions[lang as keyof typeof descriptions] || descriptions.en,
+    metadataBase: new URL('https://yaksen.cloud'),
+    alternates: {
+      canonical: `/${lang}`,
+      languages: {
+        'en': '/en',
+        'si': '/si',
+      },
+    },
+    openGraph: {
+      title: titles[lang as keyof typeof titles] || titles.en,
+      description: descriptions[lang as keyof typeof descriptions] || descriptions.en,
+      url: `https://yaksen.cloud/${lang}`,
+      siteName: 'Yaksen Creative Studio',
+      images: [{
+        url: '/og-image.webp',
+        width: 1200,
+        height: 630,
+      }],
+      locale: lang,
+      type: 'website',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: titles[lang as keyof typeof titles] || titles.en,
+      description: descriptions[lang as keyof typeof descriptions] || descriptions.en,
+      creator: '@yaksenstudio',
+      images: ['/og-image.webp'],
+    },
     icons: {
       icon: '/logo.svg',
     },
@@ -64,7 +94,7 @@ export default async function RootLayout({
   const lang = (await params).lang;
 
   return (
-    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} ${notoSansSinhala.variable}`}>
+    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} ${notoSansSinhala.variable}`} suppressHydrationWarning>
       <head>
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://res.cloudinary.com" />
@@ -76,6 +106,8 @@ export default async function RootLayout({
       </head>
       <body className="antialiased">
         <LanguageProvider initialLang={lang as "en" | "si"}>
+          <JsonLd />
+          <ScrollProgress />
           <GeoLanguageDetector />
           {children}
         </LanguageProvider>

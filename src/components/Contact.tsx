@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, ArrowRight, Sparkles, MessageCircle, Facebook, Linkedin } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ArrowRight, Sparkles, MessageCircle, Facebook, Linkedin, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { getContactContent } from "@/data/lib/content-loader";
 import { useLanguage } from "@/context/LanguageContext";
@@ -172,6 +172,7 @@ export default function Contact() {
                                             key={i}
                                             href={link.url}
                                             target="_blank"
+                                            aria-label={`Visit our ${link.platform} page`}
                                             className="w-14 h-14 glass-panel rounded-2xl flex items-center justify-center hover:border-yaksen-red/50 hover:bg-yaksen-red/10 hover:text-yaksen-red transition-all duration-300 hover:scale-110"
                                         >
                                             <IconComponent className="w-6 h-6" />
@@ -297,7 +298,15 @@ export default function Contact() {
                             className={`w-full py-4 sm:py-5 text-base sm:text-lg bg-gradient-to-r from-yaksen-red to-[#ff7e5f] text-white font-bold rounded-xl shadow-lg shadow-yaksen-red/20 hover:shadow-yaksen-red/40 transition-all flex items-center justify-center gap-2 btn-glow min-h-[56px] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                                 }`}
                         >
-                            {isSubmitting ? 'Sending...' : content.form_submit_button} <Send className="w-4 h-4" />
+                            {isSubmitting ? (
+                                <>
+                                    Sending... <Loader2 className="w-4 h-4 animate-spin" />
+                                </>
+                            ) : (
+                                <>
+                                    {content.form_submit_button} <Send className="w-4 h-4" />
+                                </>
+                            )}
                         </motion.button>
 
                         <p className="text-xs text-center text-yaksen-muted mt-4">

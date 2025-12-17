@@ -1,38 +1,38 @@
 {
     "title": "Who We Are",
     "subtitle": "Sri Lanka's #1 AI-First Creative Studio.",
-    "story": "We are a reformist agency that emerged to change the slow, high-cost processes of traditional agencies. Yaksen exists to prove that AI and human creativity are not competitors, but collaborators walking hand-in-hand toward success.",
-    "mission": "Our mission is crystal clear: To deliver world-class brand design, websites, and promotional services at a speed and cost previously impossible using AI, all according to **international standards**. We are bridging the gap between modern technology and the global marketplace.",
+    "story": "The old agency model is broken—too slow, too expensive, and disconnected from reality. Yaksen isn't just an agency; we are an AI-First creative system. We combine the raw speed of artificial intelligence with the emotional intelligence of world-class designers to give you an unfair market advantage.",
+    "mission": "Our mission is simple: To democratize global-standard branding. By leveraging AI, we bridge the gap between modern technology and the Sri Lankan marketplace, delivering premium work at a speed and cost that was previously impossible.",
     "stats": [
         {
             "value": "25+",
-            "label": "Brands Transformed"
+            "label": "Market Leaders Built"
         },
         {
             "value": "10x",
-            "label": "Faster Production Speed"
+            "label": "Faster Delivery"
         },
         {
             "value": "70%",
-            "label": "Cost Savings"
+            "label": "Budget Optimized"
         },
         {
             "value": "100%",
-            "label": "Foundation of Innovation"
+            "label": "AI-Native Workflow"
         }
     ],
     "values": [
         {
-            "title": "AI Speed + Human Insight",
-            "description": "We utilize AI for efficiency, and human intelligence for creating emotionally resonant and deeply meaningful designs. Every project is a blend of modern technology and creative expertise."
+            "title": "AI Speed + Human Soul",
+            "description": "We utilize AI for efficiency, but Human Intelligence for empathy. Every project is a blend of data-driven precision and emotionally resonant design."
         },
         {
-            "title": "Results Over Hours",
-            "description": "Our focus is not on the time spent, but on the tangible business results you achieve. Your success is our primary benchmark."
+            "title": "Impact Over Hours",
+            "description": "You pay for results, not clocks. We stripped away the billable-hour bloat to focus entirely on the tangible business growth we deliver for you."
         },
         {
-            "title": "Cutting-Edge Global Standards",
-            "description": "We use the **highest international standards** for the quality of our designs. Our goal is to elevate your business to a level where it can compete anywhere in the world."
+            "title": "Global Standard, Local Heart",
+            "description": "We don’t just compete locally; we benchmark against the world's best. Our goal is to elevate your business so it can stand tall in any market, anywhere."
         }
     ]
 }

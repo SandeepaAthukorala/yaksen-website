@@ -6,7 +6,12 @@ import { ArrowRight, Sparkles, ArrowDown } from "lucide-react";
 import Link from "next/link";
 import { getHeroContent } from "@/data/lib/content-loader";
 import { useLanguage } from "@/context/LanguageContext";
-import TriangleCanvas from "@/components/TriangleCanvas";
+import dynamic from "next/dynamic";
+
+const TriangleCanvas = dynamic(() => import("@/components/TriangleCanvas"), {
+    ssr: false,
+    loading: () => <div className="absolute inset-0 bg-yaksen-black" />
+});
 
 export default function Hero() {
     const { language } = useLanguage();

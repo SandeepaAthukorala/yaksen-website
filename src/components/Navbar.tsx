@@ -10,8 +10,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
-    const { language, setLanguage } = useLanguage();
-    const [showLangMenu, setShowLangMenu] = useState(false);
+    const { language } = useLanguage();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -21,10 +20,7 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const toggleLanguage = () => {
-        setLanguage(language === 'si' ? 'en' : 'si');
-        setShowLangMenu(false);
-    };
+
 
     return (
         <>
@@ -88,42 +84,11 @@ export default function Navbar() {
                                     : "text-white/70 hover:text-yaksen-red"
                                     }`}
                             >
-                                <span>{language === 'si' ? 'ව්‍යාපාරික දැනුම' : 'Business Knowledge'}</span>
+                                <span>Business Knowledge</span>
                                 <ArrowRight className="w-4 h-4" />
                             </Link>
 
-                            {/* Language Selector */}
-                            <div className="relative">
-                                <button
-                                    onClick={() => setShowLangMenu(!showLangMenu)}
-                                    className="p-2 text-white/70 hover:text-white hover:bg-white/5 rounded-full transition-colors"
-                                >
-                                    <Globe className="w-5 h-5" />
-                                </button>
-                                <AnimatePresence>
-                                    {showLangMenu && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                                            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                                            className="absolute top-full right-0 mt-2 rounded-xl p-2 w-32 glass-panel"
-                                        >
-                                            <button
-                                                onClick={() => { setLanguage('si'); setShowLangMenu(false); }}
-                                                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${language === 'si' ? 'bg-white/10 text-yaksen-red' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-                                            >
-                                                Sinhala
-                                            </button>
-                                            <button
-                                                onClick={() => { setLanguage('en'); setShowLangMenu(false); }}
-                                                className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${language === 'en' ? 'bg-white/10 text-yaksen-red' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
-                                            >
-                                                English
-                                            </button>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
+
 
                             {/* CTA Button */}
                             <Link
@@ -133,14 +98,15 @@ export default function Navbar() {
                                     : "border border-yaksen-red/50 text-white hover:border-yaksen-red hover:bg-yaksen-red/10"
                                     }`}
                             >
-                                {language === 'si' ? 'කතා කරන්න' : "Let's Talk"}
+                                Let's Talk
                             </Link>
 
                             {/* Mobile Toggle */}
                             <button
                                 className="md:hidden text-white p-2 hover:bg-white/5 rounded-lg transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
                                 onClick={() => setIsOpen(!isOpen)}
-                                aria-label="Toggle menu"
+                                aria-label={isOpen ? "Close menu" : "Open menu"}
+                                aria-expanded={isOpen}
                             >
                                 <Menu className="w-6 h-6" />
                             </button>
@@ -161,6 +127,7 @@ export default function Navbar() {
                         <button
                             onClick={() => setIsOpen(false)}
                             className="absolute top-6 right-6 text-white/50 hover:text-white"
+                            aria-label="Close menu"
                         >
                             <X className="w-8 h-8" />
                         </button>
@@ -172,25 +139,17 @@ export default function Navbar() {
                                 onClick={() => setIsOpen(false)}
                                 className="text-2xl font-medium text-white hover:text-yaksen-red transition-colors min-h-[44px] flex items-center"
                             >
-                                {language === 'si' ? 'ව්‍යාපාරික දැනුම' : 'Business Knowledge'}
+                                Business Knowledge
                             </Link>
 
-                            <hr className="w-16 border-white/10" />
 
-                            <button
-                                onClick={toggleLanguage}
-                                className="flex items-center gap-3 text-xl text-gray-400 hover:text-white transition-colors min-h-[44px] px-4"
-                            >
-                                <Globe className="w-6 h-6" />
-                                {language === 'si' ? 'English වලට මාරු වන්න' : 'Switch to Sinhala'}
-                            </button>
 
                             <Link
                                 href="#contact"
                                 onClick={() => setIsOpen(false)}
                                 className="mt-4 px-10 py-5 bg-yaksen-red rounded-full text-xl font-bold text-white shadow-lg shadow-yaksen-red/20 min-h-[56px] flex items-center justify-center"
                             >
-                                {language === 'si' ? 'කතා කරන්න' : "Let's Talk"}
+                                Let's Talk
                             </Link>
                         </div>
                     </motion.div>

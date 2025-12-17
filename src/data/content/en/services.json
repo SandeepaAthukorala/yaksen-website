@@ -5,70 +5,70 @@
         {
             "id": "01",
             "title": "Branding",
-            "subtitle": "Branding",
-            "pain_point": "Struggling with competition? Is your brand forgettable?",
-            "description": "We create professional, memorable Brand Identities that set you apart from the competition.",
-            "deliverables": "Logo Suite (10+ formats) · Brand Guidelines (30+ pages) · Social Media Kit",
+            "subtitle": "Identity & Strategy",
+            "pain_point": "Is your brand blending in with the noise?",
+            "description": "We engineer memorable Brand Identities that command attention. By generating hundreds of AI concepts and refining the top 1% with human mastery, we deliver a global-standard brand in a fraction of the time.",
+            "deliverables": "Logo Suite · Visual Design System · Brand Guidelines · Social Media Kit",
             "icon": "Palette",
             "process_steps": [
                 {
                     "step_number": "01",
-                    "title": "Discovery & AI Audit",
-                    "description": "We analyze your market position using AI-driven sentiment analysis to find gaps."
+                    "title": "AI Market Audit",
+                    "description": "We decode your competitors and market gaps using data-driven sentiment analysis."
                 },
                 {
                     "step_number": "02",
-                    "title": "Concept Generation",
-                    "description": "Using generative design, we explore hundreds of directions before refining the perfect one."
+                    "title": "Generative Exploration",
+                    "description": "Rapidly exploring 500+ conceptual directions to find the unique angle for you."
                 },
                 {
                     "step_number": "03",
-                    "title": "System Design",
-                    "description": "We don’t just make logos. We build a complete visual language including typography, color, and patterns."
+                    "title": "Human Refinement",
+                    "description": "Polishing the chosen direction with professional typography and color psychology."
                 },
                 {
                     "step_number": "04",
-                    "title": "Guidelines & Launch",
-                    "description": "You receive a comprehensive brand book ensuring consistency across every touchpoint."
+                    "title": "System Launch",
+                    "description": "Delivering a scalable brand book that ensures consistency across every touchpoint."
                 }
             ],
             "tech_stack": [
                 "Figma",
                 "Adobe Illustrator",
                 "Midjourney",
-                "Blender"
+                "Stable Diffusion"
             ],
             "case_studies": [
                 {
-                    "title": "Reimagining Fintech",
+                    "title": "Fintech Reimagined",
                     "client": "PayFast Solutions",
                     "image": "/images/work/branding-1.jpg",
-                    "result": "200% Increase in User Trust"
+                    "result": "200% Trust Increase"
                 },
                 {
-                    "title": "Eco-Friendly Packaging",
+                    "title": "Sustainable CPG",
                     "client": "GreenLeaf",
                     "image": "/images/work/branding-2.jpg",
-                    "result": "Featured in Packaging World"
+                    "result": "Global Feature"
                 }
             ]
         },
         {
             "id": "02",
             "title": "Web & Systems",
-            "subtitle": "Web & Systems",
-            "pain_point": "Losing customers due to a slow website? Not on Google?",
-            "description": "We build high-performance websites that load in 2 seconds, are SEO-ready, and drive sales.",
-            "deliverables": "Lightning-Fast Website (Next.js) · Google SEO Setup · Easy CMS",
+            "subtitle": "Digital Experience",
+            "pain_point": "Is your website losing you money?",
+            "description": "Your website is your best salesperson. We build flagship digital experiences that load instantly, rank natively, and convert traffic into revenue using modern tech stacks.",
+            "deliverables": "High-Performance Website (Next.js) · Technical SEO · CMS Integration",
             "icon": "Monitor"
         },
         {
             "id": "03",
-            "title": "Social Media & Ads",
-            "subtitle": "Social Media & Ads",
-            "pain_point": "Posting but no sales? Is no one watching?",
-            "description": "We make your brand viral and increase sales across all platforms including Facebook, Instagram, TikTok, LinkedIn, and YouTube.",
-            "deliverables": "Meta Ads (FB/Insta) · TikTok & YouTube Growth · LinkedIn B2B · Campaign Management",
+            "title": "Growth & Ads",
+            "subtitle": "Performance Marketing",
+            "pain_point": "Great product, but nobody knows?",
+            "description": "Dominance requires visibility. We execute data-driven content strategies and ad campaigns that put your brand in local feeds and global conversations.",
+            "deliverables": "Meta Ads (FB/Insta) · TikTok Growth · LinkedIn B2B · Campaign Strategy",
             "icon": "Video"
         }
     ]

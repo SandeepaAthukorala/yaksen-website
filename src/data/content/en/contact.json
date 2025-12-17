@@ -1,6 +1,6 @@
 {
-    "title": "Let's Get Started?",
-    "subtitle": "Don't delay. Join Yaksen today and turn your business into a Brand.",
+    "title": "Ready to Dominate Your Market?",
+    "subtitle": "We only work with founders who are serious about growth. If that's you, let's build your system.",
     "email": "hello@yaksen.com",
     "phone": "+94 77 699 3097",
     "address": "Kurunegala, Sri Lanka",
@@ -16,7 +16,7 @@
     ],
     "footer_privacy": "Privacy Policy",
     "footer_rights": "© 2025 Yaksen Studio. All Rights Reserved.",
-    "free_consultation_badge": "First Call is Free!",
+    "free_consultation_badge": "First Strategy Call is Free",
     "whatsapp_label": "WhatsApp (Quick Response)",
     "form_name_label": "Name",
     "form_name_placeholder": "Your Name",
@@ -31,7 +31,7 @@
     "form_service_marketing": "Marketing / Social Media (Growth)",
     "form_service_automation": "Make Work Easier (Automation)",
     "form_message_label": "Message",
-    "form_message_placeholder": "I need to create a website...",
-    "form_submit_button": "Send Message",
-    "form_footer_note": "We'll respond to you within 24 hours."
+    "form_message_placeholder": "I need to dominate my market...",
+    "form_submit_button": "Book Strategy Call",
+    "form_footer_note": "We'll review your application within 24 hours."
 }

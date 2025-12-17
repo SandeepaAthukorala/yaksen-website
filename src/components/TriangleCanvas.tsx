@@ -10,9 +10,9 @@ const MeshAnimator = ({ isMobile }: { isMobile: boolean }) => {
     const meshRef = useRef<THREE.Mesh>(null);
     const { mouse, clock } = useThree();
 
-    // Reduce resolution significantly on mobile
-    const cols = isMobile ? 20 : 50;
-    const rows = isMobile ? 12 : 30;
+    // Reduce resolution for better performance
+    const cols = isMobile ? 15 : 30; // Reduced from 20/50
+    const rows = isMobile ? 10 : 20; // Reduced from 12/30
     const count = (cols + 1) * (rows + 1);
     const GRID_WIDTH = 40;
     const GRID_HEIGHT = 20;
@@ -143,7 +143,8 @@ const MeshAnimator = ({ isMobile }: { isMobile: boolean }) => {
         }
 
         positionsAttribute.needsUpdate = true;
-        meshRef.current.geometry.computeVertexNormals();
+        positionsAttribute.needsUpdate = true;
+        // meshRef.current.geometry.computeVertexNormals(); // Heavy operation, disabled for performance
     });
 
     const { viewport } = useThree();
