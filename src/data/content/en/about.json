@@ -1,38 +1,38 @@
 {
-    "title": "Who We Are",
-    "subtitle": "Sri Lanka's #1 AI-First Creative Studio.",
-    "story": "The old agency model is broken—too slow, too expensive, and disconnected from reality. Yaksen isn't just an agency; we are an AI-First creative system. We combine the raw speed of artificial intelligence with the emotional intelligence of world-class designers to give you an unfair market advantage.",
-    "mission": "Our mission is simple: To democratize global-standard branding. By leveraging AI, we bridge the gap between modern technology and the Sri Lankan marketplace, delivering premium work at a speed and cost that was previously impossible.",
+    "title": "The Vision",
+    "subtitle": "The Digital Operating System for Modern Founders.",
+    "story": "The traditional agency model is obsolete. It trades your time for their billable hours, incentivizing slowness. Yaksen is the antidote. We are an intelligent creative system designed for velocity. We don't just build websites; we engineer digital ecosystems that give you an unfair market advantage.",
+    "mission": "Our mission is to arm ambitious founders with the elite digital infrastructure used by global giants. We bridge the gap between human creativity and machine intelligence, delivering world-class work at a speed that renders the competition irrelevant.",
     "stats": [
         {
             "value": "25+",
-            "label": "Market Leaders Built"
+            "label": "Systems Deployed"
         },
         {
             "value": "10x",
-            "label": "Faster Delivery"
+            "label": "Velocity Increase"
         },
         {
             "value": "70%",
-            "label": "Budget Optimized"
+            "label": "Capital Efficiency"
         },
         {
             "value": "100%",
-            "label": "AI-Native Workflow"
+            "label": "AI-Native Core"
         }
     ],
     "values": [
         {
-            "title": "AI Speed + Human Soul",
-            "description": "We utilize AI for efficiency, but Human Intelligence for empathy. Every project is a blend of data-driven precision and emotionally resonant design."
+            "title": "Silicon Speed. Human Soul.",
+            "description": "We utilize AI for brute-force efficiency, but Human Intelligence for strategy and empathy. The result is work that feels handcrafted but moves at machine speed."
         },
         {
-            "title": "Impact Over Hours",
-            "description": "You pay for results, not clocks. We stripped away the billable-hour bloat to focus entirely on the tangible business growth we deliver for you."
+            "title": "Outcome Over Output",
+            "description": "We don't sell hours. We sell velocity and impact. Our systems are designed to generate tangible business growth, not just fill timesheets."
         },
         {
-            "title": "Global Standard, Local Heart",
-            "description": "We don’t just compete locally; we benchmark against the world's best. Our goal is to elevate your business so it can stand tall in any market, anywhere."
+            "title": "World Class by Default",
+            "description": "We don't compete locally. We benchmark against the global elite. Your brand deserves to stand tall in any market, anywhere on Earth."
         }
     ]
 }

@@ -1,45 +1,45 @@
 {
-    "title": "The Yaksen Method",
-    "subtitle": "The 5A Process that turns your Business into a Brand System.",
+    "title": "The Blueprint",
+    "subtitle": "The 5-Step Protocol for Market Dominance.",
     "steps": [
         {
             "id": "01",
-            "title": "AUDIT",
-            "subtitle": "Deep Analysis",
-            "pain_point": "Guesswork is expensive. Data is clear.",
-            "description": "We don't guess. We use AI-driven market analysis to decode your competitors, identify gaps, and find the exact angle that will let you win.",
+            "title": "DIAGNOSE",
+            "subtitle": "Forensic Audit",
+            "pain_point": "Guesswork is expensive.",
+            "description": "We strip away the noise and audit your market position with forensic precision. We identify the exact gap where your competitors are weak and you can win.",
             "icon": "Search"
         },
         {
             "id": "02",
-            "title": "ARCHITECT",
-            "subtitle": "Strategic Design",
-            "pain_point": "Design that converts, not just decorates.",
-            "description": "We engineer a scalable Visual Brand System that speaks directly to your customer's psychology and builds immediate trust.",
+            "title": "STRATEGIZE",
+            "subtitle": "System Architecture",
+            "pain_point": "Design that doesn't convert is art, not business.",
+            "description": "We don't just design; we engineer a visual language that hacks the psychology of your customer to build immediate authority and trust.",
             "icon": "PenTool"
         },
         {
             "id": "03",
-            "title": "ACTIVATE",
-            "subtitle": "Technical Build",
+            "title": "CONSTRUCT",
+            "subtitle": "Infrastructure Build",
             "pain_point": "Performance is credibility.",
-            "description": "We deploy lightning-fast, SEO-optimized digital experiences using Next.js that rank high and turn visitors into leads.",
+            "description": "We deploy enterprise-grade digital infrastructure. Speed is a feature. We build systems that load instantly and rank natively to capture every lead.",
             "icon": "Rocket"
         },
         {
             "id": "04",
-            "title": "AUTOMATE",
-            "subtitle": "Efficiency",
+            "title": "SYSTEMIZE",
+            "subtitle": "Autonomous Growth",
             "pain_point": "Stop trading time for money.",
-            "description": "We integrate AI chatbots and CRM automations that nurture leads and close sales 24/7, even while you sleep.",
+            "description": "We build the machines that build your business. From CRM integrations to AI agents, we automate your operations so you can focus on strategy.",
             "icon": "Bot"
         },
         {
             "id": "05",
-            "title": "AMPLIFY",
-            "subtitle": "Market Takeover",
+            "title": "DOMINATE",
+            "subtitle": "Market Injection",
             "pain_point": "Dominance requires visibility.",
-            "description": "Launch with impact. We use data-backed campaigns to put your new brand in front of the people who matter most.",
+            "description": "We inject your brand directly into the bloodstream of your target market with data-backed content and ad campaigns that drive qualified traffic.",
             "icon": "Zap"
         }
     ]

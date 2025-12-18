@@ -115,7 +115,7 @@ export default async function RootLayout({
         {/* Load analytics and external scripts after page load */}
         <Script
           strategy="lazyOnload"
-          src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"
+          src="https://www.googletagmanager.com/gtag/js?id=G-placeholder"
         />
         <CookieConsent />
       </body>

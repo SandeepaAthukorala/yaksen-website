@@ -1,34 +1,34 @@
 {
-    "title": "Our Services",
-    "subtitle": "We do this to turn your Business into a Brand System.",
+    "title": "Capabilities",
+    "subtitle": "A complete suite of digital infrastructure.",
     "services": [
         {
             "id": "01",
-            "title": "Branding",
+            "title": "Brand Architecture",
             "subtitle": "Identity & Strategy",
-            "pain_point": "Is your brand blending in with the noise?",
-            "description": "We engineer memorable Brand Identities that command attention. By generating hundreds of AI concepts and refining the top 1% with human mastery, we deliver a global-standard brand in a fraction of the time.",
-            "deliverables": "Logo Suite · Visual Design System · Brand Guidelines · Social Media Kit",
+            "pain_point": "Does your brand command authority?",
+            "description": "We engineer authoritative Brand Systems that dominate markets. We skip the subjective guesswork and use data to forge an identity that is mathematically designed to convert.",
+            "deliverables": "Logo Systems · Visual Language · Brand Guidelines · Social Assets",
             "icon": "Palette",
             "process_steps": [
                 {
                     "step_number": "01",
-                    "title": "AI Market Audit",
+                    "title": "Market Audit",
                     "description": "We decode your competitors and market gaps using data-driven sentiment analysis."
                 },
                 {
                     "step_number": "02",
-                    "title": "Generative Exploration",
-                    "description": "Rapidly exploring 500+ conceptual directions to find the unique angle for you."
+                    "title": "Generative Strategy",
+                    "description": "Rapidly exploring 500+ strategic directions to find the unique angle for you."
                 },
                 {
                     "step_number": "03",
-                    "title": "Human Refinement",
-                    "description": "Polishing the chosen direction with professional typography and color psychology."
+                    "title": "Precision Design",
+                    "description": "Refining the chosen direction with professional typography and psychological triggers."
                 },
                 {
                     "step_number": "04",
-                    "title": "System Launch",
+                    "title": "System Deployment",
                     "description": "Delivering a scalable brand book that ensures consistency across every touchpoint."
                 }
             ],
@@ -55,18 +55,18 @@
         },
         {
             "id": "02",
-            "title": "Web & Systems",
-            "subtitle": "Digital Experience",
-            "pain_point": "Is your website losing you money?",
-            "description": "Your website is your best salesperson. We build flagship digital experiences that load instantly, rank natively, and convert traffic into revenue using modern tech stacks.",
-            "deliverables": "High-Performance Website (Next.js) · Technical SEO · CMS Integration",
+            "title": "Digital Ecosystems",
+            "subtitle": "Web & Systems",
+            "pain_point": "Is your digital presence a liability?",
+            "description": "Your website should be an asset, not a brochure. We build flagship digital experiences that load instantly, rank natively, and convert traffic into revenue using modern tech stacks.",
+            "deliverables": "High-Performance Next.js Sites · Technical SEO · Headless CMS",
             "icon": "Monitor"
         },
         {
             "id": "03",
-            "title": "Growth & Ads",
-            "subtitle": "Performance Marketing",
-            "pain_point": "Great product, but nobody knows?",
+            "title": "Market Expansion",
+            "subtitle": "Growth & Ads",
+            "pain_point": "Visibility is currency.",
             "description": "Dominance requires visibility. We execute data-driven content strategies and ad campaigns that put your brand in local feeds and global conversations.",
             "deliverables": "Meta Ads (FB/Insta) · TikTok Growth · LinkedIn B2B · Campaign Strategy",
             "icon": "Video"
