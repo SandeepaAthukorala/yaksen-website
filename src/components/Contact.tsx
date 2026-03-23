@@ -13,7 +13,9 @@ const socialIcons: Record<string, React.ComponentType<any>> = {
     LinkedIn: Linkedin,
 };
 
-// Contact form submissions go through our server-side API route
+// Submit directly to Web3Forms (access key is public by design)
+const WEB3FORMS_API = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = "6a9594e8-8053-42c4-9ee8-246b46e34ee1";
 
 export default function Contact() {
     const { language } = useLanguage();
@@ -64,12 +66,16 @@ export default function Contact() {
         setSubmitSuccess(false);
 
         try {
-            const response = await fetch("/api/contact", {
+            const response = await fetch(WEB3FORMS_API, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Accept": "application/json",
                 },
                 body: JSON.stringify({
+                    access_key: WEB3FORMS_KEY,
+                    subject: `New Contact from ${formData.name} - Yaksen Website`,
+                    from_name: "Yaksen Website",
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
@@ -81,8 +87,8 @@ export default function Contact() {
 
             const result = await response.json();
 
-            if (!response.ok || !result.success) {
-                throw new Error(result.error || "Failed to submit form");
+            if (!result.success) {
+                throw new Error(result.message || "Failed to submit form");
             }
 
             setSubmitSuccess(true);

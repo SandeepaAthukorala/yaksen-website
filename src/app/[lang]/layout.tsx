@@ -104,8 +104,16 @@ export default async function LangLayout({
       {/* Load analytics and external scripts after page load */}
       <Script
         strategy="lazyOnload"
-        src="https://www.googletagmanager.com/gtag/js?id=G-placeholder"
+        src="https://www.googletagmanager.com/gtag/js?id=G-L43304JC8E"
       />
+      <Script id="ga4-init" strategy="lazyOnload">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-L43304JC8E');
+        `}
+      </Script>
       <CookieConsent />
     </LanguageProvider>
   );
