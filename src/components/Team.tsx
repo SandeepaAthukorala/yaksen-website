@@ -42,7 +42,7 @@ const TeamMember = ({
         <div className="flex items-center gap-4 mb-4">
             {image ? (
                 <div className="w-16 h-16 rounded-xl overflow-hidden border-2 border-white/10 group-hover:border-yaksen-red/50 transition-all group-hover:scale-110 transform">
-                    <img src={image} alt={name} className="w-full h-full object-cover" />
+                    <img src={image} alt={`${name}, ${role} at Yaksen Creative Studio`} className="w-full h-full object-cover" />
                 </div>
             ) : (
                 <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-yaksen-red/20 to-transparent flex items-center justify-center group-hover:from-yaksen-red/30 transition-colors">
@@ -121,7 +121,7 @@ export default function Team() {
                     </motion.p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 w-full">
                     {content.members.map((member, index) => {
                         const Icon = Icons[member.icon as keyof typeof Icons] as React.ComponentType<any>;
                         return (

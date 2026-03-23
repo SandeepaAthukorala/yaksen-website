@@ -11,7 +11,7 @@ export default function Services() {
     const content = getServicesContent(language);
 
     return (
-        <section className="py-20 sm:py-32 px-4 sm:px-6 bg-yaksen-black relative overflow-hidden">
+        <section id="services" className="py-20 sm:py-32 px-4 sm:px-6 bg-yaksen-black relative overflow-hidden">
             {/* Background gradient mesh */}
             <div className="absolute inset-0 opacity-10 pointer-events-none bg-gradient-mesh" />
 

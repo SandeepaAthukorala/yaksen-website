@@ -54,7 +54,7 @@ export default function Navbar() {
                             <div className="relative w-9 h-9 sm:w-10 sm:h-10 overflow-hidden rounded-full border border-white/10 group-hover:border-yaksen-red/50 transition-colors">
                                 <Image
                                     src="/logo.svg"
-                                    alt="Yaksen"
+                                    alt="Yaksen Creative Studio - AI-First Digital Agency"
                                     fill
                                     className="object-cover"
                                 />
@@ -72,6 +72,23 @@ export default function Navbar() {
                                 )}
                             </AnimatePresence>
                         </Link>
+
+                        {/* Desktop Nav Links */}
+                        <div className="hidden md:flex items-center gap-6">
+                            {[
+                                { label: "Services", href: "#services" },
+                                { label: "Work", href: "#work" },
+                                { label: "FAQ", href: "#faq" },
+                            ].map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    className="text-sm text-white/70 hover:text-white transition-colors font-medium"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
+                        </div>
 
                         {/* Right Controls */}
                         <div className="flex items-center gap-4">
@@ -117,7 +134,22 @@ export default function Navbar() {
                             <X className="w-8 h-8" />
                         </button>
 
-                        <div className="flex flex-col items-center gap-8 text-center px-6">
+                        <div className="flex flex-col items-center gap-6 text-center px-6">
+                            {[
+                                { label: "Services", href: "#services" },
+                                { label: "Work", href: "#work" },
+                                { label: "FAQ", href: "#faq" },
+                                { label: "Contact", href: "#contact" },
+                            ].map((link) => (
+                                <Link
+                                    key={link.href}
+                                    href={link.href}
+                                    onClick={() => setIsOpen(false)}
+                                    className="text-2xl font-medium text-white/80 hover:text-white transition-colors min-h-[44px] flex items-center"
+                                >
+                                    {link.label}
+                                </Link>
+                            ))}
                             <Link
                                 href="#contact"
                                 onClick={() => setIsOpen(false)}

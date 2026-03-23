@@ -31,7 +31,7 @@ export default function FeaturedWork() {
     const remainingCount = allOtherProjects.length - INITIAL_OTHER_COUNT;
 
     return (
-        <section className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden">
+        <section id="work" className="py-20 sm:py-32 px-4 sm:px-6 relative overflow-hidden">
             {/* Background gradient */}
             <div className="absolute inset-0 opacity-5 pointer-events-none bg-gradient-mesh" />
 

@@ -84,7 +84,7 @@ export default function Hero() {
                         className="flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-6"
                     >
                         <button
-                            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                             className="group relative px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-yaksen-red to-yaksen-orange text-white text-base sm:text-lg font-bold rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-yaksen-red/50 hover:scale-105 w-full max-w-xs sm:w-auto"
                         >
                             {/* Animated gradient overlay */}

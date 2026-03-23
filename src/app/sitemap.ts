@@ -4,7 +4,8 @@ import { getAllServices } from '@/data/lib/content-loader';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://yaksen.cloud';
     const currentDate = new Date().toISOString();
-    const langs = ['en', 'si'];
+    // Only include locales that are enabled in middleware
+    const langs = ['en'];
 
     const staticRoutes = [
         '',

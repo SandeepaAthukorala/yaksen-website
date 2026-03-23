@@ -39,6 +39,15 @@
         },
         {
             "id": "3",
+            "name": "Isuru Ekanayake",
+            "role": "Social Media Strategist",
+            "description": "The creative pulse behind our social presence — turning brands into scroll-stopping stories that spark engagement and drive real growth.",
+            "icon": "Megaphone",
+            "image": "/isuru.jpg",
+            "social_links": []
+        },
+        {
+            "id": "4",
             "name": "Daham Gimhana",
             "role": "Tech Lead",
             "description": "The lead directing our technical infrastructure to provide unmatched security and a stable experience.",

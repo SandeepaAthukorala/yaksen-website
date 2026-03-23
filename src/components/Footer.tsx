@@ -26,13 +26,14 @@ export default function Footer() {
 
                 <div className="flex flex-wrap justify-center gap-3 sm:gap-4 text-xs text-yaksen-muted items-center">
                     <p>{contact.footer_rights}</p>
-                    <Link href="/privacy" className="hover:text-white transition-colors">{contact.footer_privacy}</Link>
+                    <Link href={`/${language}/privacy`} className="hover:text-white transition-colors">{contact.footer_privacy}</Link>
                     <span className="hidden md:inline text-white/10">|</span>
                     {contact.social_links.map((link, i) => (
                         <Link
                             key={i}
                             href={link.url}
                             target="_blank"
+                            rel="noopener noreferrer"
                             className="hover:text-white transition-colors"
                         >
                             {link.platform}
@@ -42,7 +43,7 @@ export default function Footer() {
 
                 {/* Copyright */}
                 <p className="text-xs text-gray-500 pt-4">
-                    © 2025 Yaksen. All Rights Reserved.
+                    © {new Date().getFullYear()} Yaksen. All Rights Reserved.
                 </p>
             </div>
         </footer>

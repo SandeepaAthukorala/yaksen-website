@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, ArrowRight, Sparkles, MessageCircle, Facebook, Linkedin, Loader2, PhoneCall } from "lucide-react";
+import { Mail, Send, ArrowRight, Sparkles, MessageCircle, Facebook, Linkedin, Loader2, PhoneCall } from "lucide-react";
 import Link from "next/link";
 import { getContactContent } from "@/data/lib/content-loader";
 import { useLanguage } from "@/context/LanguageContext";
@@ -13,9 +13,7 @@ const socialIcons: Record<string, React.ComponentType<any>> = {
     LinkedIn: Linkedin,
 };
 
-// Web3Forms API
-const WEB3FORMS_API = "https://api.web3forms.com/submit";
-const WEB3FORMS_KEY = "6a9594e8-8053-42c4-9ee8-246b46e34ee1";
+// Contact form submissions go through our server-side API route
 
 export default function Contact() {
     const { language } = useLanguage();
@@ -27,7 +25,6 @@ export default function Contact() {
         email: "",
         phone: "",
         business: "",
-        service: "",
         message: ""
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -67,21 +64,16 @@ export default function Contact() {
         setSubmitSuccess(false);
 
         try {
-            const response = await fetch(WEB3FORMS_API, {
+            const response = await fetch("/api/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Accept": "application/json",
                 },
                 body: JSON.stringify({
-                    access_key: WEB3FORMS_KEY,
-                    subject: `New Contact from ${formData.name} - Yaksen Website`,
-                    from_name: "Yaksen Website",
                     name: formData.name,
                     email: formData.email,
                     phone: formData.phone,
                     business: formData.business,
-                    service: formData.service,
                     message: formData.message,
                     language: language,
                 }),
@@ -89,8 +81,8 @@ export default function Contact() {
 
             const result = await response.json();
 
-            if (!result.success) {
-                throw new Error(result.message || "Failed to submit form");
+            if (!response.ok || !result.success) {
+                throw new Error(result.error || "Failed to submit form");
             }
 
             setSubmitSuccess(true);
@@ -99,7 +91,6 @@ export default function Contact() {
                 email: "",
                 phone: "",
                 business: "",
-                service: "",
                 message: ""
             });
 
@@ -301,27 +292,6 @@ export default function Contact() {
                                     className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
                                     placeholder={content.form_business_placeholder}
                                 />
-                            </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-sm font-semibold text-white/80 ml-1">{content.form_service_label}</label>
-                            <div className="relative">
-                                <select
-                                    name="service"
-                                    value={formData.service}
-                                    onChange={handleInputChange}
-                                    className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all text-white appearance-none cursor-pointer"
-                                >
-                                    <option value="" className="bg-yaksen-black">{content.form_service_placeholder}</option>
-                                    <option className="bg-yaksen-black">{content.form_service_branding}</option>
-                                    <option className="bg-yaksen-black">{content.form_service_web}</option>
-                                    <option className="bg-yaksen-black">{content.form_service_marketing}</option>
-                                    <option className="bg-yaksen-black">{content.form_service_automation}</option>
-                                </select>
-                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-white/50">
-                                    <ArrowRight className="w-4 h-4 rotate-90" />
-                                </div>
                             </div>
                         </div>
 

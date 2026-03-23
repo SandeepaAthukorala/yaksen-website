@@ -1,4 +1,5 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { getServiceBySlug, getAllServices } from '@/data/lib/content-loader';
 import { ServiceCaseStudy } from '@/data/types/content';
@@ -9,6 +10,51 @@ import Link from 'next/link';
 import ServiceHero from '@/components/services/ServiceHero';
 import ProcessTimeline from '@/components/services/ProcessTimeline';
 import TechStackMarquee from '@/components/services/TechStackMarquee';
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ lang: string; slug: string }>;
+}): Promise<Metadata> {
+    const { lang, slug } = await params;
+
+    const enServices = getAllServices('en');
+    const targetService = enServices.find(s => {
+        const sSlug = s.title.toLowerCase().replace(/ & /g, '-and-').replace(/ /g, '-');
+        return sSlug === slug;
+    });
+
+    if (!targetService) return {};
+
+    const localizedServices = getAllServices(lang as 'en' | 'si');
+    const service = localizedServices.find(s => s.id === targetService.id);
+
+    if (!service) return {};
+
+    const title = `${service.title} Services | Yaksen - Sri Lanka's AI-First Agency`;
+    const description = service.description.slice(0, 160);
+
+    return {
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            url: `https://yaksen.cloud/${lang}/services/${slug}`,
+            siteName: 'Yaksen Creative Studio',
+            locale: lang,
+            type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title,
+            description,
+        },
+        alternates: {
+            canonical: `/${lang}/services/${slug}`,
+        },
+    };
+}
 
 export async function generateStaticParams() {
     const langs = ['en', 'si'] as const;
@@ -57,8 +103,8 @@ export default async function ServicePage({ params }: { params: { lang: string; 
         description: service.description,
         provider: {
             '@type': 'Organization',
-            name: 'Yaksen Solutions',
-            url: 'https://yaksen.com'
+            name: 'Yaksen Creative Studio',
+            url: 'https://yaksen.cloud'
         },
         areaServed: 'LK',
         hasOfferCatalog: {
@@ -123,7 +169,7 @@ export default async function ServicePage({ params }: { params: { lang: string; 
                                 }
                             </ul>
                             <Link
-                                href={`/${lang}/start-project?service=${slug}`}
+                                href={`/${lang}#contact`}
                                 className="block w-full py-4 mt-8 bg-yaksen-red text-center font-bold rounded-xl hover:bg-red-600 transition-colors"
                             >
                                 Start This Project

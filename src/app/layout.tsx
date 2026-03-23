@@ -20,7 +20,37 @@ const notoSansSinhala = Noto_Sans_Sinhala({
 
 export const metadata: Metadata = {
     title: "Yaksen",
-    description: "Yaksen Creative Studio",
+    description: "Yaksen Creative Studio - Crafting digital experiences with a touch of art and technology.",
+    metadataBase: new URL("https://yaksen.com"), // Placeholder, adjust if needed
+    alternates: {
+        canonical: "/",
+    },
+    openGraph: {
+        title: "Yaksen",
+        description: "Yaksen Creative Studio - Crafting digital experiences with a touch of art and technology.",
+        url: "https://yaksen.com",
+        siteName: "Yaksen",
+        images: [
+            {
+                url: "/opengraph-image.svg",
+                width: 1200,
+                height: 630,
+                alt: "Yaksen Logo",
+            },
+        ],
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Yaksen",
+        description: "Yaksen Creative Studio",
+        images: ["/opengraph-image.svg"],
+    },
+    icons: {
+        icon: "/icon.svg",
+        apple: "/apple-icon.png", // We can add this later if needed
+    },
 };
 
 export default function RootLayout({

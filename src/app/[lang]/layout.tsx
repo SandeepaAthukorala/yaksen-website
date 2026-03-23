@@ -81,6 +81,7 @@ export async function generateMetadata({
     icons: {
       icon: '/logo.svg',
     },
+    manifest: '/manifest.json',
   };
 }
 

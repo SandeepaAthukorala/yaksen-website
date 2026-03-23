@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Webhook URL stored securely on server-side only
-// Now using HTTPS with proper domain for secure server-to-server communication
-const WEBHOOK_URL = "https://n8n.yaksen.cloud/webhook/yaksen-website";
+// API keys stored securely on server-side only
+const WEB3FORMS_API = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = process.env.WEB3FORMS_ACCESS_KEY || "";
 
 // Rate limiting map (in production, use Redis or a proper rate limiting solution)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
@@ -12,13 +12,12 @@ function checkRateLimit(ip: string): boolean {
     const limit = rateLimitMap.get(ip);
 
     if (!limit || now > limit.resetTime) {
-        // Reset or create new limit (5 requests per hour)
         rateLimitMap.set(ip, { count: 1, resetTime: now + 60 * 60 * 1000 });
         return true;
     }
 
     if (limit.count >= 5) {
-        return false; // Rate limit exceeded
+        return false;
     }
 
     limit.count++;
@@ -27,12 +26,10 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(request: NextRequest) {
     try {
-        // Get client IP for rate limiting
         const ip = request.headers.get('x-forwarded-for') ||
             request.headers.get('x-real-ip') ||
             'unknown';
 
-        // Check rate limit
         if (!checkRateLimit(ip)) {
             return NextResponse.json(
                 { error: 'Too many requests. Please try again later.' },
@@ -40,11 +37,9 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Parse and validate request body
         const body = await request.json();
-        const { name, phone, business, service, message, timestamp, language } = body;
+        const { name, email, phone, business, message, language } = body;
 
-        // Basic validation
         if (!name || !phone || !message) {
             return NextResponse.json(
                 { error: 'Missing required fields' },
@@ -52,40 +47,44 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Forward to webhook
-        const response = await fetch(WEBHOOK_URL, {
+        // Validate email format if provided
+        if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            return NextResponse.json(
+                { error: 'Invalid email address' },
+                { status: 400 }
+            );
+        }
+
+        // Submit to Web3Forms (API key stays server-side)
+        const response = await fetch(WEB3FORMS_API, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json',
             },
             body: JSON.stringify({
+                access_key: WEB3FORMS_KEY,
+                subject: `New Contact from ${name} - Yaksen Website`,
+                from_name: 'Yaksen Website',
                 name,
+                email,
                 phone,
                 business,
-                service,
                 message,
-                timestamp,
                 language,
-                submittedFrom: 'yaksen-website',
-                clientIp: ip
             }),
         });
 
-        if (!response.ok) {
-            const errorText = await response.text();
-            console.error('Webhook error:', {
-                status: response.status,
-                statusText: response.statusText,
-                body: errorText
-            });
-            throw new Error(`Webhook request failed: ${response.status} - ${errorText}`);
+        const result = await response.json();
+
+        if (!result.success) {
+            throw new Error(result.message || 'Web3Forms submission failed');
         }
 
         return NextResponse.json({ success: true }, { status: 200 });
 
     } catch (error) {
         console.error('Contact form error:', error);
-        // Return more detailed error in development
         const errorMessage = error instanceof Error ? error.message : 'Unknown error';
         return NextResponse.json(
             {

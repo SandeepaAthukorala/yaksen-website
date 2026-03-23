@@ -39,6 +39,15 @@
         },
         {
             "id": "3",
+            "name": "Isuru Ekanayake",
+            "role": "Social Media Strategist",
+            "description": "අපේ social media හි නිර්මාණශීලී බලවේගය — Brand කතාන්දර scroll-stopping අත්දැකීම් බවට පත් කරමින් engagement සහ සැබෑ වර්ධනය ඇති කරයි.",
+            "icon": "Megaphone",
+            "image": "/isuru.jpg",
+            "social_links": []
+        },
+        {
+            "id": "4",
             "name": "Daham Gimhana",
             "role": "Tech Lead",
             "description": "අසමසම ආරක්ෂාවක් සහ ස්ථාවර අත්දැකීමක් ලබා දීම වෙනුවෙන් අපගේ තාක්ෂණික යටිතල පහසුකම් මෙහෙයවන ප්‍රධානියා.",

@@ -1,0 +1,17 @@
+{
+  "name": "Yaksen Creative Studio",
+  "short_name": "Yaksen",
+  "description": "Sri Lanka's AI-First Digital Agency. AI-powered web design, branding, and digital marketing.",
+  "start_url": "/en",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#f14835",
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

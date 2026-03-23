@@ -72,7 +72,7 @@ export default function FAQ() {
     const remainingCount = content.questions.length - INITIAL_COUNT;
 
     return (
-        <section className="py-20 px-6 bg-white/5">
+        <section id="faq" className="py-20 px-6 bg-white/5">
             <div className="container mx-auto max-w-3xl">
                 <div className="mb-12 text-center">
                     <h2 className="text-3xl md:text-5xl font-bold mb-4 font-sinhala">{content.title}</h2>

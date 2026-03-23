@@ -29,12 +29,6 @@ export interface ContactContent {
     form_phone_placeholder: string;
     form_business_label: string;
     form_business_placeholder: string;
-    form_service_label: string;
-    form_service_placeholder: string;
-    form_service_branding: string;
-    form_service_web: string;
-    form_service_marketing: string;
-    form_service_automation: string;
     form_message_label: string;
     form_message_placeholder: string;
     form_submit_button: string;
