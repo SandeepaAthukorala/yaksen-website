@@ -119,11 +119,40 @@ export default async function ServicePage({ params }: { params: { lang: string; 
         }
     };
 
+    const breadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+            {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: `https://yaksen.cloud/${lang}`
+            },
+            {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Services',
+                item: `https://yaksen.cloud/${lang}#services`
+            },
+            {
+                '@type': 'ListItem',
+                position: 3,
+                name: service.title,
+                item: `https://yaksen.cloud/${lang}/services/${slug}`
+            }
+        ]
+    };
+
     return (
         <main className="min-h-screen bg-yaksen-black text-white selection:bg-yaksen-red selection:text-white">
             <script
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
             />
             <Navbar />
 

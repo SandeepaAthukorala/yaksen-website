@@ -61,6 +61,11 @@ const Footer = dynamic(() => import("@/components/Footer"), {
 //   ssr: false
 // });
 
+const WhatsAppButton = dynamic(() => import("@/components/WhatsAppButton"), {
+  loading: () => null,
+  ssr: false
+});
+
 const Cursor = dynamic(() => import("@/components/Cursor"), {
   loading: () => null,
   ssr: false
@@ -85,6 +90,7 @@ function HomeContent() {
       <Footer />
       {/* Chatbot temporarily disabled — uncomment to re-enable */}
       {/* <ChatWidget /> */}
+      <WhatsAppButton />
       <Cursor />
     </main>
   );

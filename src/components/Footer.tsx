@@ -34,6 +34,7 @@ export default function Footer() {
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
+                            aria-label={`Visit Yaksen on ${link.platform}`}
                             className="hover:text-white transition-colors"
                         >
                             {link.platform}

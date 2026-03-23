@@ -19,23 +19,23 @@ const notoSansSinhala = Noto_Sans_Sinhala({
 });
 
 export const metadata: Metadata = {
-    title: "Yaksen",
-    description: "Yaksen Creative Studio - Crafting digital experiences with a touch of art and technology.",
-    metadataBase: new URL("https://yaksen.com"), // Placeholder, adjust if needed
+    title: "Yaksen Creative Studio | AI-Powered Web Design, Branding & Marketing in Sri Lanka",
+    description: "Yaksen builds AI-powered websites, brands, and marketing systems for Sri Lankan businesses. 25+ systems deployed. Get a free strategy call today.",
+    metadataBase: new URL("https://yaksen.cloud"),
     alternates: {
         canonical: "/",
     },
     openGraph: {
-        title: "Yaksen",
-        description: "Yaksen Creative Studio - Crafting digital experiences with a touch of art and technology.",
-        url: "https://yaksen.com",
-        siteName: "Yaksen",
+        title: "Yaksen Creative Studio | AI-First Digital Agency in Sri Lanka",
+        description: "Transform your business with AI-powered web design, branding, and digital marketing. Based in Kurunegala, serving all of Sri Lanka.",
+        url: "https://yaksen.cloud",
+        siteName: "Yaksen Creative Studio",
         images: [
             {
-                url: "/opengraph-image.svg",
+                url: "/og-image.webp",
                 width: 1200,
                 height: 630,
-                alt: "Yaksen Logo",
+                alt: "Yaksen Creative Studio - AI-First Digital Agency",
             },
         ],
         locale: "en_US",
@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Yaksen",
-        description: "Yaksen Creative Studio",
-        images: ["/opengraph-image.svg"],
+        title: "Yaksen Creative Studio | AI-First Digital Agency",
+        description: "AI-powered web design, branding, and digital marketing for Sri Lankan businesses.",
+        creator: "@yaksenstudio",
+        images: ["/og-image.webp"],
     },
     icons: {
-        icon: "/icon.svg",
-        apple: "/apple-icon.png", // We can add this later if needed
+        icon: "/logo.svg",
     },
 };
 

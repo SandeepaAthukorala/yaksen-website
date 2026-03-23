@@ -145,6 +145,7 @@ export default function Contact() {
                                 <Link
                                     href={`https://wa.me/${content.phone.replace(/[^0-9]/g, "")}`}
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="flex items-center gap-5 p-5 glass-panel glass-panel-hover rounded-2xl group"
                                 >
                                     <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
