@@ -6,14 +6,21 @@ export default function JsonLd() {
         "url": "https://yaksen.cloud",
         "logo": "https://yaksen.cloud/logo.svg",
         "sameAs": [
-            "https://web.facebook.com/yaksen",
-            "https://www.linkedin.com/company/yaksen"
+            "https://www.facebook.com/yaksen.creative.studio",
+            "https://www.linkedin.com/company/104118840"
         ],
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+94-77-123-4567",
-            "contactType": "customer service"
-        }
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+94-77-699-3097",
+                "contactType": "customer service"
+            },
+            {
+                "@type": "ContactPoint",
+                "telephone": "+94-37-226-2212",
+                "contactType": "customer service"
+            }
+        ]
     };
 
     return (

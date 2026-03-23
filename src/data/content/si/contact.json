@@ -4,14 +4,16 @@
     "email": "hello@yaksen.com",
     "phone": "+94 77 699 3097",
     "address": "Kurunegala, Sri Lanka",
+    "landline": "037 226 2212",
+    "landline_label": "දුරකථන අංකය (ස්ථාවර)",
     "social_links": [
         {
             "platform": "Facebook",
-            "url": "https://web.facebook.com/yaksen"
+            "url": "https://www.facebook.com/yaksen.creative.studio"
         },
         {
             "platform": "LinkedIn",
-            "url": "https://www.linkedin.com/company/yaksen"
+            "url": "https://www.linkedin.com/company/104118840"
         }
     ],
     "footer_privacy": "පෞද්ගලිකත්ව ප්‍රතිපත්තිය",

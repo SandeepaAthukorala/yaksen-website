@@ -16,6 +16,8 @@ export interface ContactContent {
     email: string;
     phone: string;
     address: string;
+    landline?: string;
+    landline_label?: string;
     social_links: SocialLink[];
     footer_privacy: string;
     footer_rights: string;

@@ -84,7 +84,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function RootLayout({
+export default async function LangLayout({
   children,
   params,
 }: Readonly<{
@@ -94,31 +94,18 @@ export default async function RootLayout({
   const lang = (await params).lang;
 
   return (
-    <html lang={lang} className={`${geistSans.variable} ${geistMono.variable} ${notoSansSinhala.variable}`} suppressHydrationWarning>
-      <head>
-        {/* Preconnect to external domains */}
-        <link rel="preconnect" href="https://res.cloudinary.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+    <LanguageProvider initialLang={lang as "en" | "si"}>
+      <JsonLd />
+      <ScrollProgress />
+      <GeoLanguageDetector />
+      {children}
 
-        {/* Preload critical assets */}
-        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
-      </head>
-      <body className="antialiased">
-        <LanguageProvider initialLang={lang as "en" | "si"}>
-          <JsonLd />
-          <ScrollProgress />
-          <GeoLanguageDetector />
-          {children}
-        </LanguageProvider>
-
-        {/* Load analytics and external scripts after page load */}
-        <Script
-          strategy="lazyOnload"
-          src="https://www.googletagmanager.com/gtag/js?id=G-placeholder"
-        />
-        <CookieConsent />
-      </body>
-    </html>
+      {/* Load analytics and external scripts after page load */}
+      <Script
+        strategy="lazyOnload"
+        src="https://www.googletagmanager.com/gtag/js?id=G-placeholder"
+      />
+      <CookieConsent />
+    </LanguageProvider>
   );
 }

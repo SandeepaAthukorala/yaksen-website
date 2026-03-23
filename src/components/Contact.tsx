@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, ArrowRight, Sparkles, MessageCircle, Facebook, Linkedin, Loader2 } from "lucide-react";
+import { Mail, Phone, MapPin, Send, ArrowRight, Sparkles, MessageCircle, Facebook, Linkedin, Loader2, PhoneCall } from "lucide-react";
 import Link from "next/link";
 import { getContactContent } from "@/data/lib/content-loader";
 import { useLanguage } from "@/context/LanguageContext";
@@ -13,8 +13,9 @@ const socialIcons: Record<string, React.ComponentType<any>> = {
     LinkedIn: Linkedin,
 };
 
-// API endpoint (server-side proxy to webhook)
-const API_ENDPOINT = "/api/contact";
+// Web3Forms API
+const WEB3FORMS_API = "https://api.web3forms.com/submit";
+const WEB3FORMS_KEY = "6a9594e8-8053-42c4-9ee8-246b46e34ee1";
 
 export default function Contact() {
     const { language } = useLanguage();
@@ -23,6 +24,7 @@ export default function Contact() {
     // Form state
     const [formData, setFormData] = useState({
         name: "",
+        email: "",
         phone: "",
         business: "",
         service: "",
@@ -31,41 +33,70 @@ export default function Contact() {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState("");
+    const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
+        // Clear field error on change
+        if (fieldErrors[name]) {
+            setFieldErrors(prev => ({ ...prev, [name]: "" }));
+        }
+    };
+
+    const validateForm = (): boolean => {
+        const errors: Record<string, string> = {};
+        if (!formData.name.trim()) errors.name = "Name is required";
+        if (!formData.email.trim()) {
+            errors.email = "Email is required";
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+            errors.email = "Please enter a valid email address";
+        }
+        if (!formData.phone.trim()) errors.phone = "Phone number is required";
+        if (!formData.message.trim()) errors.message = "Message is required";
+        setFieldErrors(errors);
+        return Object.keys(errors).length === 0;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!validateForm()) return;
+
         setIsSubmitting(true);
         setSubmitError("");
         setSubmitSuccess(false);
 
         try {
-            const response = await fetch(API_ENDPOINT, {
+            const response = await fetch(WEB3FORMS_API, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Accept": "application/json",
                 },
                 body: JSON.stringify({
-                    ...formData,
-                    timestamp: new Date().toISOString(),
-                    language: language
+                    access_key: WEB3FORMS_KEY,
+                    subject: `New Contact from ${formData.name} - Yaksen Website`,
+                    from_name: "Yaksen Website",
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    business: formData.business,
+                    service: formData.service,
+                    message: formData.message,
+                    language: language,
                 }),
             });
 
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-                const errorMsg = errorData.details || errorData.error || 'Failed to submit form';
-                console.error('API Error:', { status: response.status, data: errorData });
-                throw new Error(errorMsg);
+            const result = await response.json();
+
+            if (!result.success) {
+                throw new Error(result.message || "Failed to submit form");
             }
 
             setSubmitSuccess(true);
             setFormData({
                 name: "",
+                email: "",
                 phone: "",
                 business: "",
                 service: "",
@@ -157,6 +188,28 @@ export default function Contact() {
                                 </Link>
                             </motion.div>
 
+                            {/* Landline Number */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.45 }}
+                                viewport={{ once: true }}
+                            >
+                                <Link
+                                    href="tel:0372262212"
+                                    className="flex items-center gap-5 p-5 glass-panel glass-panel-hover rounded-2xl group"
+                                >
+                                    <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-yaksen-red/20 transition-colors">
+                                        <PhoneCall className="text-white group-hover:text-yaksen-red w-7 h-7" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <p className="text-sm text-yaksen-muted font-medium">{content.landline_label || "Landline"}</p>
+                                        <p className="text-xl font-bold">037 226 2212</p>
+                                    </div>
+                                    <ArrowRight className="w-5 h-5 text-white/20 group-hover:text-yaksen-red transition-colors" />
+                                </Link>
+                            </motion.div>
+
                             {/* Social Links - Icon Buttons */}
                             <motion.div
                                 initial={{ opacity: 0, y: 10 }}
@@ -204,10 +257,27 @@ export default function Contact() {
                                     value={formData.name}
                                     onChange={handleInputChange}
                                     required
-                                    className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
+                                    className={`w-full bg-black/40 border rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white ${fieldErrors.name ? 'border-red-500/50' : 'border-white/10'}`}
                                     placeholder={content.form_name_placeholder}
                                 />
+                                {fieldErrors.name && <p className="text-red-400 text-xs ml-1">{fieldErrors.name}</p>}
                             </div>
+                            <div className="space-y-2">
+                                <label className="text-sm font-semibold text-white/80 ml-1">Email</label>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    required
+                                    className={`w-full bg-black/40 border rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white ${fieldErrors.email ? 'border-red-500/50' : 'border-white/10'}`}
+                                    placeholder="your@email.com"
+                                />
+                                {fieldErrors.email && <p className="text-red-400 text-xs ml-1">{fieldErrors.email}</p>}
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div className="space-y-2">
                                 <label className="text-sm font-semibold text-white/80 ml-1">{content.form_phone_label}</label>
                                 <input
@@ -216,22 +286,22 @@ export default function Contact() {
                                     value={formData.phone}
                                     onChange={handleInputChange}
                                     required
-                                    className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
+                                    className={`w-full bg-black/40 border rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white ${fieldErrors.phone ? 'border-red-500/50' : 'border-white/10'}`}
                                     placeholder={content.form_phone_placeholder}
                                 />
+                                {fieldErrors.phone && <p className="text-red-400 text-xs ml-1">{fieldErrors.phone}</p>}
                             </div>
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-sm font-semibold text-white/80 ml-1">{content.form_business_label}</label>
-                            <input
-                                type="text"
-                                name="business"
-                                value={formData.business}
-                                onChange={handleInputChange}
-                                className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
-                                placeholder={content.form_business_placeholder}
-                            />
+                            <div className="space-y-2">
+                                <label className="text-sm font-semibold text-white/80 ml-1">{content.form_business_label}</label>
+                                <input
+                                    type="text"
+                                    name="business"
+                                    value={formData.business}
+                                    onChange={handleInputChange}
+                                    className="w-full bg-black/40 border border-white/10 rounded-xl p-4 focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all placeholder:text-white/20 text-white"
+                                    placeholder={content.form_business_placeholder}
+                                />
+                            </div>
                         </div>
 
                         <div className="space-y-2">
@@ -263,9 +333,10 @@ export default function Contact() {
                                 onChange={handleInputChange}
                                 required
                                 rows={4}
-                                className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all resize-none placeholder:text-white/20 text-white"
+                                className={`w-full bg-black/40 border rounded-xl p-4 text-base focus:outline-none focus:border-yaksen-red/50 focus:bg-white/5 transition-all resize-none placeholder:text-white/20 text-white ${fieldErrors.message ? 'border-red-500/50' : 'border-white/10'}`}
                                 placeholder={content.form_message_placeholder}
                             />
+                            {fieldErrors.message && <p className="text-red-400 text-xs ml-1">{fieldErrors.message}</p>}
                         </div>
 
                         {/* Success Message */}

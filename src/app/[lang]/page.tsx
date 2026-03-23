@@ -55,10 +55,11 @@ const Footer = dynamic(() => import("@/components/Footer"), {
   ssr: true
 });
 
-const ChatWidget = dynamic(() => import("@/components/ChatWidget"), {
-  loading: () => null,
-  ssr: false
-});
+// Chatbot temporarily disabled — uncomment to re-enable
+// const ChatWidget = dynamic(() => import("@/components/ChatWidget"), {
+//   loading: () => null,
+//   ssr: false
+// });
 
 const Cursor = dynamic(() => import("@/components/Cursor"), {
   loading: () => null,
@@ -82,7 +83,8 @@ function HomeContent() {
       <Contact />
       <Team />
       <Footer />
-      <ChatWidget />
+      {/* Chatbot temporarily disabled — uncomment to re-enable */}
+      {/* <ChatWidget /> */}
       <Cursor />
     </main>
   );

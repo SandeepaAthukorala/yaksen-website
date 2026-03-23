@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Globe, ArrowRight } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
@@ -75,21 +75,6 @@ export default function Navbar() {
 
                         {/* Right Controls */}
                         <div className="flex items-center gap-4">
-                            {/* Business Knowledge Link */}
-                            <Link
-                                href="https://blogs.yaksen.cloud"
-                                target="_blank"
-                                className={`hidden md:flex items-center gap-2 text-sm font-medium transition-all duration-300 ${scrolled
-                                    ? "text-white/80 hover:text-yaksen-red"
-                                    : "text-white/70 hover:text-yaksen-red"
-                                    }`}
-                            >
-                                <span>Business Knowledge</span>
-                                <ArrowRight className="w-4 h-4" />
-                            </Link>
-
-
-
                             {/* CTA Button */}
                             <Link
                                 href="#contact"
@@ -133,17 +118,6 @@ export default function Navbar() {
                         </button>
 
                         <div className="flex flex-col items-center gap-8 text-center px-6">
-                            <Link
-                                href="https://blogs.yaksen.cloud"
-                                target="_blank"
-                                onClick={() => setIsOpen(false)}
-                                className="text-2xl font-medium text-white hover:text-yaksen-red transition-colors min-h-[44px] flex items-center"
-                            >
-                                Business Knowledge
-                            </Link>
-
-
-
                             <Link
                                 href="#contact"
                                 onClick={() => setIsOpen(false)}
