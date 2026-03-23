@@ -32,10 +32,10 @@ export const metadata: Metadata = {
         siteName: "Yaksen Creative Studio",
         images: [
             {
-                url: "/og-image.webp",
+                url: "/og-image.svg",
                 width: 1200,
                 height: 630,
-                alt: "Yaksen Creative Studio - AI-First Digital Agency",
+                alt: "Yaksen Creative Studio",
             },
         ],
         locale: "en_US",
@@ -46,10 +46,12 @@ export const metadata: Metadata = {
         title: "Yaksen Creative Studio | AI-First Digital Agency",
         description: "AI-powered web design, branding, and digital marketing for Sri Lankan businesses.",
         creator: "@yaksenstudio",
-        images: ["/og-image.webp"],
+        images: ["/og-image.svg"],
     },
     icons: {
-        icon: "/logo.svg",
+        icon: [
+            { url: "/logo.svg?v=2", type: "image/svg+xml" },
+        ],
     },
 };
 
