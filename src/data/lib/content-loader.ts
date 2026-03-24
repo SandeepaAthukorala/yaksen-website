@@ -8,6 +8,7 @@ import {
     FrameworkContent,
     ToolkitContent,
     ContactContent,
+    PricingContent,
     Service
 } from '../types/content';
 import heroEn from '../content/en/hero.json';
@@ -26,6 +27,8 @@ import contactEn from '../content/en/contact.json';
 import contactSi from '../content/si/contact.json';
 import toolkitEn from '../content/en/toolkit.json';
 import toolkitSi from '../content/si/toolkit.json';
+import pricingEn from '../content/en/pricing.json';
+import pricingSi from '../content/si/pricing.json';
 
 const content = {
     en: {
@@ -37,6 +40,7 @@ const content = {
         framework: frameworkEn,
         contact: contactEn,
         toolkit: toolkitEn,
+        pricing: pricingEn,
     },
     si: {
         hero: heroSi,
@@ -47,6 +51,7 @@ const content = {
         framework: frameworkSi,
         contact: contactSi,
         toolkit: toolkitSi,
+        pricing: pricingSi,
     },
 };
 
@@ -78,6 +83,10 @@ export function getToolkitContent(lang: Language = 'si'): ToolkitContent {
     return content[lang].toolkit as unknown as ToolkitContent;
 }
 
+
+export function getPricingContent(lang: Language = 'si'): PricingContent {
+    return content[lang].pricing as unknown as PricingContent;
+}
 
 export function getContactContent(lang: Language = 'si'): ContactContent {
     return content[lang].contact as unknown as ContactContent;

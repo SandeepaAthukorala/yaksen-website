@@ -19,6 +19,11 @@ const Services = dynamic(() => import("@/components/Services"), {
   ssr: true
 });
 
+const Pricing = dynamic(() => import("@/components/pricing/Pricing"), {
+  loading: () => <div className="h-screen" />,
+  ssr: true
+});
+
 // Temporarily using static import to debug rendering
 // const Toolkit = dynamic(() => import("@/components/Toolkit"), {
 //   loading: () => <div className="h-96" />,
@@ -81,6 +86,7 @@ function HomeContent() {
       <About />
       <Framework />
       <Services />
+      <Pricing />
       <Toolkit />
       <FeaturedWork />
       <Testimonials />

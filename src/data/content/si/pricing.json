@@ -1,0 +1,343 @@
+{
+  "title": "Investment Plans",
+  "subtitle": "Transparent pricing. No hidden fees. Maximum value for your business.",
+  "trustBadges": [
+    { "icon": "Shield", "text": "Satisfaction Guaranteed" },
+    { "icon": "Zap", "text": "Fast Delivery" },
+    { "icon": "RefreshCw", "text": "Free Revisions" },
+    { "icon": "Headphones", "text": "24/7 Support" },
+    { "icon": "CreditCard", "text": "No Hidden Fees" }
+  ],
+  "categories": [
+    {
+      "id": "branding",
+      "title": "Branding & Identity",
+      "subtitle": "Phase 1",
+      "description": "Build a brand that commands authority and converts on sight.",
+      "icon": "Palette",
+      "packages": [
+        {
+          "id": "starter-logo",
+          "name": "Starter Logo",
+          "description": "Perfect entry point to professional branding",
+          "price": "3,000",
+          "priceNote": "LKR · One-time",
+          "badge": "Hook Offer",
+          "badgeVariant": "red",
+          "icon": "Pencil",
+          "features": [
+            { "text": "Custom logo design" },
+            { "text": "2 initial concepts" },
+            { "text": "2 revision rounds" },
+            { "text": "High-res PNG & SVG files" },
+            { "text": "Delivered in 2-3 days", "highlighted": true }
+          ],
+          "cta": "Order Now",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Delivered in 2-3 business days"
+        },
+        {
+          "id": "professional-identity",
+          "name": "Professional Identity",
+          "description": "Complete brand system designed to dominate your market",
+          "price": "5,000",
+          "priceNote": "LKR · One-time",
+          "badge": "Best Seller",
+          "badgeVariant": "orange",
+          "icon": "Crown",
+          "features": [
+            { "text": "Premium logo design", "highlighted": true },
+            { "text": "Full brand guidelines" },
+            { "text": "Color palette & typography" },
+            { "text": "Business card design" },
+            { "text": "Social media profile assets" },
+            { "text": "3 revision rounds" },
+            { "text": "All source files included" }
+          ],
+          "cta": "Get Started",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Most chosen by new businesses"
+        },
+        {
+          "id": "ai-video-ad",
+          "name": "AI Video Ad Spotlight",
+          "description": "Cinematic AI-powered video ad that stops the scroll",
+          "price": "3,000",
+          "priceNote": "LKR · Per video",
+          "icon": "Video",
+          "features": [
+            { "text": "AI-generated cinematic ad" },
+            { "text": "Script & storyboard" },
+            { "text": "Professional voiceover" },
+            { "text": "Optimized for Meta & TikTok" },
+            { "text": "1 revision round" }
+          ],
+          "cta": "Order Now",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Ready in 3-5 business days"
+        },
+        {
+          "id": "business-launch-addon",
+          "name": "Business Launch Add-on",
+          "description": "Everything you need to launch professionally",
+          "price": "+1,500",
+          "priceNote": "LKR · Add to any package",
+          "icon": "Rocket",
+          "isAddon": true,
+          "features": [
+            { "text": "Letterhead & envelope design" },
+            { "text": "Email signature template" },
+            { "text": "Invoice template" }
+          ],
+          "cta": "+ Add to Package",
+          "ctaLink": "#contact",
+          "ctaVariant": "secondary"
+        },
+        {
+          "id": "social-media-kit-addon",
+          "name": "Social Media Kit Add-on",
+          "description": "Launch-ready social media templates",
+          "price": "+1,500",
+          "priceNote": "LKR · Add to any package",
+          "icon": "Share2",
+          "isAddon": true,
+          "features": [
+            { "text": "5 branded post templates" },
+            { "text": "Story & highlight covers" },
+            { "text": "Profile & cover designs" }
+          ],
+          "cta": "+ Add to Package",
+          "ctaLink": "#contact",
+          "ctaVariant": "secondary"
+        }
+      ]
+    },
+    {
+      "id": "social-media",
+      "title": "Social Media Management",
+      "subtitle": "Phase 2",
+      "description": "Consistent, strategic content that grows your audience and revenue.",
+      "icon": "Share2",
+      "packages": [
+        {
+          "id": "consistency-builder",
+          "name": "Consistency Builder",
+          "description": "Stay visible and build a consistent brand presence",
+          "price": "12,000",
+          "priceNote": "LKR / month",
+          "icon": "Calendar",
+          "features": [
+            { "text": "8 posts per month" },
+            { "text": "Content calendar" },
+            { "text": "Basic graphic design" },
+            { "text": "Caption writing" },
+            { "text": "1 platform managed" },
+            { "text": "Monthly performance report" }
+          ],
+          "cta": "Get Started",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Cancel anytime"
+        },
+        {
+          "id": "growth-engine",
+          "name": "Growth Engine",
+          "description": "Accelerate your reach with data-driven content strategy",
+          "price": "35,000",
+          "priceNote": "LKR / month",
+          "badge": "Most Popular",
+          "badgeVariant": "purple",
+          "icon": "TrendingUp",
+          "features": [
+            { "text": "15 posts per month", "highlighted": true },
+            { "text": "Reels & video content" },
+            { "text": "Advanced graphic design" },
+            { "text": "Hashtag & SEO strategy" },
+            { "text": "2 platforms managed", "highlighted": true },
+            { "text": "Community engagement" },
+            { "text": "Bi-weekly performance reports" },
+            { "text": "Competitor analysis" }
+          ],
+          "cta": "Get Started",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Best value for growing brands"
+        },
+        {
+          "id": "market-leader",
+          "name": "Market Leader",
+          "description": "Full-scale social media dominance for established brands",
+          "price": "75,000",
+          "priceNote": "LKR / month",
+          "badge": "High Value",
+          "badgeVariant": "cyan",
+          "icon": "Trophy",
+          "features": [
+            { "text": "30 posts per month", "highlighted": true },
+            { "text": "Daily stories & reels" },
+            { "text": "Premium video production" },
+            { "text": "Influencer collaboration" },
+            { "text": "All platforms managed", "highlighted": true },
+            { "text": "Dedicated account manager" },
+            { "text": "Weekly strategy calls" },
+            { "text": "Real-time analytics dashboard" },
+            { "text": "Crisis management support" }
+          ],
+          "cta": "Get Started",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "White-glove service for market leaders"
+        }
+      ]
+    },
+    {
+      "id": "meta-ads",
+      "title": "Meta Ad Boosting",
+      "subtitle": "Phase 3",
+      "description": "Data-driven ad campaigns that maximize every rupee of your ad spend.",
+      "icon": "Target",
+      "packages": [
+        {
+          "id": "meta-management",
+          "name": "Ad Campaign Management",
+          "description": "Professional Meta Ads management to maximize your ROI",
+          "price": "20%",
+          "priceNote": "of ad spend · Min. 5,000 LKR",
+          "badge": "Performance-Based",
+          "badgeVariant": "purple",
+          "icon": "Target",
+          "features": [
+            { "text": "Campaign strategy & setup" },
+            { "text": "Audience research & targeting" },
+            { "text": "Ad creative design" },
+            { "text": "A/B testing & optimization" },
+            { "text": "Weekly performance reports" },
+            { "text": "Budget optimization" },
+            { "text": "Retargeting campaigns" }
+          ],
+          "cta": "Let's Discuss",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "You only pay for results"
+        }
+      ],
+      "example": "Example: If your ad spend is 50,000 LKR, our management fee is just 10,000 LKR (20%). For smaller budgets under 25,000 LKR, the minimum fee of 5,000 LKR applies.",
+      "note": "Ad spend is paid directly to Meta. Our fee covers strategy, design, optimization, and reporting."
+    },
+    {
+      "id": "web-development",
+      "title": "Web Development",
+      "subtitle": "Digital Ecosystem",
+      "description": "High-performance websites and apps that convert visitors into customers.",
+      "icon": "Monitor",
+      "packages": [
+        {
+          "id": "landing-page",
+          "name": "Landing Page",
+          "description": "High-converting single page for campaigns and launches",
+          "price": "30,000",
+          "priceNote": "LKR · One-time",
+          "icon": "FileText",
+          "features": [
+            { "text": "Single-page responsive design" },
+            { "text": "Mobile-first approach" },
+            { "text": "SEO optimized" },
+            { "text": "Contact form integration" },
+            { "text": "Google Analytics setup" },
+            { "text": "Fast loading (< 2s)" }
+          ],
+          "cta": "Get a Quote",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Delivered in 5-7 business days"
+        },
+        {
+          "id": "business-website",
+          "name": "Business Website",
+          "description": "Professional multi-page website that builds trust and converts",
+          "price": "60,000",
+          "priceNote": "LKR · One-time",
+          "badge": "Most Popular",
+          "badgeVariant": "purple",
+          "icon": "Globe",
+          "features": [
+            { "text": "Up to 8 pages", "highlighted": true },
+            { "text": "Custom design & branding" },
+            { "text": "Content Management System" },
+            { "text": "Google Maps & SEO setup" },
+            { "text": "Blog integration" },
+            { "text": "WhatsApp & social integration" },
+            { "text": "SSL & security setup" },
+            { "text": "3 months free support", "highlighted": true }
+          ],
+          "cta": "Get a Quote",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Free consultation included"
+        },
+        {
+          "id": "ecommerce-custom",
+          "name": "E-commerce / Custom Apps",
+          "description": "Full-scale digital solutions for ambitious businesses",
+          "price": "150,000",
+          "priceNote": "LKR · Starting from",
+          "badge": "High Value",
+          "badgeVariant": "cyan",
+          "icon": "ShoppingCart",
+          "features": [
+            { "text": "Custom e-commerce platform", "highlighted": true },
+            { "text": "Payment gateway integration" },
+            { "text": "Inventory management" },
+            { "text": "Custom app development" },
+            { "text": "API integrations" },
+            { "text": "Admin dashboard" },
+            { "text": "Advanced analytics" },
+            { "text": "6 months free support", "highlighted": true }
+          ],
+          "cta": "Get a Quote",
+          "ctaLink": "#contact",
+          "ctaVariant": "primary",
+          "trustLine": "Scoped to your exact needs"
+        },
+        {
+          "id": "maintenance",
+          "name": "Website Maintenance",
+          "description": "Keep your site secure, updated, and performing at its best",
+          "price": "3,000 – 5,000",
+          "priceNote": "LKR / month",
+          "icon": "Wrench",
+          "isAddon": true,
+          "features": [
+            { "text": "Security updates & backups" },
+            { "text": "Performance monitoring" },
+            { "text": "Content updates" },
+            { "text": "Priority support" }
+          ],
+          "cta": "Contact Us",
+          "ctaLink": "#contact",
+          "ctaVariant": "secondary"
+        }
+      ]
+    }
+  ],
+  "bottomCta": {
+    "title": "Not sure which package is right for you?",
+    "subtitle": "Book a free consultation and we'll recommend the perfect plan for your business goals.",
+    "buttonText": "Get Free Consultation",
+    "buttonLink": "#contact"
+  },
+  "softwareNote": {
+    "title": "Custom Software Solutions",
+    "description": "Need something beyond a website? We offer subscription-based software solutions that grow with your business.",
+    "benefits": [
+      "Scalable architecture that grows with you",
+      "Predictable monthly costs, no surprise bills",
+      "Continuous updates and improvements",
+      "Lower risk than one-time custom builds",
+      "Dedicated support and maintenance included"
+    ]
+  }
+}

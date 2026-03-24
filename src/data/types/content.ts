@@ -176,5 +176,57 @@ export interface BlogPost {
     content?: string; // Parsed markdown content
 }
 
+// Pricing
+export interface PricingFeature {
+    text: string;
+    highlighted?: boolean;
+}
+
+export interface PricingPackage {
+    id: string;
+    name: string;
+    description: string;
+    price: string;
+    priceNote?: string;
+    badge?: string;
+    badgeVariant?: 'red' | 'orange' | 'purple' | 'cyan';
+    features: PricingFeature[];
+    cta: string;
+    ctaLink: string;
+    ctaVariant?: 'primary' | 'secondary';
+    isAddon?: boolean;
+    icon: string;
+    trustLine?: string;
+}
+
+export interface PricingCategory {
+    id: string;
+    title: string;
+    subtitle: string;
+    description?: string;
+    icon: string;
+    packages: PricingPackage[];
+    note?: string;
+    example?: string;
+}
+
+export interface PricingContent {
+    title: string;
+    subtitle: string;
+    trustBadges: { icon: string; text: string }[];
+    categories: PricingCategory[];
+    bottomCta: {
+        title: string;
+        subtitle: string;
+        buttonText: string;
+        buttonLink: string;
+    };
+    softwareNote: {
+        title: string;
+        description: string;
+        benefits: string[];
+    };
+}
+
 // Language type
 export type Language = 'en' | 'si';

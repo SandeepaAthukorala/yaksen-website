@@ -77,6 +77,7 @@ export default function Navbar() {
                         <div className="hidden md:flex items-center gap-6">
                             {[
                                 { label: "Services", href: "#services" },
+                                { label: "Pricing", href: "#pricing" },
                                 { label: "Work", href: "#work" },
                                 { label: "FAQ", href: "#faq" },
                             ].map((link) => (
@@ -137,6 +138,7 @@ export default function Navbar() {
                         <div className="flex flex-col items-center gap-6 text-center px-6">
                             {[
                                 { label: "Services", href: "#services" },
+                                { label: "Pricing", href: "#pricing" },
                                 { label: "Work", href: "#work" },
                                 { label: "FAQ", href: "#faq" },
                                 { label: "Contact", href: "#contact" },
